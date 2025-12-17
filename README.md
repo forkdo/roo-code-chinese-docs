@@ -49,7 +49,7 @@ npm install
 npm start
 
 # 构建
-npm build
+npm run build
 ```
 
 ### 2. 安装 AI 助手
@@ -77,5 +77,5 @@ OUTPUT_MODE=new_folder
 - [Docusaurus](https://docusaurus.io/zh-CN/) （已内置）
 ```bash
 npm install
-npm build
+npm run build
 ```

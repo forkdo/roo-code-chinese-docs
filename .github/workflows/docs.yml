@@ -33,7 +33,7 @@ jobs:
           cp -r docs_zh/* docsite/docs/
           cd docsite/
           npm install
-          npm build
+          npm run build
       - name: Copy CNAME  
         run: cp CNAME docsite/build/
 
