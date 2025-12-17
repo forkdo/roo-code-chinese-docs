@@ -1,0 +1,55 @@
+---
+description: Task Sync 将你的本地 VS Code 任务活动流式传输到 Roo Code Cloud，让你可以从任何设备监控进度——所有用户免费使用。
+keywords:
+  - task sync
+  - monitoring
+  - realtime updates
+  - task history
+  - mobile monitoring
+  - roo code cloud
+image: /img/social-share.jpg
+---
+
+# Task Sync/监控
+
+Task Sync 将你的本地 VS Code 任务活动流式传输到 Roo Code Cloud，让你可以从任何设备实时监控进度，并在之后访问任务历史。此功能对所有用户免费开放。
+
+它在你的本地 VS Code 和 Roo Code Cloud 之间创建一个单向的实时任务消息和状态流，让你能够：
+- 在离开办公桌时通过手机监控长时间运行的任务
+- 查看接近实时的更新（每几秒轮询一次）：消息、模式切换和状态
+- 在任务完成时立即知晓，无需一直守在 IDE 前
+- 随时查看云端任务历史
+
+<img src="/img/task-sync/task-sync.png" alt="Roo Code Cloud 首页，显示已连接的工作区和任务" width="600" />
+
+:::info IDE <LucideIcon name="ArrowRight" style={{ position: "relative", top: "3px" }} /> Cloud
+请注意：Task Sync 仅将任务从你的 IDE 发送到 Roo Code Cloud，不会反向传输。例如，目前它不会在设备之间同步任务。
+:::
+
+---
+
+## 快速开始
+
+1. [连接你的 IDE](/roo-code-cloud/connect)（或参阅 [登录/注册](/roo-code-cloud/login)）
+2. 在你的本地 Roo Code 扩展中打开或启动一个任务
+3. 访问 https://app.roocode.com 首页，进行接近实时的监控
+
+- 个人账户：Task Sync 默认启用，可在设置中切换。
+- 组织账户：Task Sync 由组织管理员管理，默认对成员关闭，除非在组织级别启用。
+
+## 升级到远程控制
+
+如果你还希望远程继续任务（批准操作、响应提示、启动/停止任务），请启用 [Roomote Control](/roo-code-cloud/roomote-control)。
+
+## 限制
+
+- 仅支持单向监控；不会向你的 IDE 发送云端命令
+- 要获得实时更新，你的 IDE 必须保持打开并连接
+- 实时更新需要互联网连接
+
+即使你的 IDE 关闭，你也可以随时查看云端任务历史。
+
+## 隐私与安全
+
+- 你的数据绝不会用于训练或广告目的
+- Roo Code 团队无法访问你任务的内容，除非你明确授权他们用于调试问题

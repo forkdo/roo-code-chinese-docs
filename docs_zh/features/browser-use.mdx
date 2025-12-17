@@ -1,0 +1,208 @@
+---
+description: 了解 Roo Code 如何控制浏览器以自动化网页任务、收集信息并与 Web 应用交互，借助 AI 驱动的浏览器自动化功能。
+keywords:
+  - browser automation
+  - web scraping
+  - browser control
+  - AI browser
+  - web automation
+  - Roo Code browser
+image: /img/social-share.jpg
+---
+
+# 浏览器使用
+
+Roo Code 提供了先进的浏览器自动化功能，让你可以直接从 VS Code 与网站交互。该功能支持测试 Web 应用、自动化浏览器任务以及捕获屏幕截图，全程无需离开你的开发环境。
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+  <iframe
+    src="https://www.youtube.com/embed/cAjzTs0194c"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+    }}
+    frameBorder="0"
+    allow="autoplay; encrypted-media"
+    allowFullScreen
+  ></iframe>
+</div>
+
+<div style={{ marginTop: '20px' }}></div>
+
+:::caution 需要模型支持
+Roo Code 的浏览器使用功能需要支持图像的模型。某些模型可能无法很好地导航页面。
+:::
+
+---
+
+## 浏览器使用的工作原理
+
+默认情况下，Roo Code 使用一个内置浏览器，它会：
+- 当你要求 Roo 访问网站时自动启动
+- 捕获网页的屏幕截图
+- 允许 Roo 与网页元素交互
+- 在后台不可见地运行
+
+所有这些操作都直接在 VS Code 内完成，无需任何设置。
+
+---
+
+## 如何使用浏览器功能
+
+典型的浏览器交互遵循以下模式：
+
+**重要提示**：浏览器使用功能需要支持图像的模型（具备视觉能力的模型）。
+
+1. 要求 Roo 访问一个网站
+2. Roo 启动浏览器并显示屏幕截图
+3. 请求额外操作（点击、输入、滚动等）
+4. Roo 在完成后关闭浏览器
+
+例如：
+
+```
+打开浏览器并查看我们的网站。
+```
+
+```
+你能检查一下我的网站 https://roocode.com 显示是否正确吗？
+```
+
+```
+浏览 http://localhost:3000，向下滚动到页面底部，检查页脚信息是否正确显示。
+```
+
+<img src="/img/browser-use/browser-use-1.png" alt="浏览器使用示例" width="300" />
+
+---
+
+## 浏览器操作的工作原理
+
+browser_action 工具控制浏览器实例，每次操作后返回屏幕截图和控制台日志，让你能够看到交互的结果。
+
+主要特点：
+- 每个浏览器会话必须以 `launch` 开始，以 `close` 结束
+- 每条消息只能使用一个浏览器操作
+- 浏览器运行期间，不能使用其他工具
+- 必须等待响应（屏幕截图和日志）后才能执行下一步操作
+
+### 可用的浏览器操作
+
+| 操作 | 描述 | 使用场景 |
+|------|------|----------|
+| `launch` | 在指定 URL 打开浏览器 | 开始新的浏览器会话 |
+| `click` | 在特定坐标点击 | 与按钮、链接等交互 |
+| `type` | 向活动元素输入文本 | 填写表单、搜索框 |
+| `scroll_down` | 向下滚动一页 | 查看页面下方内容 |
+| `scroll_up` | 向上滚动一页 | 返回之前的内容 |
+| `close` | 关闭浏览器 | 结束浏览器会话 |
+| `hover` | 将光标移动到指定坐标 | 触发悬停状态 |
+| `press` | 按下组合键 | 键盘快捷键、Enter、Esc |
+| `resize` | 调整视口大小 | 测试响应式设计 |
+
+---
+
+## 浏览器使用配置/设置
+
+:::info 默认浏览器设置
+- **启用浏览器工具**：已启用
+- **视口大小**：小型桌面 (900x600)
+- **屏幕截图质量**：75%
+- **使用远程浏览器连接**：已禁用
+:::
+
+### 访问设置
+
+在 Roo 中更改浏览器/计算机使用设置：
+
+1. 点击齿轮图标 <Codicon name="gear" /> → 浏览器/计算机使用，打开设置
+
+   <img src="/img/browser-use/browser-use.png" alt="浏览器设置菜单" width="600" />
+
+### 启用/禁用浏览器使用
+
+**用途**：主开关，启用后 Roo 可以使用 Puppeteer 控制的浏览器与网站交互。
+
+更改此设置：
+1. 在浏览器/计算机使用设置中，勾选或取消勾选"启用浏览器工具"复选框
+
+   <img src="/img/browser-use/browser-use-2.png" alt="启用浏览器工具设置" width="300" />
+
+### 视口大小
+
+**用途**：决定 Roo Code 使用的浏览器会话的分辨率。
+
+**权衡**：较高的值提供更大的视口，但会增加 token 使用量。
+
+更改此设置：
+1. 在浏览器/计算机使用设置中，点击"视口大小"下拉菜单
+2. 选择以下选项之一：
+   - 大型桌面 (1280x800)
+   - 小型桌面 (900x600) - 默认
+   - 平板 (768x1024)
+   - 手机 (360x640)
+3. 选择你所需的分辨率
+
+   <img src="/img/browser-use/browser-use-3.png" alt="视口大小设置" width="600" />
+
+### 屏幕截图质量
+
+**用途**：控制浏览器屏幕截图的 WebP 压缩质量。
+
+**权衡**：较高的值提供更清晰的屏幕截图，但会增加 token 使用量。
+
+更改此设置：
+1. 在浏览器/计算机使用设置中，调整"屏幕截图质量"滑块
+2. 将值设置为 1-100% 之间（默认为 75%）
+3. 较高的值提供更清晰的屏幕截图，但会增加 token 使用量：
+   - 40-50%：适用于基本文本网站
+   - 60-70%：适用于大多数一般浏览的平衡选择
+   - 80%+：当精细视觉细节至关重要时使用
+
+   <img src="/img/browser-use/browser-use-4.png" alt="屏幕截图质量设置" width="600" />
+
+### 远程浏览器连接
+
+**用途**：将 Roo 连接到现有的 Chrome 浏览器，而不是使用内置浏览器。
+
+**优势**：
+- 在容器化环境和远程开发工作流中工作
+- 在浏览器使用之间保持已认证的会话
+- 消除重复登录步骤
+- 允许使用带有特定扩展的自定义浏览器配置文件
+
+**要求**：Chrome 必须在启用远程调试的情况下运行。
+
+启用此功能：
+1. 在浏览器/计算机使用设置中，勾选"使用远程浏览器连接"框
+2. 点击"测试连接"以验证
+
+   <img src="/img/browser-use/browser-use-5.png" alt="远程浏览器连接设置" width="600" />
+
+#### 常见使用场景
+
+- **DevContainers**：从容器化的 VS Code 连接到主机 Chrome 浏览器
+- **远程开发**：使用本地 Chrome 连接到远程 VS Code 服务器
+- **自定义 Chrome 配置文件**：使用带有特定扩展和设置的配置文件
+
+#### 连接到可见的 Chrome 窗口
+
+连接到可见的 Chrome 窗口，实时观察 Roo 的交互：
+
+**macOS**
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug --no-first-run
+```
+
+**Windows**
+```bash
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir=C:\chrome-debug --no-first-run
+```
+
+**Linux**
+```bash
+google-chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug --no-first-run
+```

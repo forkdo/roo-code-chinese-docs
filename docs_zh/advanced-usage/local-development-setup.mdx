@@ -1,0 +1,63 @@
+---
+description: 了解如何为本地开发设置 Roo Code，从源码构建以及为项目贡献代码。完整的开发者设置指南。
+keywords:
+  - 本地开发
+  - 从源码构建
+  - Roo Code 开发
+  - 贡献
+  - 开发者设置
+image: /img/social-share.jpg
+sidebar_label: 本地开发设置
+---
+
+## 本地设置与开发
+
+:::note 仅限开发者信息
+本节适用于为 Roo Code 贡献代码或希望从源码构建和运行扩展的开发者。
+:::
+
+要为本地开发设置 Roo Code：
+
+1.  **克隆仓库：**
+    ```bash
+    git clone https://github.com/RooCodeInc/Roo-Code.git
+    cd Roo-Code
+    ```
+
+2.  **安装依赖：**
+    Roo Code 使用 `pnpm` 进行包管理。
+    ```bash
+    pnpm install
+    ```
+
+3.  **运行扩展进行开发：**
+    你有两种主要方法：
+
+    *   **直接在 VS Code 中运行（推荐用于活跃开发）：**
+        *   在 VS Code 中打开克隆的 `Roo-Code` 文件夹。
+        *   按 `F5`（或从菜单中选择 **运行** → **启动调试**）。这将打开一个新的 VS Code 窗口（扩展开发主机），其中运行着 Roo Code。
+        *   Webview 代码（位于 `webview-ui/` 下）的更改通常会实时更新。
+        *   核心扩展代码（位于 `src/` 下）的更改通常需要重启扩展开发主机窗口。
+
+    *   **构建并安装 VSIX 包：**
+        此方法适用于测试打包的扩展或分发开发版本。
+        1.  构建 VSIX 文件：
+            ```bash
+            pnpm vsix
+            ```
+            将在 `bin/` 目录中创建一个 `.vsix` 文件（例如 `roo-cline-<version>.vsix`）。
+
+        2.  在 VS Code 中安装 VSIX：
+            *   **使用命令行：**
+                ```bash
+                code --install-extension bin/roo-cline-<version>.vsix
+                ```
+                （将 `<version>` 替换为文件名中的实际版本号）。
+            *   **使用 VS Code 界面：**
+                *   打开扩展视图（`Ctrl+Shift+X` 或 `Cmd+Shift+X`）。
+                *   点击扩展视图侧边栏中的 "..."（更多操作）菜单。
+                *   选择 "从 VSIX 安装..."
+                *   浏览并选择 `bin/` 目录中生成的 `.vsix` 文件。
+
+                <img src="/img/installing/installing-2.png" alt="VS Code 的从 VSIX 安装对话框" width="600" />
+                *使用 VS Code 的 "从 VSIX 安装..." 对话框安装开发版本的 VSIX。*

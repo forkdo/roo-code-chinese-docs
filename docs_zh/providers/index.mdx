@@ -1,0 +1,40 @@
+---
+title: 模型提供商
+description: 比较所有可用于 Roo Code 的模型提供商。一目了然地查看哪些提供商支持 VS Code 扩展和 Roo Code Cloud。
+keywords:
+  - 模型提供商
+  - API 提供商
+  - Roo Code 提供商
+  - 云提供商
+  - 扩展提供商
+image: /img/social-share.jpg
+---
+
+import ProviderTable from '@site/src/components/ProviderTable';
+
+# 模型提供商
+
+Roo Code VS Code 扩展和 Roo Code Cloud 代理是功能强大、高度复杂的编码代理。虽然它们自身携带大量功能，但它们依赖于大语言模型（LLM）提供商来提供完成任务所需的推理能力。
+
+其他工具在设计上被绑定到特定的提供商（如 Claude Code → Anthropic 模型或 Codex → OpenAI 模型），迫使你无论行业格局如何变化（变化很快）都只能使用它们。而 Roo 则是**模型无关的**，允许你根据预算、技能水平、代码库等因素选择最适合需求的模型。
+
+我们支持连接到多种模型提供商，让你在访问 AI 模型时拥有更大的灵活性。某些提供商适用于 VS Code 扩展，而其他提供商则可通过 Roo Code Cloud 代理使用。
+
+了解如何在 [Roo Code VS Code 扩展中设置提供商](/getting-started/connecting-api-provider)。
+
+## 提供商对比
+
+以下是我们支持的所有提供商及其使用场景。点击可查看详细说明。
+
+我们定期对所有支持的模型运行评估，测试它们在标准测试套件中的表现。[查看最新结果](https://roocode.com/evals)。
+
+<ProviderTable />
+
+## 选择太多，感到困惑？
+
+是的，确实很多。
+
+- **想要开箱即用？** 选择 [Roo Code Cloud 提供商](/roo-code-provider/overview)，获得精选模型和最简单的设置，无需 API 密钥
+- **想要访问多种模型？** 尝试 [OpenRouter](/providers/openrouter)，通过单一 API 访问 100+ 模型
+- **想要针对特定模型优化？** 使用每个模型的原生提供商（Anthropic、OpenAI 等）
+- **寻找本地/离线模型？** 查看 [Ollama](/providers/ollama) 或 [LM Studio](/providers/lmstudio)

@@ -1,0 +1,119 @@
+---
+description: 了解如何使用 Boomerang 任务（Orchestrator 模式）通过将子任务委托给专业模式来自动化复杂工作流。
+keywords:
+  - Boomerang 任务
+  - Orchestrator 模式
+  - 工作流自动化
+  - 任务委托
+  - 自动化工作流
+image: /img/social-share.jpg
+sidebar_label: 'Boomerang 任务'
+---
+
+# Boomerang 任务：编排复杂工作流
+
+Boomerang 任务（也称为子任务或任务编排）允许你使用内置的 **`🪃 Orchestrator` 模式（又称 Boomerang 模式）** 将复杂项目分解为更小、更易管理的部分。可以将其想象为将工作的一部分委托给专业助手。每个子任务在自己的上下文中运行，通常使用针对特定任务定制的不同 Roo Code 模式（如 [`💻 Code`](/basic-usage/using-modes#code-mode-default)、[`🏗️ Architect`](/basic-usage/using-modes#architect-mode) 或 [`🪲 Debug`](/basic-usage/using-modes#debug-mode)）。Orchestrator 模式负责管理此过程。
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+  <iframe
+    src="https://www.youtube.com/embed/RX862U09fnE"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+    }}
+    frameBorder="0"
+    allow="autoplay; encrypted-media"
+    allowFullScreen
+  ></iframe>
+</div>
+
+<br />
+
+:::info Orchestrator 模式是内置的
+`🪃 Orchestrator` 模式（之前通过自定义 "Boomerang 模式" 实现）现在是一个内置模式，专门设计用于通过分解任务并将任务委托给其他模式来编排工作流。你不再需要为此功能创建自定义模式。
+
+了解更多关于 [内置模式](/basic-usage/using-modes#built-in-modes) 的信息。
+:::
+
+---
+
+## 为什么使用 Boomerang 任务？
+
+-   **应对复杂性**：将大型、多步骤项目（例如，构建完整功能）分解为专注的子任务（例如，设计、实现、文档）。
+-   **使用专业模式**：自动将子任务委托给最适合该特定工作的模式，利用专业能力获得最佳结果。
+-   **保持专注和高效**：每个子任务在自己的隔离上下文中运行，具有独立的对话历史。这防止父任务（编排器）被详细的执行步骤（如代码差异或文件分析结果）污染，使其能够专注于高级工作流，并根据已完成子任务的简洁摘要高效地管理整体过程。
+-   **简化工作流**：一个子任务的结果可以自动传递到下一个子任务，创建流畅的流程（例如，架构决策输入到编码任务）。
+
+---
+
+## 工作原理
+
+1.  当处于 [`🪃 Orchestrator`](/basic-usage/using-modes#orchestrator-mode-aka-boomerang-mode) 模式（又称 Boomerang 模式）时，Roo 会分析复杂任务并建议将其分解为子任务[^1]。
+
+2.  父任务（在 Orchestrator 模式中）暂停，新子任务在不同的专业模式中开始[^2]。
+3.  当子任务的目标达成时，Roo 会发出完成信号。
+4.  父任务恢复，仅包含子任务的摘要[^3]。父任务使用此摘要继续主要工作流。
+
+---
+
+## 关键注意事项
+
+-   **需要批准**：默认情况下，你必须批准每个子任务的创建和完成。如果需要，可以通过 [自动批准操作](/features/auto-approving-actions#subtasks) 设置来自动化此过程。
+-   **上下文隔离和传递**：每个子任务在完全隔离的环境中运行，具有自己的对话历史。它不会自动继承父任务的上下文。信息必须显式传递：
+    *   **向下**：通过创建子任务时提供的初始指令。
+    *   **向上**：通过子任务完成时提供的最终摘要。请注意，只有此摘要返回给父任务。
+-   **导航**：Roo 的界面帮助你查看任务的层次结构（哪个任务是父任务，哪个是子任务）。你可以通常在活跃和暂停的任务之间导航。
+
+Boomerang 任务提供了一种强大的方式，直接在 Roo Code 中管理复杂开发工作流，利用专业模式实现最大效率。
+
+:::tip 保持任务专注
+使用子任务（通过 Orchestrator 模式委托）来保持清晰度。如果请求显著转移焦点或需要不同的专业知识（模式），请考虑创建子任务，而不是使当前任务过载。
+:::
+
+---
+
+## 常见问题
+
+### 为什么 Orchestrator 模式无法读取文件、写入文件、调用 MCP 或运行命令？
+
+Orchestrator 模式被有意限制，以专注于高级工作流管理。默认情况下赋予它读取文件的能力会导致上下文充满文件读取，损害其保持专注编排的能力。设计哲学是子任务应处理详细工作，并仅通过其完成摘要返回必要信息，以便编排器能够有效地进一步委托任务。
+
+此限制有助于防止 [上下文污染](/advanced-usage/context-poisoning)，即无关或过度的信息污染模型的活跃上下文，导致性能下降和任务偏离。
+
+### 如何覆盖 Orchestrator 模式的限制？
+
+你可以通过遵循 [配置优先级](/features/custom-modes#configuration-precedence) 系统来 [自定义 Orchestrator 模式](/features/custom-modes) 以添加如文件读取等功能：
+
+1. 打开命令面板并选择 **"Edit Global Modes"**
+2. 复制并粘贴此配置：
+
+```json
+{
+  "customModes": [
+    {
+      "slug": "orchestrator",
+      "name": "🪃 Orchestrator",
+      "roleDefinition": "You are Roo, a strategic workflow orchestrator who coordinates complex tasks by delegating them to appropriate specialized modes. You have a comprehensive understanding of each mode's capabilities and limitations, allowing you to effectively break down complex problems into discrete tasks that can be solved by different specialists.",
+      "customInstructions": "Your role is to coordinate complex workflows by delegating tasks to specialized modes. As an orchestrator, you should:\n\n1. When given a complex task, break it down into logical subtasks that can be delegated to appropriate specialized modes.\n\n2. For each subtask, use the `new_task` tool to delegate. Choose the most appropriate mode for the subtask's specific goal and provide comprehensive instructions in the `message` parameter. These instructions must include:\n    *   All necessary context from the parent task or previous subtasks required to complete the work.\n    *   A clearly defined scope, specifying exactly what the subtask should accomplish.\n    *   An explicit statement that the subtask should *only* perform the work outlined in these instructions and not deviate.\n    *   An instruction for the subtask to signal completion by using the `attempt_completion` tool, providing a concise yet thorough summary of the outcome in the `result` parameter, keeping in mind that this summary will be the source of truth used to keep track of what was completed on this project. \n    *   A statement that these specific instructions supersede any conflicting general instructions the subtask's mode might have.\n\n3. Track and manage the progress of all subtasks. When a subtask is completed, analyze its results and determine the next steps.\n\n4. Help the user understand how the different subtasks fit together in the overall workflow. Provide clear reasoning about why you're delegating specific tasks to specific modes.\n\n5. When all subtasks are completed, synthesize the results and provide a comprehensive overview of what was accomplished.\n\n6. Ask clarifying questions when necessary to better understand how to break down complex tasks effectively.\n\n7. Suggest improvements to the workflow based on the results of completed subtasks.\n\nUse subtasks to maintain clarity. If a request significantly shifts focus or requires a different expertise (mode), consider creating a subtask rather than overloading the current one.",
+      "groups": [
+        "read"
+      ],
+      "source": "global"
+    }
+  ]
+}
+```
+
+3. 保存文件。你的全局 Orchestrator 模式现在将具有读取能力。
+
+:::warning
+向 Orchestrator 模式添加功能应经过深思熟虑。默认的有限能力有助于保持对编排的关注，而不是实现细节。
+:::
+
+
+[^1]: 此上下文通过 Orchestrator 模式委托任务时 [`new_task`](/advanced-usage/available-tools/new-task) 工具的 `message` 参数传递。
+[^2]: 子任务的模式在 Orchestrator 模式启动时通过 [`new_task`](/advanced-usage/available-tools/new-task) 工具的 `mode` 参数指定。
+[^3]: 此摘要在子任务完成时通过 [`attempt_completion`](/advanced-usage/available-tools/attempt-completion) 工具的 `result` 参数传递。

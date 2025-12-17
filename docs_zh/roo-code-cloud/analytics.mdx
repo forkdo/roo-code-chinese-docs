@@ -1,0 +1,71 @@
+---
+description: 使用 Roo Code Cloud Analytics 监控令牌使用情况、跟踪成本并分析代理性能。
+keywords:
+  - analytics
+  - token usage
+  - cost tracking
+  - agent performance
+  - roi
+  - team insights
+  - credits
+image: /img/social-share.jpg
+redirect_from:
+  - /roo-code-cloud/dashboard
+  - /roo-code-cloud/dashboard/
+  - /roo-code-cloud/dashboard#usage-analytics-page
+---
+
+# 使用分析
+
+Roo Code Cloud 提供全面的分析功能，帮助您了解团队如何使用 AI、优化成本并衡量生产力。
+
+<img src="/img/analytics/overview.png" alt="Analytics Dashboard" width="800" />
+
+## 访问方式
+
+前往 Roo Code Cloud 中的 [Analytics](https://app.roocode.com/usage) 选项卡。
+
+---
+
+## 功能
+
+通过可用的 UI 控件，您可以对以下所有内容进行切片和切块分析：
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "33%"}}>指标</th>
+      <th style={{ width: "33%"}}>聚合</th>
+      <th style={{ width: "33%"}}>筛选器</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>
+        - 任务数量
+        - 令牌数量
+        - 推理成本（由提供商报告）
+        - 云端运行时长
+      </th>
+      <th>
+        - 用户
+        - 云端代理
+        - 模型
+        - 仓库
+      </th>
+      <th>
+        - 任务来源（云端代理或工作区/IDE）
+        - 创建者
+        - 仓库
+        - PR
+        - 提供商
+        - 时间范围
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+## 跟踪内容
+
+- 对于云端代理，所有任务都会被跟踪并计入分析
+- 对于扩展程序，只有在登录且启用 [任务同步](/roo-code-cloud/task-sync) 时运行的任务才会报告给分析系统。您可以关闭任务同步，这样任务内容就不会发送到云端，但只要您登录了扩展程序，使用数据始终会被上报。这使得您可以在将某些任务内容保留在本地的同时，仍然受益于使用分析功能。

@@ -1,0 +1,62 @@
+---
+description: 将 Roo Code Cloud 代理与 GitHub 集成，自动化拉取请求（PR）审查和修复。
+keywords:
+  - GitHub 集成
+  - PR 审查者
+  - PR 修复者
+  - 自动代码审查
+  - 自动化缺陷修复
+  - GitHub App
+image: /img/social-share.jpg
+---
+
+# GitHub 集成
+
+Roo Code Cloud 直接与 GitHub 集成，将你的自主 Cloud Agent 团队引入到你的拉取请求（PR）工作流中。通过安装 Roo Code GitHub App，你可以启用代理创建分支、自动审查代码并修复问题。
+
+---
+
+## 集成触点
+
+以下是 [Cloud Agents](/roo-code-cloud/cloud-agents) 与 GitHub 集成的方式：
+- **代码创建**：Coder 代理通过 git 交付其工作。当你要求它创建或修改某些内容时，它会在其容器环境中进行更改，本地提交，推送到远程仓库，并创建一个 PR 来描述所有内容。你可以在其设置中将其更改为创建草稿（非常规）PR，或仅推送到远程分支而不创建 PR。
+- **代码审查**：Reviewer 代理通过 Github PR 评论交付其工作。它会自动审查在启用它的仓库中新创建的 PR（包括 Coder 生成的！），通过添加评论。它还会审查后续推送到该分支的提交。你可以在其设置中控制哪些 PR 会被审查。
+- **代码修复**：Fixer 代理通过 Github 分支推送（和评论）交付其工作。当你从 PR 中调用它时（见下文），它会阅读评论（来自人类或 Cloud Agents），并实现适当的修复，同时考虑你提供的任何额外指令。它会通过在其环境中检出 PR 分支，提交更改并推送到分支来实现（并留下评论，以便你知道它已完成）。
+
+## 设置流程
+
+首次创建 Cloud Agent 团队时，系统会提示你连接到 Github。如果你尚未完成此操作，请[立即进行](https://app.roocode.com/cloud-agents/setup)，并确保至少创建一个 PR Reviewer 和 PR Fixer 代理。
+
+这将引导你完成与 Github 的 OAuth 流程，你需要：
+
+1. 选择要链接的账户
+    <img src="/img/integrations/gh-auth-1.png" alt="第一步" width="400" />
+
+2. 选择哪些仓库对代理可见
+    <img src="/img/integrations/gh-auth-2.png" alt="第二步" width="600" />
+
+    你可以在 [agent 设置](/roo-code-cloud/cloud-agents#settings) 中控制各个代理对仓库的访问权限。
+
+现在你的 Cloud Agents 已经可以与 Github 协同工作了。
+
+## 调用代理
+
+默认情况下，你拥有的任何 PR Reviewer 代理都会根据你在[其设置](/roo-code-cloud/cloud-agents#settings) 中定义的标准持续监控新 PR。因此，当创建新 PR 时，你会看到如下评论：
+
+<img src="/img/integrations/gh-response-review.png" alt="Rooviewer 代理响应" width="400" />
+
+你也可以通过调用 **@Roomote** 来调用 PR Fixer 代理，以解决 PR 中的任何反馈：
+
+<img src="/img/integrations/gh-mention.png" alt="通过 @Roomote 调用修复者" width="400" />
+
+你也可以从代理自己的页面或顶部的“新建任务”按钮分配任务给 Reviewer 和 Fixer。
+
+它们的“新建任务”页面允许你粘贴相关 URL：
+
+<img src="/img/integrations/gh-new-task.png" alt="为审查者新建任务" width="400" />
+
+然后你可以在 Web UI 中跟踪任务，并在 PR 本身中看到结果。
+
+:::info 总是使用 @Roomote
+请注意，你无法通过名称调用特定的代理。当你使用 **@Roomote** 时，你是在提及 Roo Code GitHub App，它处理集成。然后 app 会根据上下文智能地调用适当的代理。
+:::
