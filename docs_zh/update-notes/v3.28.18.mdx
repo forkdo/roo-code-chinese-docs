@@ -1,30 +1,29 @@
 ---
-description: Fixes grey screen UI crashes, improves image generation defaults, and updates provider settings.
+description: 修复灰色屏幕 UI 崩溃问题，优化图像生成默认设置，并更新提供商配置。
 keywords:
   - roo code 3.28.18
   - bug fixes
   - image generation
   - provider updates
-image: /img/social-share.jpg
 ---
-# Roo Code 3.28.18 Release Notes (2025-10-17)
+# Roo Code 3.28.18 版本发布说明 (2025-10-17)
 
-This patch fixes the grey screen issue, improves image generation defaults, and updates provider settings.
+此补丁修复了灰色屏幕问题，优化了图像生成的默认设置，并更新了提供商配置。
 
 
-## Grey Screen of Death Fix
+## 灰色屏幕死机问题修复
 
-This should fix grey screens caused by long context task sessions ([#8696](https://github.com/RooCodeInc/Roo-Code/pull/8696)).
+这应该能修复由长时间上下文任务会话引起的灰色屏幕问题 ([#8696](https://github.com/RooCodeInc/Roo-Code/pull/8696))。
 
-## QOL Improvements
+## 生活质量改进
 
-* Image generation model selection update: defaults to Gemini 2.5 Flash Image; adds OpenAI GPT‑5 Image and GPT‑5 Image Mini; clearer settings dropdown (thanks chrarnoldus!) ([#8698](https://github.com/RooCodeInc/Roo-Code/pull/8698))
+* 图像生成模型选择更新：默认使用 Gemini 2.5 Flash Image；新增 OpenAI GPT‑5 Image 和 GPT‑5 Image Mini；设置下拉菜单更加清晰（感谢 chrarnoldus！） ([#8698](https://github.com/RooCodeInc/Roo-Code/pull/8698))
 
-## Bug Fixes
+## Bug 修复
 
-* Editor targeting fix: avoids editing read‑only git diff views; edits the actual file (thanks hassoncs!) ([#8676](https://github.com/RooCodeInc/Roo-Code/pull/8676))
+* 编辑器定位修复：避免编辑只读的 git diff 视图；改为编辑实际文件（感谢 hassoncs！） ([#8676](https://github.com/RooCodeInc/Roo-Code/pull/8676))
 
-## Provider Updates
+## 提供商更新
 
-* Bedrock: add versioned user agent for per‑version metrics and error tracking; no action needed (thanks ajjuaire!) ([#8663](https://github.com/RooCodeInc/Roo-Code/pull/8663))
-* Z AI: only two coding endpoints (International/China) are supported; defaults to International; legacy non‑coding endpoints unsupported ([#8693](https://github.com/RooCodeInc/Roo-Code/pull/8693))
+* Bedrock：添加带版本信息的用户代理，用于按版本进行指标统计和错误追踪；无需任何操作（感谢 ajjuaire！） ([#8663](https://github.com/RooCodeInc/Roo-Code/pull/8663))
+* Z AI：仅支持两个编码端点（国际版/中国版）；默认为国际版；不支持旧版非编码端点 ([#8693](https://github.com/RooCodeInc/Roo-Code/pull/8693))

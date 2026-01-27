@@ -1,29 +1,28 @@
 ---
-description: This release introduces free Gemini access via OAuth, fixes several bugs, and improves the overall user experience.
-image: /img/social-share.jpg
+description: 此版本通过 OAuth 引入了免费的 Gemini 访问权限，修复了若干错误，并提升了整体用户体验。
 ---
 
-# Roo Code 3.23.8 Release Notes (2025-07-13)
+# Roo Code 3.23.8 版本说明 (2025-07-13)
 
-This release adds command workflow controls and improves the user interface.
+此版本增加了命令工作流控制功能，并改进了用户界面。
 
-## Command Denylist
+## 命令拒绝列表
 
-We've added the ability to automatically reject unwanted commands in your workflows (thanks hannesrudolph!) ([#5614](https://github.com/RooCodeInc/Roo-Code/pull/5614)):
+我们添加了在工作流中自动拒绝不需要的命令的功能（感谢 hannesrudolph！）：
 
-- **Always Reject**: Mark commands as "always reject" to prevent accidental execution
-- **Time Saving**: No need to manually reject the same commands repeatedly  
-- **Workflow Control**: Complements existing auto-approval functionality with "always reject" option
+- **始终拒绝**：将命令标记为“始终拒绝”，以防止意外执行
+- **节省时间**：无需重复手动拒绝相同的命令
+- **工作流控制**：通过“始终拒绝”选项补充现有的自动批准功能
 
-This gives you better control over command execution in automated workflows.
+这让您能够更好地控制自动化工作流中的命令执行。
 
-## QOL Improvements
+## 生活质量改进
 
-* **Codebase Indexing Toggle**: Added enable/disable checkbox for codebase indexing in settings with state persistence across sessions (thanks daniel-lxs, elasticdotventures!) ([#5599](https://github.com/RooCodeInc/Roo-Code/pull/5599))
-* **Chat Interface**: Improved chat layout with better organization and increased task history visibility (3 tasks instead of 2)
-* **Command Messaging**: Clearer messaging when command prefixes are denied - users now see that denial is due to their settings rather than automatic system behavior
-* **History Navigation**: Added "View all history" link to the HistoryPreview component for easier access to full task history when the history tab is hidden
+* **代码库索引开关**：在设置中添加了代码库索引的启用/禁用复选框，状态在会话之间保持持久化（感谢 daniel-lxs、elasticdotventures！）
+* **聊天界面**：改进了聊天布局，组织更清晰，任务历史可见性更高（显示 3 个任务而非 2 个）
+* **命令消息提示**：当命令前缀被拒绝时提供更清晰的消息提示 - 用户现在可以看到拒绝是由于他们的设置，而非系统自动行为
+* **历史记录导航**：在 HistoryPreview 组件中添加了“查看所有历史记录”链接，当历史记录标签页隐藏时，可更轻松地访问完整的任务历史记录
 
-## Misc Improvements
+## 其他改进
 
-* **Type Definitions**: Updated internal type definitions for improved compatibility and development experience
+* **类型定义**：更新了内部类型定义，以提高兼容性和开发体验

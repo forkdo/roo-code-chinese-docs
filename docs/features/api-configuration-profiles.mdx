@@ -6,7 +6,6 @@ keywords:
   - AI providers
   - model switching
   - API management
-image: /img/social-share.jpg
 ---
 
 # API Configuration Profiles
@@ -19,7 +18,7 @@ Having multiple configuration profiles lets you quickly switch between different
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
   <iframe
-    src="https://www.youtube.com/embed/eEJErgZBqLE"
+    src="https://www.youtube.com/embed/eEJErgZBqLE?rel=0&modestbranding=1"
     style={{
       position: 'absolute',
       top: 0,
@@ -45,7 +44,7 @@ Configuration profiles can have their own:
 - [Temperature settings](/features/model-temperature) for controlling response randomness
 - Thinking budgets
 - Provider-specific settings
-- [Diff editing configuration](/features/fast-edits)
+- Diff editing configuration (see [`apply_diff`](/advanced-usage/available-tools/apply-diff))
 - Rate limit settings
 
 Note that available settings vary by provider and model. Each provider offers different configuration options, and even within the same provider, different models may support different parameter ranges or features.
@@ -120,6 +119,18 @@ In the <Codicon name="notebook" /> Prompts tab, you can explicitly associate a s
 
 ---
 
+## Per-Task Profile Persistence
+
+Each task remembers which profile it started with. This "sticky" behavior means:
+
+- **Reopening from history**: When you resume a task from history, it uses the same profile it had originally—even if you've since changed the global selection.
+- **Multi-workspace consistency**: If you switch profiles in another workspace window, existing tasks in the first window keep their original profile.
+- **Orchestrator subtasks**: Child tasks created by the orchestrator inherit the parent's profile and retain it for their lifetime.
+
+This prevents unexpected model switches mid-task and keeps your conversation context consistent with the model that generated it.
+
+---
+
 ## Security Note
 
 API keys are stored securely in VSCode's Secret Storage and are never exposed in plain text.
@@ -132,5 +143,4 @@ API keys are stored securely in VSCode's Secret Storage and are never exposed in
 - Integrates with [local models](/advanced-usage/local-models) for offline work
 - Supports [temperature settings](/features/model-temperature) per mode
 - Supports per-profile rate limits (configured here) and general [usage tracking/cost info](/advanced-usage/rate-limits-costs)
-- Supports [Diff/Fast Edits](/features/fast-edits) for tailored code editing behavior.
-
+- Supports diff-based editing (see [`apply_diff`](/advanced-usage/available-tools/apply-diff)).

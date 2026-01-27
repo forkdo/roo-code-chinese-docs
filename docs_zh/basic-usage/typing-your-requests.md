@@ -1,65 +1,64 @@
 ---
-description: 学习如何使用自然语言与 Roo Code 进行有效沟通。包括输入请求的最佳实践、示例以及需要避免的常见陷阱。
+description: 了解如何使用自然语言与 Roo Code 进行有效沟通。输入请求的最佳实践、示例以及需要避免的常见陷阱。
 keywords:
   - Roo Code 请求
   - 自然语言 AI
   - 输入命令
-  - AI 沟通
+  - AI 通信
   - 请求示例
   - 最佳实践
-image: /img/social-share.jpg
 ---
 
-# 输入你的请求
+# 输入您的请求
 
-Roo Code 旨在理解自然语言。你无需使用任何特殊命令或语法即可与其交流。只需用纯英文输入你的请求，就像在与一位人类开发者对话一样。
+Roo Code 旨在理解自然语言。您无需使用任何特殊命令或语法即可与它通信。只需用简单的英文输入您的请求，就像在与人类开发者交谈一样。
 
-<img src="/img/typing-your-requests/naturally.gif" alt="Roo Code 请求输入示例" width="600" />
+<img src="/img/typing-your-requests/naturally.gif" alt="在 Roo Code 中输入请求的示例" width="600" />
 
 ---
 
-## 有效请求策略
+## 有效的请求策略
 
-清晰地陈述你的需求。避免使用模糊或模棱两可的语言。
+明确说明您希望 Roo Code 做什么。避免使用模糊或含糊不清的语言。
 
 | 策略 | 实现方式 |
-|------|----------|
-| **具体明确** | 使用“修复 `calculateTotal` 中返回错误结果的 bug”而不是“修复代码” |
-| **提供上下文** | 使用 @ [上下文提及](/basic-usage/context-mentions) 来引用文件和代码 |
-| **任务拆分** | 将复杂任务拆分为更小、更易管理的步骤 |
-| **包含示例** | 需要特定格式或风格时提供示例代码 |
+|----------|----------------|
+| **具体明确** | "修复 `calculateTotal` 中返回错误结果的 bug" 而不是 "修复代码" |
+| **提供上下文** | 使用 @ [上下文提及](/basic-usage/context-mentions) 进行文件和代码引用 |
+| **分解任务** | 将复杂任务以较小的可管理步骤提交 |
+| **包含示例** | 需要特定格式或样式时提供示例代码 |
 
 ---
 
 ## 请求示例
 
 ```
-创建一个名为 `utils.py` 的新文件，并添加一个名为 `add` 的函数，该函数接收两个数字作为参数并返回它们的和
+create a new file named `utils.py` and add a function called `add` that takes two numbers as arguments and returns their sum
 ```
 ```
-在文件 @src/components/Button.tsx 中，将按钮的颜色改为蓝色
+in the file @src/components/Button.tsx, change the color of the button to blue
 ```
 ```
-在 @/src/App.js 中找到所有变量 `oldValue` 的实例，并将它们替换为 `newValue`
+find all instances of the variable `oldValue` in @/src/App.js and replace them with `newValue`
 ```
 ```
-在终端中运行命令 `npm install`
+run the command `npm install` in the terminal
 ```
 ```
-解释 @/src/utils.ts 中的函数 `calculateTotal`
+explain the function `calculateTotal` in @/src/utils.ts
 ```
 ```
-@problems 解决所有检测到的问题
+@problems address all detected problems
 ```
 
 ---
 
-## 常见陷阱与避免方法
+## 需要避免的常见陷阱
 
-| 不要 | 应该 |
-|------|------|
-| 模糊的请求 | 明确说明需要完成的内容 |
-| 假设上下文已知 | 明确引用文件和函数 |
-| 过度使用技术术语 | 使用清晰、直白的语言 |
-| 一次提交多个不相关的任务 | 一次提交一个集中的请求 |
-| 未确认就继续 | 检查代码确保其完整性 |
+| 不要 | 要 |
+|-------|---------|
+| 模糊的请求 | 明确说明需要做什么 |
+| 假设上下文 | 明确引用文件和函数 |
+| 过度的技术术语 | 使用清晰、直接的语言 |
+| 多个不相关的任务 | 一次提交一个集中的请求 |
+| 未经确认就继续 | 检查代码以确保已完成 |

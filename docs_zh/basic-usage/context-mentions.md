@@ -1,116 +1,128 @@
 ---
-description: 了解如何在 Roo Code 中使用上下文提及（@）来引用文件、文件夹、问题、终端输出和 Git 提交，以获得更准确的 AI 辅助。
+description: 了解如何在 Roo Code 中使用上下文提及 (@) 来引用文件、文件夹、问题、终端输出和 Git 提交，以获得更准确的 AI 辅助。
 keywords:
-  - "Roo Code 上下文提及"
-  - "@ 提及"
-  - "文件引用"
-  - "文件夹提及"
-  - "问题面板"
-  - "终端提及"
-  - "Git 集成"
-image: /img/social-share.jpg
+  - "Roo Code context mentions"
+  - "@ mentions"
+  - "file references"
+  - "folder mentions"
+  - "problems panel"
+  - "terminal mentions"
+  - "Git integration"
 ---
 
 # 上下文提及
 
-上下文提是一种强大的方式，可以向 Roo Code 提供有关项目的特定信息，使其能够更准确、更高效地执行任务。你可以使用提及来引用文件、文件夹、问题和 Git 提交。上下文提及以 `@` 符号开头。
+上下文提及是一种强大的方式，可以为 Roo Code 提供关于项目的特定信息，使其能够更准确、高效地执行任务。您可以使用提及来引用文件、文件夹、问题以及 Git 提交。上下文提及以 `@` 符号开头。
 
-<img src="/img/context-mentions/context-mentions.png" alt="上下文提及概述 - 显示聊天界面中的 @ 符号下拉菜单" width="600" />
+<img src="/img/context-mentions/context-mentions.png" alt="Context Mentions Overview - showing the @ symbol dropdown menu in the chat interface" width="600" />
 
-*上下文提及概述，显示聊天界面中的 @ 符号下拉菜单。*
+*上下文提及概览，展示了聊天界面中的 @ 符号下拉菜单。*
 
 ---
 
 ## 提及类型
 
-<img src="/img/context-mentions/context-mentions-1.png" alt="文件提及示例，显示使用 @ 引用文件，其内容出现在对话中" width="600" />
+<img src="/img/context-mentions/context-mentions-1.png" alt="File mention example showing a file being referenced with @ and its contents appearing in the conversation" width="600" />
 
-*文件提及将实际代码内容添加到对话中，用于直接引用和分析。*
+*文件提及将实际代码内容添加到对话中，以便直接引用和分析。*
 
-| 提及类型 | 格式 | 描述 | 示例用法 |
+| 提及类型 | 格式 | 描述 | 使用示例 |
 |--------------|--------|-------------|--------------|
-| **文件** | `@/path/to/file.ts` | 包含文件内容在请求上下文中 | "解释 @/src/utils.ts 中的函数" |
-| **文件夹** | `@/path/to/folder` | 包含文件夹中所有文件的内容（非递归） | "分析 @/src/components 中的代码" |
+| **文件** | `@/path/to/file.ts` | 在请求上下文中包含文件内容 | "解释 @/src/utils.ts 中的函数" |
+| **图像** | `@/path/to/image.png` | 将图像作为内联视觉内容包含 | "这个 UI 有什么问题？@/screenshots/bug.png" |
+| **文件夹** | `@/path/to/folder` | 包含文件夹内所有文件的内容（非递归） | "分析 @/src/components 中的代码" |
 | **问题** | `@problems` | 包含 VS Code 问题面板的诊断信息 | "@problems 修复我代码中的所有错误" |
 | **终端** | `@terminal` | 包含最近的终端命令和输出 | "修复 @terminal 中显示的错误" |
-| **Git 提交** | `@a1b2c3d` | 通过哈希引用特定提交 | "提交 @a1b2c3d 中有什么变化？" |
-| **Git 变更** | `@git-changes` | 显示未提交的变更 | "为 @git-changes 建议一条提交消息" |
+| **Git 提交** | `@a1b2c3d` | 通过哈希引用特定提交 | "提交 @a1b2c3d 有什么变化？" |
+| **Git 更改** | `@git-changes` | 显示未提交的更改 | "为 @git-changes 建议一条消息" |
 | **URL** | `@https://example.com` | 导入网站内容 | "总结 @https://docusaurus.io/" |
 
 ### 文件提及
 
-<img src="/img/context-mentions/context-mentions-1.png" alt="文件提及示例，显示使用 @ 引用文件，其内容出现在对话中" width="600" />
+<img src="/img/context-mentions/context-mentions-1.png" alt="File mention example showing a file being referenced with @ and its contents appearing in the conversation" width="600" />
 
-*文件提及将带行号的源代码纳入上下文，用于精确定位。*
-| 功能 | 详细信息 |
+*文件提及将源代码与行号结合，以便精确引用。*
+| 功能 | 详情 |
 |------------|---------|
-| **格式** | `@/path/to/file.ts`（始终从工作区根目录开始以 `/` 开头） |
-| **提供** | 完整的文件内容和行号 |
-| **支持** | 文本文件、PDF 和 DOCX 文件（带文本提取） |
+| **格式** | `@/path/to/file.ts`（始终从工作区根目录以 `/` 开头） |
+| **提供** | 包含行号的完整文件内容 |
+| **支持** | 文本文件、PDF 和 DOCX 文件（支持文本提取） |
 | **适用场景** | 初始请求、反馈响应和后续消息 |
-| **限制** | 非常大的文件可能被截断；不支持二进制文件 |
+| **限制** | 非常大的文件可能会被截断；不支持二进制文件 |
+
+### 图像提及
+
+图像提及允许您在对话中直接包含视觉内容。当模型支持视觉功能时，图像会作为内联视觉内容发送，而不是文本。
+
+| 功能 | 详情 |
+|------------|---------|
+| **格式** | `@/path/to/image.png`（与文件提及相同的路径格式） |
+| **提供** | 图像作为内联视觉内容发送给模型 |
+| **支持** | PNG、JPG、JPEG、GIF、BMP、SVG、WEBP、ICO、AVIF |
+| **最佳用途** | UI 审查、截图调试、图表分析 |
+| **要求** | 需要支持视觉功能的模型（非视觉模型无法解释图像） |
 
 ### 文件夹提及
 
-<img src="/img/context-mentions/context-mentions-2.png" alt="文件夹提及示例，显示目录内容在聊天中被引用" width="600" />
+<img src="/img/context-mentions/context-mentions-2.png" alt="Folder mention example showing directory contents being referenced in the chat" width="600" />
 
-*文件夹提及包含指定目录中所有文件的内容。*
-| 功能 | 详细信息 |
+*文件夹提及包含指定目录内所有文件的内容。*
+| 功能 | 详情 |
 |------------|---------|
 | **格式** | `@/path/to/folder`（无尾随斜杠） |
-| **提供** | 目录中所有文件的完整内容 |
-| **包含** | 直接位于文件夹内的非二进制文本文件的内容（非递归） |
-| **最佳用途** | 从目录中的多个文件提供上下文 |
-| **提示** | 引用大型目录时要注意上下文窗口限制 |
+| **提供** | 目录内所有文件的完整内容 |
+| **包含** | 文件夹内非二进制文本文件的内容（非递归） |
+| **最佳用途** | 提供目录中多个文件的上下文 |
+| **提示** | 提及大型目录时，请注意上下文窗口限制 |
 
 ### 问题提及
 
-<img src="/img/context-mentions/context-mentions-3.png" alt="问题提及示例，显示 VS Code 问题面板使用 @problems 在聊天中被引用" width="600" />
+<img src="/img/context-mentions/context-mentions-3.png" alt="Problems mention example showing VS Code problems panel being referenced with @problems" width="600" />
 
-*问题提及直接从 VS Code 问题面板导入诊断信息。*
-| 功能 | 详细信息 |
+*问题提及直接从 VS Code 的问题面板导入诊断信息。*
+| 功能 | 详情 |
 |------------|---------|
 | **格式** | `@problems` |
 | **提供** | VS Code 问题面板中的所有错误和警告 |
 | **包含** | 文件路径、行号和诊断消息 |
-| **分组** | 问题按文件组织，以便更清晰 |
+| **分组** | 问题按文件组织，以提高清晰度 |
 | **最佳用途** | 无需手动复制即可修复错误 |
 
-有关 Roo Code 如何与 VSCode 诊断系统集成的详细信息，请参阅 [诊断集成](/features/diagnostics-integration)。
+有关 Roo Code 如何与 VSCode 的诊断系统集成的详细信息，请参阅[诊断集成](/features/diagnostics-integration)。
 
 ### 终端提及
-<img src="/img/context-mentions/context-mentions-4.png" alt="终端提及示例，显示终端输出被包含在 Roo 的上下文中" width="600" />
+<img src="/img/context-mentions/context-mentions-4.png" alt="Terminal mention example showing terminal output being included in Roo's context" width="600" />
 
-*终端提及捕获最近的命令和完整输出，用于调试和分析。*
+*终端提及捕获最近的命令输出，用于调试和分析。*
 
-| 功能 | 详细信息 |
+| 功能 | 详情 |
 |------------|---------|
 | **格式** | `@terminal` |
-| **捕获** | 最后一条命令及其完整输出 |
-| **保留** | 终端状态（不清空终端） |
+| **捕获** | 最后一个命令及其完整输出 |
+| **保留** | 终端状态（不会清除终端） |
 | **限制** | 仅限于可见的终端缓冲区内容 |
 | **最佳用途** | 调试构建错误或分析命令输出 |
 
 ### Git 提及
 
-<img src="/img/context-mentions/context-mentions-5.png" alt="Git 提交提及示例，显示提交详细信息被 Roo 分析" width="600" />
+<img src="/img/context-mentions/context-mentions-5.png" alt="Git commit mention example showing commit details being analyzed by Roo" width="600" />
 
-*Git 提及提供提交消息和差异，用于上下文感知的版本分析。*
+*Git 提及提供提交详情和差异，以便进行上下文感知的版本分析。*
 | 类型 | 格式 | 提供 | 限制 |
 |------|--------|----------|------------|
-| **提交** | `@a1b2c3d` | 提交消息、作者、日期和完整差异 | 仅在 Git 仓库中工作 |
-| **工作变更** | `@git-changes` | `git status` 输出和未提交变更的差异 | 仅在 Git 仓库中工作 |
+| **提交** | `@a1b2c3d` | 提交消息、作者、日期和完整差异 | 仅在 Git 仓库中有效 |
+| **工作更改** | `@git-changes` | `git status` 输出和未提交更改的差异 | 仅在 Git 仓库中有效 |
 
 ### URL 提及
-<img src="/img/context-mentions/context-mentions-6.png" alt="URL 提及示例，显示网站内容被转换为 Markdown 格式在聊天中显示" width="600" />
+<img src="/img/context-mentions/context-mentions-6.png" alt="URL mention example showing website content being converted to Markdown in the chat" width="600" />
 
 *URL 提及导入外部网页内容并将其转换为可读的 Markdown 格式。*
 
-| 功能 | 详细信息 |
+| 功能 | 详情 |
 |------------|---------|
 | **格式** | `@https://example.com` |
 | **处理** | 使用无头浏览器获取内容 |
-| **清理** | 删除脚本、样式和导航元素 |
+| **清理** | 移除脚本、样式和导航元素 |
 | **输出** | 将内容转换为 Markdown 以提高可读性 |
 | **限制** | 复杂页面可能无法完美转换 |
 
@@ -118,19 +130,19 @@ image: /img/social-share.jpg
 
 ## 如何使用提及
 
-1. 在聊天输入框中键入 `@` 以触发建议下拉菜单
-2. 继续键入以筛选建议，或使用箭头键导航
-3. 按 Enter 键或单击鼠标选择
+1. 在聊天输入中键入 `@` 以触发建议下拉菜单
+2. 继续键入以过滤建议，或使用方向键导航
+3. 使用 Enter 键或鼠标点击选择
 4. 在请求中组合多个提及："修复 @/src/component.ts 中的 @problems"
 
 下拉菜单会自动建议：
 - 最近打开的文件
 - 可见的文件夹
-- 最近的 git 提交
+- 最近的 Git 提交
 - 特殊关键字（`problems`、`terminal`、`git-changes`）
 - **所有当前打开的文件**（无论忽略设置或目录过滤器如何）
 
-下拉菜单会自动过滤掉常见的目录，如 `node_modules`、`.git`、`dist` 和 `out`，以减少干扰，即使手动键入时仍可包含其内容。
+默认情况下，下拉菜单会遵循 `.rooignore`，隐藏被忽略的文件。启用 `showRooIgnoredFiles` 设置以在下拉菜单中包含被忽略的文件（它们将显示 🔒 指示器）。常见目录（如 `node_modules`、`.git`、`dist` 和 `out`）也会被过滤，以减少干扰。
 
 ---
 
@@ -138,16 +150,17 @@ image: /img/social-share.jpg
 
 ### 忽略文件交互
 
-| 行为 | 描述 |
+| 行为 | 说明 |
 |----------|-------------|
-| **`.rooignore` 绕过** | 文件和文件夹的 `@提及` 在为上下文获取内容时会绕过 `.rooignore` 检查。如果直接提及，来自被忽略文件的内容将被包含。 |
-| **`.gitignore` 绕过** | 类似地，文件和文件夹的 `@提及` 在获取内容时不会遵守 `.gitignore` 规则。 |
-| **Git 命令遵守** | Git 相关的提及（`@git-changes`、`@commit-hash`）会遵守 `.gitignore`，因为它们依赖于 Git 命令。 |
+| **下拉筛选** | `@` 下拉菜单默认隐藏与 `.rooignore` 匹配的文件。启用 `showRooIgnoredFiles` 可查看这些文件（标记为 🔒）。 |
+| **绕过 `.rooignore`** | 文件和文件夹的 `@mentions` 在获取上下文内容时会绕过 `.rooignore` 检查。如果直接提及被忽略的文件，其内容将被包含。 |
+| **绕过 `.gitignore`** | 类似地，文件和文件夹的 `@mentions` 在获取内容时不遵循 `.gitignore` 规则。 |
+| **遵循 Git 命令** | 与 Git 相关的提及（`@git-changes`、`@commit-hash`）会遵循 `.gitignore`，因为它们依赖 Git 命令。 |
 
 ---
 
 ## 相关功能
 
-- [诊断集成](/features/diagnostics-integration) - 了解自动错误检测和智能严重性过滤
-- [代码操作](/features/code-actions) - 发现直接在编辑器中的快速修复和 AI 辅助
-- [Shell 集成](/features/shell-integration) - 了解终端提及如何与 Shell 集成配合工作
+- [诊断集成](/features/diagnostics-integration) - 了解自动错误检测和智能严重性筛选
+- [代码操作](/features/code-actions) - 探索编辑器中的快速修复和 AI 辅助功能
+- [Shell 集成](/features/shell-integration) - 了解终端提及如何与 Shell 集成协同工作

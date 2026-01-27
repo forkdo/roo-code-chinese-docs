@@ -1,74 +1,73 @@
 ---
-description: Claude Sonnet 4 gets a massive 1 million token context window, configurable API timeouts for local providers, and minimal reasoning support for OpenRouter.
+description: Claude Sonnet 4 获得高达 100 万 token 的上下文窗口、本地提供者可配置 API 超时设置，以及对 OpenRouter 的最低推理支持。
 keywords:
   - roo code 3.25.12
   - claude sonnet 4 1 million tokens
   - api timeout configuration
   - openrouter reasoning
   - local providers
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.12 Release Notes (2025-08-12)
+# Roo Code 3.25.12 版本发布说明（2025-08-12）
 
-This release brings a massive context window upgrade for Claude Sonnet 4, configurable timeouts for local providers, and minimal reasoning support for OpenRouter.
+此版本为 Claude Sonnet 4 带来了巨大的上下文窗口升级、本地提供者可配置超时设置，以及对 OpenRouter 的最低推理支持。
 
-## Claude Sonnet 4: 1 Million Token Context Window
+## Claude Sonnet 4：100 万 Token 上下文窗口
 
-We've upgraded our Claude Sonnet 4 integration to support [Anthropic's latest API update](https://www.anthropic.com/news/1m-context), increasing the context window from 200,000 tokens to 1 million tokens - a 5x increase ([#7005](https://github.com/RooCodeInc/Roo-Code/pull/7005)):
+我们已升级 Claude Sonnet 4 集成，以支持 [Anthropic 最新的 API 更新](https://www.anthropic.com/news/1m-context)，将上下文窗口从 200,000 token 增加到 100 万 token——提升了 5 倍 ([#7005](https://github.com/RooCodeInc/Roo-Code/pull/7005))：
 
-- **Massive Context**: Work with entire codebases, extensive documentation, or multiple large files in a single conversation
-- **Tiered Pricing Support**: Automatically handles Anthropic's tiered pricing for extended context usage
-- **UI Integration**: Context window size now displays in the model info view with a toggle to enable the 1M context feature
+- **超大上下文**：在单个对话中处理整个代码库、大量文档或多个大型文件
+- **分级定价支持**：自动处理 Anthropic 针对扩展上下文使用的分级定价
+- **UI 集成**：上下文窗口大小现在在模型信息视图中显示，并提供启用 100 万上下文功能的切换开关
 
-This significant upgrade enables you to tackle much larger projects and maintain context across extensive codebases without splitting conversations.
+这一重大升级使您能够处理更大的项目，并在不拆分对话的情况下跨大型代码库保持上下文。
 
-> **📚 Documentation**: See [Anthropic Provider Guide](/providers/anthropic) for setup and usage instructions.
+> **📚 文档**：请参阅 [Anthropic 提供商指南](/providers/anthropic) 以获取设置和使用说明。
 
-## Configurable API Timeout for Local Providers
+## 本地提供者可配置 API 超时
 
-Local AI providers running large models can now configure custom timeout settings to prevent premature disconnections ([#6531](https://github.com/RooCodeInc/Roo-Code/pull/6531)):
+运行大型模型的本地 AI 提供商现在可以配置自定义超时设置，以防止过早断开连接 ([#6531](https://github.com/RooCodeInc/Roo-Code/pull/6531))：
 
-- **Flexible Timeouts**: Set timeouts from 0 to 3600 seconds (default: 600 seconds)
-- **Provider Support**: Works with LM Studio, Ollama, and OpenAI-compatible providers
+- **灵活超时**：设置 0 到 3600 秒的超时时间（默认：600 秒）
+- **提供商支持**：适用于 LM Studio、Ollama 和兼容 OpenAI 的提供商
 
-Configure in your VSCode settings:
+在 VSCode 设置中配置：
 ```json
 {
-  "roo-cline.apiRequestTimeout": 1200  // 20 minutes for very large models
+  "roo-cline.apiRequestTimeout": 1200  // 针对非常大的模型设置为 20 分钟
 }
 ```
 
-## OpenRouter Minimal Reasoning Support
+## OpenRouter 最低推理支持
 
-OpenRouter now supports minimal reasoning effort for compatible models ([#6998](https://github.com/RooCodeInc/Roo-Code/pull/6998)):
+OpenRouter 现在为兼容模型提供最低推理支持 ([#6998](https://github.com/RooCodeInc/Roo-Code/pull/6998))：
 
-- **New Reasoning Level**: 'Minimal' option available for specific models
-- **UI Updates**: Thinking budget interface shows minimal option when applicable
-- **Optimized Performance**: Better control over reasoning intensity for different tasks
+- **新的推理级别**：特定模型现在提供“最低”选项
+- **UI 更新**：当适用时，思维预算界面会显示最低选项
+- **优化性能**：更好地控制不同任务的推理强度
 
-This addition provides more granular control over model reasoning, allowing you to optimize for speed or depth based on your needs.
+此新增功能提供了对模型推理的更精细控制，使您能够根据需求优化速度或深度。
 
-## QOL Improvements
+## 生活质量改进
 
-* **GPT-5 Model Optimization**: GPT-5 models excluded from 20% context window output token cap for better performance ([#6963](https://github.com/RooCodeInc/Roo-Code/pull/6963))
-* **Task Management**: Added expand/collapse translations for better task organization ([#6962](https://github.com/RooCodeInc/Roo-Code/pull/6962))
-* **Localization**: Improved Traditional Chinese locale with better translations (thanks PeterDaveHello!) ([#6946](https://github.com/RooCodeInc/Roo-Code/pull/6946))
+* **GPT-5 模型优化**：GPT-5 模型不受 20% 上下文窗口输出 token 上限的限制，以获得更好的性能 ([#6963](https://github.com/RooCodeInc/Roo-Code/pull/6963))
+* **任务管理**：添加了展开/折叠翻译，以更好地组织任务 ([#6962](https://github.com/RooCodeInc/Roo-Code/pull/6962))
+* **本地化**：改进了繁体中文语言环境，提供了更好的翻译（感谢 PeterDaveHello!） ([#6946](https://github.com/RooCodeInc/Roo-Code/pull/6946))
 
-## Bug Fixes
+## Bug 修复
 
-* **File Indexing**: JSON files now properly respect .rooignore settings during indexing ([#6691](https://github.com/RooCodeInc/Roo-Code/pull/6691))
-* **Tool Usage**: Fixed tool repetition detector to allow first tool call when limit is 1 ([#6836](https://github.com/RooCodeInc/Roo-Code/pull/6836))
-* **Service Initialization**: Improved checkpoint service initialization handling (thanks NaccOll!) ([#6860](https://github.com/RooCodeInc/Roo-Code/pull/6860))
-* **Browser Compatibility**: Added --no-sandbox flag to browser launch options for better compatibility (thanks QuinsZouls!) ([#6686](https://github.com/RooCodeInc/Roo-Code/pull/6686))
-* **UI Display**: Fixed long model names truncation in model selector to prevent overflow ([#6985](https://github.com/RooCodeInc/Roo-Code/pull/6985))
-* **Error Handling**: Improved bridge config fetch error handling ([#6961](https://github.com/RooCodeInc/Roo-Code/pull/6961))
+* **文件索引**：JSON 文件现在在索引过程中正确遵循 .rooignore 设置 ([#6691](https://github.com/RooCodeInc/Roo-Code/pull/6691))
+* **工具使用**：修复了工具重复检测器，允许在限制为 1 时进行首次工具调用 ([#6836](https://github.com/RooCodeInc/Roo-Code/pull/6836))
+* **服务初始化**：改进了检查点服务初始化处理（感谢 NaccOll!） ([#6860](https://github.com/RooCodeInc/Roo-Code/pull/6860))
+* **浏览器兼容性**：在浏览器启动选项中添加了 --no-sandbox 标志，以提高兼容性（感谢 QuinsZouls!） ([#6686](https://github.com/RooCodeInc/Roo-Code/pull/6686))
+* **UI 显示**：修复了模型选择器中长模型名称的截断问题，以防止溢出 ([#6985](https://github.com/RooCodeInc/Roo-Code/pull/6985))
+* **错误处理**：改进了桥接配置获取错误处理 ([#6961](https://github.com/RooCodeInc/Roo-Code/pull/6961))
 
-## Provider Updates
+## 提供商更新
 
-* **Amazon Bedrock**: Added OpenAI GPT-OSS models to the dropdown selection ([#6783](https://github.com/RooCodeInc/Roo-Code/pull/6783))
-* **Chutes Provider**: Added support for new Chutes provider models ([#6699](https://github.com/RooCodeInc/Roo-Code/pull/6699))
-* **Requesty Integration**: Added Requesty base URL support ([#6992](https://github.com/RooCodeInc/Roo-Code/pull/6992))
-* **Cloud Service**: Updated to versions 0.9.0 and 0.10.0 with improved stability ([#6964](https://github.com/RooCodeInc/Roo-Code/pull/6964), [#6968](https://github.com/RooCodeInc/Roo-Code/pull/6968))
-* **Bridge Service**: Switched to UnifiedBridgeService for better integration ([#6976](https://github.com/RooCodeInc/Roo-Code/pull/6976))
-* **Roomote Control**: Restored roomote control functionality ([#6796](https://github.com/RooCodeInc/Roo-Code/pull/6796))
+* **Amazon Bedrock**：在下拉选择中添加了 OpenAI GPT-OSS 模型 ([#6783](https://github.com/RooCodeInc/Roo-Code/pull/6783))
+* **Chutes 提供商**：添加了对新 Chutes 提供商模型的支持 ([#6699](https://github.com/RooCodeInc/Roo-Code/pull/6699))
+* **Requesty 集成**：添加了 Requesty 基础 URL 支持 ([#6992](https://github.com/RooCodeInc/Roo-Code/pull/6992))
+* **云服务**：更新到 0.9.0 和 0.10.0 版本，提高了稳定性 ([#6964](https://github.com/RooCodeInc/Roo-Code/pull/6964)，[#6968](https://github.com/RooCodeInc/Roo-Code/pull/6968))
+* **桥接服务**：切换到 UnifiedBridgeService 以获得更好的集成 ([#6976](https://github.com/RooCodeInc/Roo-Code/pull/6976))
+* **Roomote 控制**：恢复了 roomote 控制功能 ([#6796](https://github.com/RooCodeInc/Roo-Code/pull/6796))

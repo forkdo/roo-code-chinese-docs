@@ -1,5 +1,5 @@
 ---
-description: 探索 Roo Code 的更多功能，包括建议回复以加快交互速度、文本转语音功能，以及对 18 种语言的支持。
+description: 探索 Roo Code 的其他功能，包括建议回复（可加快交互速度）、文本转语音功能以及对 18 种语言的支持。
 keywords:
   - additional features
   - suggested responses
@@ -8,56 +8,55 @@ keywords:
   - language support
   - multilingual
   - accessibility
-image: /img/social-share.jpg
-sidebar_label: Additional Features
+sidebar_label: 其他功能
 ---
 
 
-# Additional Features
+# 其他功能
 
-本页面介绍 Roo Code 中可增强您开发工作流的更多功能。
-
----
-
-## Suggested Responses
-
-Roo Code 会为您的问题提供建议回复，节省您的输入时间。在您提问后，这些建议会作为按钮显示在聊天输入框下方。点击建议即可快速将其用作您的下一个提示。
-
-此功能旨在通过预测您可能的后续问题，提供一键访问相关提示的功能，从而简化您的工作流程。
+本页面介绍了 Roo Code 中可增强您开发工作流程的其他功能。
 
 ---
 
-## Text to Speech
+## 建议回复
 
-Roo Code 包含文本转语音（TTS）功能，可朗读 AI 回复内容，让您能够聆听信息而非阅读。这对于无障碍访问、学习或单纯想换个方式都很有帮助。
+Roo Code 会针对问题提供建议回复，为您节省打字时间。在您提问后，这些建议会以按钮的形式显示在聊天输入框下方。点击某个建议即可快速将其用作您的下一个提示。
 
-要使用文本转语音功能，只需在 Roo Code 设置中启用该功能。启用后，聊天中每个 AI 回复旁都会显示一个扬声器图标。点击图标即可开始收听。
+此功能旨在通过预测您可能提出的后续问题并提供一键访问相关提示的方式，简化您的工作流程。
 
 ---
 
-## Global Language Support
+## 文本转语音
 
-Roo Code 支持 18 种语言，使其能够服务于全球更广泛的用户群体。您现在可以使用以下语言使用 Roo Code：
+Roo Code 包含文本转语音 (TTS) 功能，可朗读 AI 回复，让您能够收听信息而无需阅读。此功能对于无障碍访问、学习或仅仅是为了换一种方式获取信息都很有帮助。
 
-- English
-- Simplified Chinese
-- Traditional Chinese
-- Spanish
-- Hindi
-- French
-- Portuguese
-- German
-- Japanese
-- Korean
-- Italian
-- Turkish
-- Vietnamese
-- Polish
-- Catalan
-- Russian
-- Dutch
-- Indonesian
+要使用文本转语音功能，只需在 Roo Code 设置中启用它。启用后，聊天中每个 AI 回复旁边都会出现一个扬声器图标。点击该图标即可开始收听。
 
-要更改语言，请前往 Roo Code 设置面板中的 **Advanced Settings > Language**。
+---
 
-此次全球更新确保了世界各地用户都能获得更流畅、更具包容性的编码体验。
+## 全球语言支持
+
+Roo Code 支持 18 种语言，让全球更多用户都能使用它。您现在可以使用以下语言的 Roo Code：
+
+- 英语
+- 简体中文
+- 繁体中文
+- 西班牙语
+- 印地语
+- 法语
+- 葡萄牙语
+- 德语
+- 日语
+- 韩语
+- 意大利语
+- 土耳其语
+- 越南语
+- 波兰语
+- 加泰罗尼亚语
+- 俄语
+- 荷兰语
+- 印度尼西亚语
+
+要更改您的语言，请前往 Roo Code 设置面板中的 **高级设置 > 语言**。
+
+此次全球更新确保了全球用户都能获得更流畅、更具包容性的编码体验。

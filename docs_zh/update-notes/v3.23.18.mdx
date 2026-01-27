@@ -1,25 +1,24 @@
 ---
-description: Bug fixes for todo list toggle, command parsing crashes, and improved error handling.
+description: 修复待办事项列表切换、命令解析崩溃问题，并改进错误处理。
 keywords:
   - roo code 3.23.18
   - bug fixes
   - error handling
   - command parsing
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.23.18 Release Notes (2025-07-23)
+# Roo Code 3.23.18 版本说明 (2025-07-23)
 
-This release fixes critical bugs including todo list toggle functionality, command parsing crashes, and adds better error handling to prevent interface crashes.
+此版本修复了关键错误，包括待办事项列表切换功能、命令解析崩溃问题，并添加了更好的错误处理以防止界面崩溃。
 
-## Bug Fixes
+## Bug 修复
 
-* **Todo List Toggle**: Fixed the todo list toggle in provider advanced settings that wasn't working properly (thanks chrarnoldus!) ([#6103](https://github.com/RooCodeInc/Roo-Code/pull/6103))
+* **待办事项列表切换**：修复了提供商高级设置中无法正常工作的待办事项列表切换功能（感谢 chrarnoldus！）([#6103](https://github.com/RooCodeInc/Roo-Code/pull/6103))
 
-* **Command Parsing**: Fixed crashes when running complex bash commands with special syntax like arithmetic expressions and array variables, allowing users to create advanced GitHub CLI aliases and other sophisticated shell scripts (thanks daniel-lxs, KJ7LNW!) ([#5743](https://github.com/RooCodeInc/Roo-Code/pull/5743))
+* **命令解析**：修复了运行包含特殊语法（如算术表达式和数组变量）的复杂 bash 命令时的崩溃问题，使用户能够创建高级 GitHub CLI 别名和其他复杂的 shell 脚本（感谢 daniel-lxs、KJ7LNW！）([#5743](https://github.com/RooCodeInc/Roo-Code/pull/5743))
 
-* **Error Handling**: Added error boundaries to prevent the entire Roo Code interface from crashing when errors occur. Instead of seeing a blank screen, users now see helpful error messages with debugging information, allowing them to continue using other parts of the extension (thanks KJ7LNW, elianiva!) ([#5085](https://github.com/RooCodeInc/Roo-Code/pull/5085))
+* **错误处理**：添加了错误边界，防止在发生错误时整个 Roo Code 界面崩溃。用户现在可以看到包含调试信息的有用错误消息，而不是空白屏幕，从而可以继续使用扩展的其他部分（感谢 KJ7LNW、elianiva！）([#5085](https://github.com/RooCodeInc/Roo-Code/pull/5085))
 
-## Misc Improvements
+## 其他改进
 
-* **Process Termination**: Roo Code now more reliably terminates unresponsive processes, preventing hanging commands from blocking your workflow ([#6071](https://github.com/RooCodeInc/Roo-Code/pull/6071))
+* **进程终止**：Roo Code 现在能够更可靠地终止无响应的进程，防止挂起的命令阻塞您的工作流程 ([#6071](https://github.com/RooCodeInc/Roo-Code/pull/6071))

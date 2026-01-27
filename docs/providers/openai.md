@@ -11,12 +11,15 @@ keywords:
   - official OpenAI API
   - verbosity
   - reasoning effort
-image: /img/social-share.jpg
 ---
 
 # Using OpenAI With Roo Code
 
 Roo Code supports accessing models directly through the official OpenAI API, including the latest GPT-5 family with advanced features like reasoning effort control and verbosity settings.
+
+:::info Want to use a ChatGPT Plus/Pro subscription instead?
+Use the **OpenAI – ChatGPT Plus/Pro** provider to sign in via OAuth (no API key): [OpenAI – ChatGPT Plus/Pro](/providers/openai-chatgpt-plus-pro).
+:::
 
 **Website:** [https://openai.com/](https://openai.com/)
 

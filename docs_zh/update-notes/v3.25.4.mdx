@@ -1,73 +1,72 @@
 ---
-description: Roo Code 3.25.4 adds Doubao and SambaNova providers, introduces context-aware prompt enhancement, and improves tool functionality.
+description: Roo Code 3.25.4 新增 Doubao 和 SambaNova 提供商，引入上下文感知的提示增强功能，并改进了工具功能。
 keywords:
   - roo code 3.25.4
   - doubao provider
   - sambanova provider
   - task history context
   - prompt enhancement
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.4 Release Notes (2025-07-31)
+# Roo Code 3.25.4 版本说明 (2025-07-31)
 
-This release introduces two new AI providers, enhances prompt suggestions with conversation context, and improves various tool functionalities.
+此版本引入了两个新的 AI 提供商，通过对话上下文增强了提示建议，并改进了各种工具功能。
 
-## Doubao Provider Support
+## Doubao 提供商支持
 
-We've added support for Doubao, ByteDance's AI model provider (thanks AntiMoron!) ([#6345](https://github.com/RooCodeInc/Roo-Code/pull/6345)):
+我们新增了对 Doubao 的支持，这是字节跳动（ByteDance）的 AI 模型提供商（感谢 AntiMoron！）：[#6345](https://github.com/RooCodeInc/Roo-Code/pull/6345)：
 
-- **Access to ByteDance AI Models**: Connect to Doubao's language models for your AI-powered development tasks
-- **Full Integration**: Complete provider implementation with API handling
-- **Easy Configuration**: Simple setup through Roo Code's provider settings with internationalized prompts
+- **访问字节跳动 AI 模型**：连接到 Doubao 的语言模型，用于 AI 驱动的开发任务
+- **完整集成**：完整的提供商实现，包含 API 处理
+- **简单配置**：通过 Roo Code 的提供商设置轻松配置，支持国际化提示
 
-Doubao expands your AI model options, giving you access to ByteDance's competitive language models alongside existing providers.
+Doubao 扩展了您的 AI 模型选项，让您可以在现有提供商之外访问字节跳动具有竞争力的语言模型。
 
-> **📚 Documentation**: See [Doubao Provider Guide](/providers/doubao) for setup instructions and available models.
+> **📚 文档**：请参阅 [Doubao 提供商指南](/providers/doubao) 了解设置说明和可用模型。
 
-## SambaNova Provider Integration
+## SambaNova 提供商集成
 
-We've integrated SambaNova as a new LLM provider (thanks snova-jorgep!) ([#6188](https://github.com/RooCodeInc/Roo-Code/pull/6188)):
+我们将 SambaNova 集成为一个新的 LLM 提供商（感谢 snova-jorgep！）：[#6188](https://github.com/RooCodeInc/Roo-Code/pull/6188)：
 
-- **High-Speed Inference**: Experience competitive inference speeds for faster AI responses
-- **Broader Model Selection**: Access SambaNova's diverse range of language models
-- **Seamless Integration**: Configure and use SambaNova models just like any other provider
+- **高速推理**：体验具有竞争力的推理速度，获得更快的 AI 响应
+- **更广泛的模型选择**：访问 SambaNova 多样化的语言模型系列
+- **无缝集成**：像使用其他任何提供商一样配置和使用 SambaNova 模型
 
-SambaNova brings enterprise-grade AI infrastructure to Roo Code, offering powerful alternatives for your development workflows.
+SambaNova 将企业级 AI 基础设施引入 Roo Code，为您的开发工作流提供强大的替代方案。
 
-> **📚 Documentation**: See [SambaNova Provider Guide](/providers/sambanova) for configuration details.
+> **📚 文档**：请参阅 [SambaNova 提供商指南](/providers/sambanova) 了解配置详情。
 
-## Context-Aware Prompt Enhancement
+## 上下文感知的提示增强
 
-Prompt enhancement now uses your conversation history for better suggestions (thanks liwilliam2021!) ([#6343](https://github.com/RooCodeInc/Roo-Code/pull/6343)):
+提示增强现在会使用您的对话历史记录来提供更相关的建议（感谢 liwilliam2021！）：[#6343](https://github.com/RooCodeInc/Roo-Code/pull/6343)：
 
-- **Smarter Suggestions**: Enhancement considers your last 10 messages to generate more relevant prompts
-- **Reduced Hallucinations**: Context awareness prevents the AI from making unfounded suggestions
-- **Flexible Configuration**: Use a separate API configuration for enhancement operations
-- **Toggle Control**: Enable or disable task history inclusion based on your needs
+- **更智能的建议**：增强功能会考虑您最近的 10 条消息，生成更相关的提示
+- **减少幻觉**：上下文感知可防止 AI 做出无根据的建议
+- **灵活配置**：为增强操作使用单独的 API 配置
+- **切换控制**：根据需要启用或禁用任务历史记录包含
 
-To enable this feature: Settings → Prompts tab → Select "ENHANCE" → Check "Include task history in enhancement" for better context.
+要启用此功能：设置 → 提示选项卡 → 选择“ENHANCE” → 勾选“在增强中包含任务历史记录”以获得更好的上下文。
 
-> **📚 Documentation**: See [Prompt Enhancement Guide](/features/enhance-prompt) for configuration options.
+> **📚 文档**：请参阅 [提示增强指南](/features/enhance-prompt) 了解配置选项。
 
-## QOL Improvements
+## 生活质量改进
 
-* **Task Resumption Message**: Improved LLM instructions by removing misleading message about resuming tasks (thanks KJ7LNW!) ([#5851](https://github.com/RooCodeInc/Roo-Code/pull/5851))
-* **AGENTS.md Support**: Added symlink support for AGENTS.md file loading ([#6326](https://github.com/RooCodeInc/Roo-Code/pull/6326))
-* **Marketplace Updates**: Auto-refresh marketplace data when organization settings change ([#6446](https://github.com/RooCodeInc/Roo-Code/pull/6446))
+* **任务恢复消息**：通过移除关于恢复任务的误导性消息，改进了 LLM 指令（感谢 KJ7LNW！）：[#5851](https://github.com/RooCodeInc/Roo-Code/pull/5851)
+* **AGENTS.md 支持**：为 AGENTS.md 文件加载添加符号链接支持：[#6326](https://github.com/RooCodeInc/Roo-Code/pull/6326)
+* **市场更新**：当组织设置更改时自动刷新市场数据：[#6446](https://github.com/RooCodeInc/Roo-Code/pull/6446)
 
-## Bug Fixes
+## Bug 修复
 
-* **Execute Command Kill Button**: Fixed the kill button functionality for the execute_command tool ([#6457](https://github.com/RooCodeInc/Roo-Code/pull/6457))
-* **Token Counting**: Fixed accuracy issues by extracting text from messages using VSCode LM API (thanks NaccOll!) ([#6424](https://github.com/RooCodeInc/Roo-Code/pull/6424))
+* **执行命令终止按钮**：修复了 execute_command 工具的终止按钮功能：[#6457](https://github.com/RooCodeInc/Roo-Code/pull/6457)
+* **Token 计数**：通过使用 VSCode LM API 从消息中提取文本，修复了准确性问题（感谢 NaccOll！）：[#6424](https://github.com/RooCodeInc/Roo-Code/pull/6424)
 
-## Provider Updates
+## 提供商更新
 
-* **Chutes AI**: Added zai-org/GLM-4.5-FP8 model support ([#6441](https://github.com/RooCodeInc/Roo-Code/pull/6441))
-* **OpenRouter**: Set horizon-alpha model max tokens to 32k ([#6470](https://github.com/RooCodeInc/Roo-Code/pull/6470))
-* **Databricks**: Added support for /invocations endpoints pattern (thanks adambrand!) ([#6317](https://github.com/RooCodeInc/Roo-Code/pull/6317))
+* **Chutes AI**：新增对 zai-org/GLM-4.5-FP8 模型的支持：[#6441](https://github.com/RooCodeInc/Roo-Code/pull/6441)
+* **OpenRouter**：将 horizon-alpha 模型的最大 token 数设置为 32k：[#6470](https://github.com/RooCodeInc/Roo-Code/pull/6470)
+* **Databricks**：新增对 /invocations 端点模式的支持（感谢 adambrand！）：[#6317](https://github.com/RooCodeInc/Roo-Code/pull/6317)
 
-## Misc Improvements
+## 其他改进
 
-* **Navigator Global Error**: Resolved errors by updating mammoth and bluebird dependencies ([#6363](https://github.com/RooCodeInc/Roo-Code/pull/6363))
-* **Nightly Build Fixes**: Resolved marketplace freezing issues with separate changelog ([#6449](https://github.com/RooCodeInc/Roo-Code/pull/6449))
+* **Navigator 全局错误**：通过更新 mammoth 和 bluebird 依赖项解决了错误：[#6363](https://github.com/RooCodeInc/Roo-Code/pull/6363)
+* **Nightly 构建修复**：通过单独的更新日志解决了市场冻结问题：[#6449](https://github.com/RooCodeInc/Roo-Code/pull/6449)

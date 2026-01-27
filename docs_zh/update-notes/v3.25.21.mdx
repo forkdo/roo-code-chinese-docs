@@ -1,66 +1,65 @@
 ---
-description: Vertex AI grounding features, subtask todo lists, and the new Featherless provider.
+description: Vertex AI 接地功能、子任务待办事项列表，以及新的 Featherless 提供商。
 keywords:
   - roo code 3.25.21
   - vertex ai grounding
   - subtask todos
   - featherless provider
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.21 Release Notes (2025-08-22)
+# Roo Code 3.25.21 版本发布说明 (2025-08-22)
 
-This release enables grounding features for Vertex AI, adds subtask todo list support, and includes the new Featherless provider.
+此版本为 Vertex AI 启用了接地功能，增加了子任务待办事项列表支持，并包含了新的 Featherless 提供商。
 
-## Subtask Todo Lists
+## 子任务待办事项列表
 
-Streamline hierarchical task planning with the new optional todo list parameter for subtasks ([#6775](https://github.com/RooCodeInc/Roo-Code/pull/6775)):
+通过为子任务新增可选的待办事项列表参数，简化分层任务规划 ([#6775](https://github.com/RooCodeInc/Roo-Code/pull/6775))：
 
-- **Pass Todo Lists**: Include predefined todo lists when creating subtasks
-- **Maintain Context**: Pass along context to the subtask in the form of a todo list
-- **Optional Enforcement**: The "New Task Require Todos" setting in VS Code can enforce todo lists for all new subtasks if desired
+- **传递待办列表**：创建子任务时包含预定义的待办事项列表
+- **保持上下文**：以待办事项列表的形式将上下文传递给子任务
+- **可选强制执行**：VS Code 中的"新任务需要待办事项"设置可强制要求所有新子任务都包含待办事项列表（如果需要）
 
-<img src="/img/v3.25.21/v3.25.21.png" alt="Subtask todo lists configuration in VS Code settings" width="600" />
+<img src="/img/v3.25.21/v3.25.21.png" alt="VS Code 设置中的子任务待办事项列表配置" width="600" />
 
-This feature works out of the box, and you can optionally configure VS Code settings to require todos for all new tasks.
+此功能开箱即用，您可以选择性地配置 VS Code 设置，要求所有新任务都必须包含待办事项。
 
-> **📚 Documentation**: See [Task Todo List](/features/task-todo-list) for detailed information about todo list management.
+> **📚 文档**：有关待办事项列表管理的详细信息，请参阅[任务待办事项列表](/features/task-todo-list)。
 
-## Vertex AI Grounding Features
+## Vertex AI 接地功能
 
-Vertex AI users can now access powerful grounding capabilities previously exclusive to the Gemini provider (thanks anguslees!) ([#6777](https://github.com/RooCodeInc/Roo-Code/pull/6777)):
+Vertex AI 用户现在可以使用之前仅限 Gemini 提供商使用的强大接地功能（感谢 anguslees！）（[#6777](https://github.com/RooCodeInc/Roo-Code/pull/6777)）：
 
-- **Google Search Grounding**: Get real-time information from web searches directly in your AI responses
-- **URL Context**: Provide specific web pages as context for more accurate, up-to-date responses
-- **Enhanced Accuracy**: Combine AI capabilities with current web information for better results
+- **Google 搜索接地**：在 AI 响应中直接获取来自网络搜索的实时信息
+- **URL 上下文**：提供特定网页作为上下文，以获得更准确、最新的响应
+- **增强准确性**：将 AI 功能与当前网络信息相结合，获得更好的结果
 
-These features bring Vertex AI to feature parity with Gemini for grounding capabilities.
+这些功能使 Vertex AI 在接地功能方面与 Gemini 实现了功能对等。
 
-> **📚 Documentation**: See [Vertex AI Provider](/providers/vertex) for configuration details.
+> **📚 文档**：有关配置详情，请参阅[Vertex AI 提供商](/providers/vertex)。
 
-## Provider Updates
+## 提供商更新
 
-* **Featherless Provider**: Access a wide range of open-source models through the new Featherless AI platform (thanks DarinVerheijke!) ([#7235](https://github.com/RooCodeInc/Roo-Code/pull/7235))
+* **Featherless 提供商**：通过新的 Featherless AI 平台访问广泛的开源模型（感谢 DarinVerheijke！）（[#7235](https://github.com/RooCodeInc/Roo-Code/pull/7235)）
 
-## QOL Improvements
+## 生活质量改进
 
-* **Context Window Error Handling**: Improved error detection and automatic recovery when hitting context limits - the system now detects errors from multiple providers (OpenAI, Anthropic, Cerebras) and automatically truncates context by 25% before retrying (up to 3 attempts) ([#6967](https://github.com/RooCodeInc/Roo-Code/pull/6967))
-* **Marketplace Filter**: New "Show installed only" checkbox to easily view and manage your installed MCPs and modes (thanks semidark!) ([#7007](https://github.com/RooCodeInc/Roo-Code/pull/7007))
-* **DeepSeek Context**: Updated DeepSeek models to support 128k context window ([#7269](https://github.com/RooCodeInc/Roo-Code/pull/7269))
+* **上下文窗口错误处理**：改进了达到上下文限制时的错误检测和自动恢复功能 - 系统现在可以检测来自多个提供商（OpenAI、Anthropic、Cerebras）的错误，并在重试前自动将上下文截断 25%（最多尝试 3 次）（[#6967](https://github.com/RooCodeInc/Roo-Code/pull/6967)）
+* **市场筛选**：新增"仅显示已安装"复选框，轻松查看和管理您已安装的 MCP 和模式（感谢 semidark！）（[#7007](https://github.com/RooCodeInc/Roo-Code/pull/7007)）
+* **DeepSeek 上下文**：更新 DeepSeek 模型以支持 128k 上下文窗口（[#7269](https://github.com/RooCodeInc/Roo-Code/pull/7269)）
 
-## Bug Fixes
+## Bug 修复
 
-* **OpenAI Responses**: Fixed GPT-5 subtask results not being provided correctly in OpenAI Responses API ([#7305](https://github.com/RooCodeInc/Roo-Code/pull/7305))
-* **Temperature Handling**: Fixed temperature parameter issues for OpenAI Compatible providers ([#7188](https://github.com/RooCodeInc/Roo-Code/pull/7188))
-* **Provider Validation**: Added 'roo' provider to key validation function ([#7239](https://github.com/RooCodeInc/Roo-Code/pull/7239))
-* **UI Stability**: Fixed context condense UI crash when handling null/undefined token values ([#6916](https://github.com/RooCodeInc/Roo-Code/pull/6916))
-* **Storage Checks**: Improved filesystem checks for better storage handling (thanks elianiva!) ([#7164](https://github.com/RooCodeInc/Roo-Code/pull/7164))
+* **OpenAI 响应**：修复了 OpenAI Responses API 中 GPT-5 子任务结果提供不正确的问题（[#7305](https://github.com/RooCodeInc/Roo-Code/pull/7305)）
+* **温度处理**：修复了 OpenAI 兼容提供商的温度参数问题（[#7188](https://github.com/RooCodeInc/Roo-Code/pull/7188)）
+* **提供商验证**：在密钥验证函数中添加了 'roo' 提供商（[#7239](https://github.com/RooCodeInc/Roo-Code/pull/7239)）
+* **UI 稳定性**：修复了处理空/未定义令牌值时上下文压缩 UI 崩溃的问题（[#6916](https://github.com/RooCodeInc/Roo-Code/pull/6916)）
+* **存储检查**：改进了文件系统检查，以更好地处理存储（感谢 elianiva！）（[#7164](https://github.com/RooCodeInc/Roo-Code/pull/7164)）
 
-## Misc Improvements
+## 其他改进
 
-* **MDM Authentication**: Clear feedback when authentication is required by your organization's MDM policy ([#7291](https://github.com/RooCodeInc/Roo-Code/pull/7291))
-* **Security Updates**: Updated mermaid dependency to v11.10.0 ([#7231](https://github.com/RooCodeInc/Roo-Code/pull/7231)) and tmp dependency to v0.2.4 ([#6762](https://github.com/RooCodeInc/Roo-Code/pull/6762))
-* **Task Tracking**: Pass task ID in Roo provider request headers ([#7303](https://github.com/RooCodeInc/Roo-Code/pull/7303))
-* **Error Handling**: Removed exceptions from RooHandler constructor ([#7302](https://github.com/RooCodeInc/Roo-Code/pull/7302))
-* **Cloud Services**: Various internal improvements for cloud services ([#7299](https://github.com/RooCodeInc/Roo-Code/pull/7299), [#7258](https://github.com/RooCodeInc/Roo-Code/pull/7258))
-* **Build Optimization**: Marked non-English package files as linguist-generated ([#7271](https://github.com/RooCodeInc/Roo-Code/pull/7271))
+* **MDM 认证**：当组织的 MDM 策略要求认证时提供清晰的反馈（[#7291](https://github.com/RooCodeInc/Roo-Code/pull/7291)）
+* **安全更新**：将 mermaid 依赖项更新至 v11.10.0（[#7231](https://github.com/RooCodeInc/Roo-Code/pull/7231)），将 tmp 依赖项更新至 v0.2.4（[#6762](https://github.com/RooCodeInc/Roo-Code/pull/6762)）
+* **任务跟踪**：在 Roo 提供商请求头中传递任务 ID（[#7303](https://github.com/RooCodeInc/Roo-Code/pull/7303)）
+* **错误处理**：从 RooHandler 构造函数中移除了异常（[#7302](https://github.com/RooCodeInc/Roo-Code/pull/7302)）
+* **云服务**：云服务的各种内部改进（[#7299](https://github.com/RooCodeInc/Roo-Code/pull/7299)，[#7258](https://github.com/RooCodeInc/Roo-Code/pull/7258)）
+* **构建优化**：将非英语包文件标记为 linguist 生成（[#7271](https://github.com/RooCodeInc/Roo-Code/pull/7271)）

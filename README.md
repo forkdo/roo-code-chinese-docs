@@ -4,78 +4,84 @@
 
 ## 项目流程
 
-### 1. 拉取上游文档
+### 首次使用
 1. 创建空分支
 ```bash
 git switch --orphan docs
 ```
 
-2. 创建 `README.md`
+2. 首次提交
 ```bash
-cat > README.md <<EOF
-# 中文文档
-
-本文档使用 AI 翻译
-EOF
-```
-
-3. 首次提交
-```bash
-git add .
+git add README.md
 git commit -am init
 git push origin docs
 ```
 
-4. 设置上游仓库
+3. 拉取上游源码
 ```bash
-# GitHub fork Codespaces 方式已自动设置
-git remote add upstream https://github.com/RooCodeInc/Roo-Code-Docs.git
+mkdir -p docsite
+pushd docsite
+if [[ -d .git ]]; then
+    git remote set-url upstream https://github.com/RooCodeInc/Roo-Code-Docs.git
+else
+    git init
+    git remote add upstream https://github.com/RooCodeInc/Roo-Code-Docs.git
+fi
+git reset --hard
 git fetch upstream main
-git checkout upstream/main -- docs
+git merge upstream/main
+git rev-parse --short HEAD > ../commit.txt
+popd
 ```
 
-5. 增量翻译
+4. 复制源文档
 ```bash
-git diff docs/
+rm -rf docs
+cp -r docsite/docs .
 ```
 
-6. 本地测试
+5. 全量翻译
+```bash
+aitr
+```
+
+6. 本地测试与构建
 ```bash
 git clone https://github.com/RooCodeInc/Roo-Code-Docs.git docsite
-cp -r docs_zh/* ./docsite/docs/
-
+cp -r docs_zh/* ./docsite/docs
 cd docsite
+```
+
+8. 启动或构建
+```bash
 npm install
 npm start
 
 # 构建
 npm run build
+...
 ```
 
-### 2. 安装 AI 助手
-1. 安装 CLI 工具 （增量更新直接使用 AI CLI 工具直接对比）
+### 2. AI 翻译
+- 安装 [**CLI**](https://git.jetsung.com/jetsung/ai-translator) 工具 （增量更新直接使用 AI CLI 工具直接对比）
 ```bash
-# npm install -g npm
-npm install -g @google/gemini-cli
-npm install -g @qwen-code/qwen-code
+curl -L https://fx4.cn/aitr | bash
 ```
 
-2. 设置环境变量 `.env`
+1. 设置环境变量 [`config.toml`](config.example.toml)
 ```bash
-API_KEY=
-MODEL=
-API_URL=https://openrouter.ai/api/v1/chat/completions
-
-ROOT_DIR=./docs
-EXCLUDE_DIR=update-notes
-OUTPUT_MODE=new_folder
+...
+[[providers]]
+enabled = true
+name = "grok"
+api_key = "xxx"
+base_url = "https://api.x.ai/v1"
+model = "grok-3"
+concurrency = 1 # 线程数
+rate_delay = 3.0 # 每个请求后等待 1.0 秒（可根据限流调整）
 ```
 
-3. AI 翻译
-
-## 文档管理器
-- [Docusaurus](https://docusaurus.io/zh-CN/) （已内置）
+2. AI 翻译
 ```bash
-npm install
-npm run build
+aitr
 ```

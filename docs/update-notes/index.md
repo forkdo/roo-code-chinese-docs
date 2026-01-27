@@ -9,7 +9,6 @@ keywords:
   - bug fixes
   - improvements
   - roo code versions
-image: /img/social-share.jpg
 ---
 
 # Extension Release Notes
@@ -22,8 +21,69 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
+### Version 3.43
+
+*   [3.43.0](/update-notes/v3.43.0) (2026-01-23)
+
+---
+### Version 3.42
+
+*   [3.42.0](/update-notes/v3.42.0) (2026-01-22)
+
+---
+### Version 3.41
+
+*   [3.41.2](/update-notes/v3.41.2) (2026-01-16)
+*   [3.41.1](/update-notes/v3.41.1) (2026-01-16)
+*   [3.41.0](/update-notes/v3.41.0) (2026-01-15)
+
+---
+
+### Version 3.40
+
+*   [3.40](/update-notes/v3.40) (Combined)
+*   [3.40.1](/update-notes/v3.40.1) (2026-01-14)
+*   [3.40.0](/update-notes/v3.40.0) (2026-01-13)
+
+---
+
+### Version 3.39
+
+*   [3.39](/update-notes/v3.39) (Combined)
+*   [3.39.3](/update-notes/v3.39.3) (2026-01-10)
+*   [3.39.2](/update-notes/v3.39.2) (2026-01-09)
+*   [3.39.1](/update-notes/v3.39.1) (2026-01-08)
+*   [3.39.0](/update-notes/v3.39.0) (2026-01-08)
+
+---
+
+### Version 3.38
+
+*   [3.38](/update-notes/v3.38) (Combined)
+*   [3.38.3](/update-notes/v3.38.3) (2026-01-03)
+*   [3.38.2](/update-notes/v3.38.2) (2025-12-31)
+*   [3.38.1](/update-notes/v3.38.1) (2025-12-29)
+*   [3.38.0](/update-notes/v3.38.0) (2025-12-27)
+
+---
+
+### Version 3.37
+
+*   [3.37](/update-notes/v3.37) (2025-12-22)
+*   [3.37.0](/update-notes/v3.37.0) (2025-12-22)
+*   [3.37.1](/update-notes/v3.37.1) (2025-12-23)
+
+---
+
 ### Version 3.36
 
+*   [3.36.16](/update-notes/v3.36.16) (2025-12-19)
+*   [3.36.15](/update-notes/v3.36.15) (2025-12-19)
+*   [3.36.14](/update-notes/v3.36.14) (2025-12-18)
+*   [3.36.13](/update-notes/v3.36.13) (2025-12-18)
+*   [3.36.12](/update-notes/v3.36.12) (2025-12-18)
+*   [3.36.11](/update-notes/v3.36.11) (2025-12-17)
+*   [3.36.10](/update-notes/v3.36.10) (2025-12-17)
 *   [3.36.9](/update-notes/v3.36.9) (2025-12-16)
 *   [3.36.7](/update-notes/v3.36.7) (2025-12-15)
 *   [3.36.6](/update-notes/v3.36.6) (2025-12-12)

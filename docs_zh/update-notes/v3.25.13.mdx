@@ -1,31 +1,30 @@
 ---
-description: Adds Sonnet 1M context support for AWS Bedrock, improves internationalization, and fixes search functionality.
+description: 为 AWS Bedrock 添加 Sonnet 1M 上下文支持，改进国际化，并修复搜索功能。
 keywords:
   - roo code 3.25.13
   - sonnet 1m context
   - aws bedrock
   - internationalization
   - agent.md support
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.13 Release Notes (2025-08-13)
+# Roo Code 3.25.13 发布说明 (2025-08-13)
 
-This release adds Sonnet 1M context support for AWS Bedrock, improves internationalization, and fixes search functionality.
+此版本为 AWS Bedrock 添加 Sonnet 1M 上下文支持，改进国际化，并修复搜索功能。
 
-## Features
+## 功能
 
-* **Sonnet 1M Context Support**: Enable 1M token context window for Claude Sonnet 4 when using AWS Bedrock, allowing you to process much larger documents and have longer conversations ([#7032](https://github.com/RooCodeInc/Roo-Code/pull/7032))
+* **Sonnet 1M 上下文支持**: 在使用 AWS Bedrock 时为 Claude Sonnet 4 启用 1M token 上下文窗口，允许您处理更大的文档并进行更长的对话 ([#7032](https://github.com/RooCodeInc/Roo-Code/pull/7032))
 
-## QOL Improvements
+## 生活质量改进
 
-* **Internationalization**: The Account button now displays in your selected language instead of always showing in English (thanks zhangtony239!) ([#6978](https://github.com/RooCodeInc/Roo-Code/pull/6978))
-* **Agent File Flexibility**: Roo Code now recognizes both AGENT.md and AGENTS.md files for agent rules, with AGENTS.md checked first for compatibility (thanks Brendan-Z!) ([#6913](https://github.com/RooCodeInc/Roo-Code/pull/6913))
+* **国际化**: 账户按钮现在以您选择的语言显示，而不是始终显示英文（感谢 zhangtony239！）([#6978](https://github.com/RooCodeInc/Roo-Code/pull/6978))
+* **Agent 文件灵活性**: Roo Code 现在识别 AGENT.md 和 AGENTS.md 文件用于 agent 规则，优先检查 AGENTS.md 以保持兼容性（感谢 Brendan-Z！）([#6913](https://github.com/RooCodeInc/Roo-Code/pull/6913))
 
-## Bug Fixes
+## 错误修复
 
-* **Search Tool Reliability**: Fixed the search_files tool failing when encountering permission-denied files - it now continues working and returns results from accessible files (thanks R-omk!) ([#6757](https://github.com/RooCodeInc/Roo-Code/pull/6757))
+* **搜索工具可靠性**: 修复了 search_files 工具在遇到权限被拒绝的文件时失败的问题 - 现在它会继续工作并返回可访问文件的结果（感谢 R-omk！）([#6757](https://github.com/RooCodeInc/Roo-Code/pull/6757))
 
-## Provider Updates
+## 提供商更新
 
-* **OpenAI**: Removed the deprecated GPT-4.5 Preview model from available options as it was removed from the OpenAI API (thanks PeterDaveHello!) ([#6948](https://github.com/RooCodeInc/Roo-Code/pull/6948))
+* **OpenAI**: 从可用选项中移除了已弃用的 GPT-4.5 Preview 模型，因为它已从 OpenAI API 中移除（感谢 PeterDaveHello！）([#6948](https://github.com/RooCodeInc/Roo-Code/pull/6948))

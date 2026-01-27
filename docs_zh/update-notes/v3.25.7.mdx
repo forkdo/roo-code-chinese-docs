@@ -1,5 +1,5 @@
 ---
-description: Three new AI providers join Roo Code - Claude Opus 4.1, Z AI, and Fireworks AI - plus quality of life improvements and bug fixes.
+description: 三位新的 AI 提供商加入 Roo Code - Claude Opus 4.1、Z AI 和 Fireworks AI - 以及生活质量改进和错误修复。
 keywords:
   - roo code 3.25.7
   - claude opus 4.1
@@ -7,62 +7,61 @@ keywords:
   - fireworks ai
   - multi-folder workspace
   - checkpoint improvements
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.7 Release Notes (2025-08-05)
+# Roo Code 3.25.7 版本说明 (2025-08-05)
 
-This release introduces Groq's GPT-OSS models, adds support for Claude Opus 4.1, brings two new AI providers (Z AI and Fireworks AI), and includes numerous quality of life improvements.
+此版本引入了 Groq 的 GPT-OSS 模型，增加了对 Claude Opus 4.1 的支持，带来了两个新的 AI 提供商（Z AI 和 Fireworks AI），并包含了许多生活质量改进。
 
-## Groq GPT-OSS Models
+## Groq GPT-OSS 模型
 
-Groq now offers OpenAI's GPT-OSS models with impressive capabilities ([#6732](https://github.com/RooCodeInc/Roo-Code/pull/6732)):
+Groq 现在提供 OpenAI 的 GPT-OSS 模型，具有令人印象深刻的功能 ([#6732](https://github.com/RooCodeInc/Roo-Code/pull/6732))：
 
-- **GPT-OSS-120b and GPT-OSS-20b**: Mixture of Experts models with 131K context windows
-- **High Performance**: Optimized for fast inference on Groq's infrastructure
+- **GPT-OSS-120b 和 GPT-OSS-20b**：具有 131K 上下文窗口的专家混合模型
+- **高性能**：针对 Groq 基础设施上的快速推理进行了优化
 
-These models bring powerful open-source alternatives to Groq's already impressive lineup.
+这些模型为 Groq 已有的令人印象深刻的阵容带来了强大的开源替代方案。
 
-## Z AI Provider
+## Z AI 提供商
 
-Z AI (formerly Zhipu AI) is now available as a provider (thanks jues!) ([#6657](https://github.com/RooCodeInc/Roo-Code/pull/6657)):
+Z AI（前身为 Zhipu AI）现已作为提供商提供（感谢 jues！） ([#6657](https://github.com/RooCodeInc/Roo-Code/pull/6657))：
 
-- **GLM-4.5 Series Models**: Access to GLM-4.5 and GLM-4.5-Air models
-- **Dual Regional Support**: Choose between international and mainland China endpoints
-- **Flexible Configuration**: Easy API key setup with regional selection
+- **GLM-4.5 系列模型**：可访问 GLM-4.5 和 GLM-4.5-Air 模型
+- **双区域支持**：在国际和中国大陆端点之间选择
+- **灵活配置**：通过区域选择轻松设置 API 密钥
 
-> **📚 Documentation**: See [Z AI Provider Guide](/providers/zai) for setup instructions.
+> **📚 文档**：请参阅 [Z AI 提供商指南](/providers/zai) 了解设置说明。
 
-## Claude Opus 4.1 Support
+## Claude Opus 4.1 支持
 
-We've added support for the new Claude Opus 4.1 model across multiple providers ([#6728](https://github.com/RooCodeInc/Roo-Code/pull/6728)):
+我们已在多个提供商中增加了对新 Claude Opus 4.1 模型的支持 ([#6728](https://github.com/RooCodeInc/Roo-Code/pull/6728))：
 
-- **Available Providers**: Anthropic, Claude Code, Bedrock, Vertex AI, and LiteLLM
-- **Enhanced Capabilities**: 8192 max tokens, reasoning budget support, and prompt caching
-- **Pricing**: $15/M input, $75/M output, $18.75/M cache writes, $1.5/M cache reads
+- **可用提供商**：Anthropic、Claude Code、Bedrock、Vertex AI 和 LiteLLM
+- **增强功能**：8192 最大令牌、推理预算支持和提示缓存
+- **定价**：$15/M 输入，$75/M 输出，$18.75/M 缓存写入，$1.5/M 缓存读取
 
-Note: OpenRouter support for Claude Opus 4.1 is not yet available.
+注意：OpenRouter 对 Claude Opus 4.1 的支持尚不可用。
 
-## QOL Improvements
+## 生活质量改进
 
-* **Multi-Folder Workspace Support**: Code indexing now works correctly across all folders in multi-folder workspaces (thanks NaccOll!) ([#6204](https://github.com/RooCodeInc/Roo-Code/pull/6204)) - [Learn more](/features/codebase-indexing)
-* **Checkpoint Timing**: Checkpoints now save before file changes are made, allowing easy undo of unwanted modifications (thanks NaccOll!) ([#6359](https://github.com/RooCodeInc/Roo-Code/pull/6359)) - [Learn more](/features/checkpoints)
-* **Redesigned Task Header**: Cleaner, more intuitive interface with improved visual hierarchy (thanks brunobergher!) ([#6561](https://github.com/RooCodeInc/Roo-Code/pull/6561))
-* **Consistent Checkpoint Terminology**: Removed "Initial Checkpoint" terminology for better consistency ([#6643](https://github.com/RooCodeInc/Roo-Code/pull/6643))
-* **Responsive Mode Dropdowns**: Mode selection dropdowns now resize properly with the window (thanks AyazKaan!) ([#6422](https://github.com/RooCodeInc/Roo-Code/pull/6422))
-* **Performance Boost**: Significantly improved performance when processing long AI responses (thanks qdaxb!) ([#5341](https://github.com/RooCodeInc/Roo-Code/pull/5341))
-* **Cleaner Command Approval UI**: Simplified interface shows only unique command patterns ([#6623](https://github.com/RooCodeInc/Roo-Code/pull/6623))
-* **Smart Todo List Reminder**: Todo list reminder now respects configuration settings (thanks NaccOll!) ([#6411](https://github.com/RooCodeInc/Roo-Code/pull/6411)) - [Learn more](/features/task-todo-list)
-* **Cleaner Task History**: Improved task history display showing more content (3 lines), up to 5 tasks in preview, and simplified footer ([#6687](https://github.com/RooCodeInc/Roo-Code/pull/6687))
-* **Internal Architecture**: Improved event handling for better extensibility ([#6606](https://github.com/RooCodeInc/Roo-Code/pull/6606))
+* **多文件夹工作区支持**：代码索引现在在多文件夹工作区中的所有文件夹中都能正确工作（感谢 NaccOll！） ([#6204](https://github.com/RooCodeInc/Roo-Code/pull/6204)) - [了解更多](/features/codebase-indexing)
+* **检查点时机**：检查点现在在文件更改之前保存，允许轻松撤销不需要的修改（感谢 NaccOll！） ([#6359](https://github.com/RooCodeInc/Roo-Code/pull/6359)) - [了解更多](/features/checkpoints)
+* **重新设计的任务标题**：更简洁、更直观的界面，具有改进的视觉层次结构（感谢 brunobergher！） ([#6561](https://github.com/RooCodeInc/Roo-Code/pull/6561))
+* **一致的检查点术语**：移除了“初始检查点”术语以提高一致性 ([#6643](https://github.com/RooCodeInc/Roo-Code/pull/6643))
+* **响应式模式下拉菜单**：模式选择下拉菜单现在可以随窗口正确调整大小（感谢 AyazKaan！） ([#6422](https://github.com/RooCodeInc/Roo-Code/pull/6422))
+* **性能提升**：处理长 AI 响应时的性能显著提高（感谢 qdaxb！） ([#5341](https://github.com/RooCodeInc/Roo-Code/pull/5341))
+* **更简洁的命令批准 UI**：简化界面仅显示唯一的命令模式 ([#6623](https://github.com/RooCodeInc/Roo-Code/pull/6623))
+* **智能待办事项列表提醒**：待办事项列表提醒现在尊重配置设置（感谢 NaccOll！） ([#6411](https://github.com/RooCodeInc/Roo-Code/pull/6411)) - [了解更多](/features/task-todo-list)
+* **更简洁的任务历史记录**：改进的任务历史记录显示，显示更多内容（3 行），预览中最多 5 个任务，以及简化的页脚 ([#6687](https://github.com/RooCodeInc/Roo-Code/pull/6687))
+* **内部架构**：改进的事件处理以增强可扩展性 ([#6606](https://github.com/RooCodeInc/Roo-Code/pull/6606))
 
-## Provider Updates
+## 提供商更新
 
-* **Fireworks AI Provider**: New provider offering hosted versions of popular open-source models like Kimi and Qwen (thanks ershang-fireworks!) ([#6652](https://github.com/RooCodeInc/Roo-Code/pull/6652))
-* **Cerebras GPT-OSS-120b**: Added OpenAI's GPT-OSS-120b model to Cerebras provider - free to use with 64K context and ~2800 tokens/sec ([#6734](https://github.com/RooCodeInc/Roo-Code/pull/6734))
+* **Fireworks AI 提供商**：新提供商提供流行的开源模型（如 Kimi 和 Qwen）的托管版本（感谢 ershang-fireworks！） ([#6652](https://github.com/RooCodeInc/Roo-Code/pull/6652))
+* **Cerebras GPT-OSS-120b**：在 Cerebras 提供商中添加了 OpenAI 的 GPT-OSS-120b 模型 - 免费使用，具有 64K 上下文和约 2800 令牌/秒 ([#6734](https://github.com/RooCodeInc/Roo-Code/pull/6734))
 
-## Bug Fixes
+## 错误修复
 
-* **Mode Name Validation**: Prevents empty mode names from causing YAML parsing errors (thanks kfxmvp!) ([#5767](https://github.com/RooCodeInc/Roo-Code/pull/5767))
-* **Text Highlight Alignment**: Fixed misalignment in chat input area highlights (thanks NaccOll!) ([#6648](https://github.com/RooCodeInc/Roo-Code/pull/6648))
-* **MCP Server Setting**: Properly respects the "Enable MCP Server Creation" setting (thanks characharm!) ([#6613](https://github.com/RooCodeInc/Roo-Code/pull/6613))
+* **模式名称验证**：防止空模式名称导致 YAML 解析错误（感谢 kfxmvp！） ([#5767](https://github.com/RooCodeInc/Roo-Code/pull/5767))
+* **文本高亮对齐**：修复了聊天输入区域高亮中的对齐错误（感谢 NaccOll！） ([#6648](https://github.com/RooCodeInc/Roo-Code/pull/6648))
+* **MCP 服务器设置**：正确尊重“启用 MCP 服务器创建”设置（感谢 characharm！） ([#6613](https://github.com/RooCodeInc/Roo-Code/pull/6613))

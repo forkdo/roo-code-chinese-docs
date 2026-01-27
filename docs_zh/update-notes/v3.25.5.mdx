@@ -1,5 +1,5 @@
 ---
-description: Roo Code 3.25.5 adds Cerebras AI provider support with Qwen 3 Coder models, introduces auto-approved cost limits for budget control, and fixes VB.NET indexing along with several other improvements.
+description: Roo Code 3.25.5 新增 Cerebras AI 提供商支持（集成 Qwen 3 Coder 模型），引入自动审批成本限制功能以更好地控制预算，并修复了 VB.NET 索引以及其他多项改进。
 keywords:
   - roo code 3.25.5
   - cerebras provider
@@ -7,55 +7,54 @@ keywords:
   - cost limits
   - vb.net indexing
   - bug fixes
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.5 Release Notes (2025-08-01)
+# Roo Code 3.25.5 版本发布说明 (2025-08-01)
 
-This release adds Cerebras AI provider support with powerful Qwen 3 Coder models, introduces auto-approved cost limits for better budget control, and includes important bug fixes for VB.NET indexing and message handling.
+此版本新增 Cerebras AI 提供商支持（集成强大的 Qwen 3 Coder 模型），引入自动审批成本限制功能以更好地控制预算，并包含针对 VB.NET 索引和消息处理的重要错误修复。
 
-## Cerebras Provider Support
+## Cerebras 提供商支持
 
-We've added support for Cerebras as a new AI provider (thanks kevint-cerebras!) ([#6392](https://github.com/RooCodeInc/Roo-Code/pull/6392), [#6562](https://github.com/RooCodeInc/Roo-Code/pull/6562)):
+我们新增了对 Cerebras 作为 AI 提供商的支持（感谢 kevint-cerebras！）（[#6392](https://github.com/RooCodeInc/Roo-Code/pull/6392)，[#6562](https://github.com/RooCodeInc/Roo-Code/pull/6562)）：
 
-- **Qwen 3 Coder Models**: Access to Qwen 3 Coder with both free and paid tier options
-- **Multiple Model Variants**: Includes Llama 3.3 70B and various Qwen 3 configurations (32B, 235B)
-- **Automatic Thinking Token Filtering**: Cerebras reasoning models automatically filter thinking tokens for cleaner output
+- **Qwen 3 Coder 模型**：可访问 Qwen 3 Coder，提供免费和付费层级选项
+- **多种模型变体**：包括 Llama 3.3 70B 以及各种 Qwen 3 配置（32B、235B）
+- **自动思维令牌过滤**：Cerebras 推理模型会自动过滤思维令牌，使输出更清晰
 
-The Cerebras provider offers competitive performance with flexible pricing tiers, making it an excellent choice for both experimentation and production use.
+Cerebras 提供商提供具有竞争力的性能，并具备灵活的定价层级，是实验和生产环境的绝佳选择。
 
-> **📚 Documentation**: See [Cerebras Provider Guide](/providers/cerebras) for setup instructions and available models.
+> **📚 文档**：请参阅 [Cerebras 提供商指南](/providers/cerebras) 获取设置说明和可用模型信息。
 
-## Auto-approved Cost Limits
+## 自动审批成本限制
 
-We've introduced a new cost control feature in the auto-approve settings to help manage API spending (thanks hassoncs!) ([#6484](https://github.com/RooCodeInc/Roo-Code/pull/6484)):
+我们在自动审批设置中引入了一项新的成本控制功能，以帮助管理 API 支出（感谢 hassoncs！）（[#6484](https://github.com/RooCodeInc/Roo-Code/pull/6484)）：
 
-- **Budget Protection**: Set a maximum cost limit in your auto-approve settings to control total API spending
-- **Automatic Prompting**: Roo Code will prompt for approval when approaching your cost limit
-- **Complements Request Limits**: Works alongside existing request count limits for comprehensive control
+- **预算保护**：在自动审批设置中设置最大成本限制，以控制总 API 支出
+- **自动提示**：当接近成本限制时，Roo Code 将提示您进行审批
+- **补充请求限制**：与现有的请求计数限制协同工作，实现全面控制
 
-<img src="/img/v3.25.5/v3.25.5.png" alt="Auto-approve settings showing the new Max Cost field" width="400" />
+<img src="/img/v3.25.5/v3.25.5.png" alt="显示新增“最大成本”字段的自动审批设置" width="400" />
 
-This feature provides peace of mind when using expensive models or running long sessions, ensuring you stay within budget. You can find this new "Max Cost" setting alongside the existing "Max Count" in the auto-approve configuration panel.
+此功能在使用昂贵模型或运行长时间会话时提供安心保障，确保您始终在预算范围内。您可以在自动审批配置面板中找到这个新的“最大成本”设置，它与现有的“最大计数”设置并列显示。
 
-## QOL Improvements
+## 生活质量改进
 
-* **Auto-approve UI**: Cleaner and more streamlined interface with improved localization ([#6538](https://github.com/RooCodeInc/Roo-Code/pull/6538))
+* **自动审批 UI**：界面更简洁、更流畅，本地化支持得到改进 ([#6538](https://github.com/RooCodeInc/Roo-Code/pull/6538))
 ![alt text](../../static/img/v3.25.5/v3.25.5-1.png)
-* **Command Validation**: Better handling of background execution (`&`) and subshell patterns like `(cmd1; cmd2)` ([#6486](https://github.com/RooCodeInc/Roo-Code/pull/6486))
+* **命令验证**：更好地处理后台执行 (`&`) 和子 shell 模式（如 `(cmd1; cmd2)`） ([#6486](https://github.com/RooCodeInc/Roo-Code/pull/6486))
 
-## Bug Fixes
+## Bug 修复
 
-* **VB.NET Indexing**: Files are now properly indexed in large monorepos using fallback chunking (thanks JensvanZutphen!) ([#6552](https://github.com/RooCodeInc/Roo-Code/pull/6552))
-* **Message Sending**: Restored functionality when clicking the save button ([#6487](https://github.com/RooCodeInc/Roo-Code/pull/6487))
-* **Search/Replace Tolerance**: More forgiving of AI-generated diffs with extra `>` characters ([#6537](https://github.com/RooCodeInc/Roo-Code/pull/6537))
-* **Qdrant Deletion**: Gracefully handles deletion errors to prevent indexing interruption ([#6296](https://github.com/RooCodeInc/Roo-Code/pull/6296))
-* **LM Studio Context Length**: Models now correctly display their actual context length instead of "1" (thanks pwilkin, Angular-Angel!) ([#6183](https://github.com/RooCodeInc/Roo-Code/pull/6183))
-* **Claude Code Errors**: ENOENT errors now show helpful installation guidance (thanks JamieJ1!) ([#5867](https://github.com/RooCodeInc/Roo-Code/pull/5867))
+* **VB.NET 索引**：现在使用回退分块技术在大型单体仓库中正确索引文件（感谢 JensvanZutphen！）（[#6552](https://github.com/RooCodeInc/Roo-Code/pull/6552)）
+* **消息发送**：恢复点击保存按钮时的功能 ([#6487](https://github.com/RooCodeInc/Roo-Code/pull/6487))
+* **搜索/替换容错**：对 AI 生成的差异中额外的 `>` 字符更加宽容 ([#6537](https://github.com/RooCodeInc/Roo-Code/pull/6537))
+* **Qdrant 删除**：优雅处理删除错误，防止索引中断 ([#6296](https://github.com/RooCodeInc/Roo-Code/pull/6296))
+* **LM Studio 上下文长度**：模型现在正确显示其实际上下文长度，而不是显示“1”（感谢 pwilkin、Angular-Angel！）（[#6183](https://github.com/RooCodeInc/Roo-Code/pull/6183)）
+* **Claude Code 错误**：ENOENT 错误现在显示有用的安装指导（感谢 JamieJ1！）（[#5867](https://github.com/RooCodeInc/Roo-Code/pull/5867)）
 
-## Misc Improvements
+## 其他改进
 
-* **Slash Command Interpolation**: Skip interpolation for non-existent commands ([#6475](https://github.com/RooCodeInc/Roo-Code/pull/6475))
-* **Linter Coverage**: Applied to locale README files (thanks liwilliam2021!) ([#6477](https://github.com/RooCodeInc/Roo-Code/pull/6477))
-* **Cloud Service Events**: Migrated from callbacks to event-based architecture ([#6519](https://github.com/RooCodeInc/Roo-Code/pull/6519))
-* **Website Updates**: Phase 1 improvements (thanks thill2323!) ([#6085](https://github.com/RooCodeInc/Roo-Code/pull/6085))
+* **斜杠命令插值**：跳过对不存在命令的插值 ([#6475](https://github.com/RooCodeInc/Roo-Code/pull/6475))
+* **Linter 覆盖范围**：应用于本地化 README 文件（感谢 liwilliam2021！）（[#6477](https://github.com/RooCodeInc/Roo-Code/pull/6477)）
+* **云服务事件**：从回调迁移到基于事件的架构 ([#6519](https://github.com/RooCodeInc/Roo-Code/pull/6519))
+* **网站更新**：第一阶段改进（感谢 thill2323！）（[#6085](https://github.com/RooCodeInc/Roo-Code/pull/6085)）

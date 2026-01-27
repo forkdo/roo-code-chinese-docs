@@ -1,71 +1,70 @@
 ---
-description: Roo Code 3.24.0 introduces Hugging Face provider support, Agent Rules standard, terminal command permissions UI, and diagnostic message controls.
+description: Roo Code 3.24.0 引入了 Hugging Face 提供商支持、Agent Rules 标准、终端命令权限 UI 以及诊断消息控制功能。
 keywords:
   - roo code 3.24.0
   - hugging face provider
   - agent rules standard
   - terminal permissions
   - diagnostic controls
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.24.0 Release Notes (2025-07-26)
+# Roo Code 3.24.0 版本说明 (2025-07-26)
 
-This release introduces Hugging Face provider with open source model support, cross-tool AI coding standards, enhanced terminal security controls, and improved diagnostic management.
+此版本引入了 Hugging Face 提供商（支持开源模型）、跨工具 AI 编码标准、增强的终端安全控制以及改进的诊断管理功能。
 
-## Terminal Command Permissions UI
+## 终端命令权限 UI
 
-Managing terminal command permissions is now easier with our new interactive UI (thanks hannesrudolph!) ([#5798](https://github.com/RooCodeInc/Roo-Code/pull/5798)):
+通过全新的交互式 UI，现在可以更轻松地管理终端命令权限（感谢 hannesrudolph！）（[#5798](https://github.com/RooCodeInc/Roo-Code/pull/5798)）：
 
-- **Visual Management**: See and manage command patterns directly in the chat interface
-- **Pattern Suggestions**: Get intelligent pattern recommendations based on commands
-- **Toggle Controls**: Easily switch between allowed and denied states for command patterns
+- **可视化管控**：直接在聊天界面中查看和管理命令模式
+- **模式建议**：根据命令获取智能模式推荐
+- **切换控制**：轻松切换命令模式的允许/拒绝状态
 
-## Hugging Face Provider
+## Hugging Face 提供商
 
-We've added support for Hugging Face as a new provider, bringing access to thousands of open source models (thanks TGlide, daniel-lxs!) ([#6134](https://github.com/RooCodeInc/Roo-Code/pull/6134), [#6190](https://github.com/RooCodeInc/Roo-Code/pull/6190), [#6228](https://github.com/RooCodeInc/Roo-Code/pull/6228), [#6236](https://github.com/RooCodeInc/Roo-Code/pull/6236)):
+我们新增了 Hugging Face 作为提供商支持，可直接访问数千个开源模型（感谢 TGlide、daniel-lxs！）（[#6134](https://github.com/RooCodeInc/Roo-Code/pull/6134)、[#6190](https://github.com/RooCodeInc/Roo-Code/pull/6190)、[#6228](https://github.com/RooCodeInc/Roo-Code/pull/6228)、[#6236](https://github.com/RooCodeInc/Roo-Code/pull/6236)）：
 
-- **Open Source Models**: Access a vast library of community models directly from Hugging Face
-- **Flexible Integration**: Use models hosted on Hugging Face's infrastructure
-- **Easy Configuration**: Simple setup process to get started with your preferred models and providers
+- **开源模型**：直接访问 Hugging Face 上庞大的社区模型库
+- **灵活集成**：使用托管在 Hugging Face 基础设施上的模型
+- **简易配置**：简单的设置流程，快速开始使用您偏好的模型和提供商
 
-This opens up Roo Code to the entire Hugging Face ecosystem of open source AI models. See our [Hugging Face provider documentation](/providers/huggingface) for setup instructions.
+这为 Roo Code 打开了整个 Hugging Face 开源 AI 模型生态系统的大门。请参阅我们的 [Hugging Face 提供商文档](/providers/huggingface) 获取设置说明。
 
-## Diagnostic Controls
+## 诊断控制
 
-Take control of how many diagnostic messages appear in your context with new settings (thanks hannesrudolph!) ([#5582](https://github.com/RooCodeInc/Roo-Code/pull/5582)):
+通过新增设置，现在可以控制上下文中显示的诊断消息数量（感谢 hannesrudolph！）（[#5582](https://github.com/RooCodeInc/Roo-Code/pull/5582)）：
 
-- **Limit Errors and Warnings**: Prevent overwhelming amounts of diagnostics from filling up the model's context window
-- **Improved Performance**: Reduce slowdowns caused by processing too many diagnostic messages
-- **Legacy Code Support**: Especially helpful when working with codebases that temporarily have many errors during development
+- **限制错误和警告**：防止大量诊断信息填满模型上下文窗口
+- **性能提升**：减少因处理过多诊断消息而导致的性能下降
+- **遗留代码支持**：在开发过程中处理暂时存在大量错误的代码库时特别有用
 
-This feature is essential for preserving the context window when working with large or legacy codebases that have many diagnostic messages.
+此功能对于在使用包含大量诊断消息的大型或遗留代码库时保护上下文窗口至关重要。
 
-## Agent Rules Standard Support
+## Agent Rules 标准支持
 
-Roo Code now supports the Agent Rules standard through AGENTS.md files (thanks sgryphon!) ([#5969](https://github.com/RooCodeInc/Roo-Code/pull/5969)):
+Roo Code 现在通过 AGENTS.md 文件支持 Agent Rules 标准（感谢 sgryphon！）（[#5969](https://github.com/RooCodeInc/Roo-Code/pull/5969)）：
 
-- **Cross-Tool Compatibility**: Share natural language guidelines across Roo Code, Aider, Cline, and other compatible AI tools
-- **Single Source of Truth**: Maintain one set of coding standards, security practices, and workflow rules
-- **Automatic Detection**: Roo Code automatically finds and applies AGENTS.md files in your project
+- **跨工具兼容性**：在 Roo Code、Aider、Cline 及其他兼容 AI 工具之间共享自然语言指南
+- **单一事实来源**：维护一套统一的编码标准、安全实践和工作流规则
+- **自动检测**：Roo Code 自动查找并应用项目中的 AGENTS.md 文件
 
-This solves the fragmentation problem where developers using multiple AI tools had to maintain separate configuration files.
+这解决了开发者使用多个 AI 工具时需要维护单独配置文件的分散问题。
 
-## QOL Improvements
+## 体验优化改进
 
-* **Apply Diff Guidance**: Added efficiency warnings to guide better use of the apply_diff tool (thanks KJ7LNW!) ([#6055](https://github.com/RooCodeInc/Roo-Code/pull/6055))
-* **Error Boundaries**: Better error handling prevents complete UI crashes, showing helpful messages instead (thanks KJ7LNW, elianiva!) ([#5085](https://github.com/RooCodeInc/Roo-Code/pull/5085))
+* **应用差异指导**：添加效率警告以指导更好地使用 apply_diff 工具（感谢 KJ7LNW！）（[#6055](https://github.com/RooCodeInc/Roo-Code/pull/6055)）
+* **错误边界**：改进的错误处理可防止 UI 完全崩溃，转而显示有用的提示信息（感谢 KJ7LNW、elianiva！）（[#5085](https://github.com/RooCodeInc/Roo-Code/pull/5085)）
 
-## Bug Fixes
+## Bug 修复
 
-* **Todo List Toggle**: Fixed the todo list toggle that wasn't responding to clicks (thanks chrarnoldus!) ([#6103](https://github.com/RooCodeInc/Roo-Code/pull/6103))
-* **Markdown List Styles**: Restored proper formatting for ordered and unordered lists in chat (thanks village-way!) ([#6095](https://github.com/RooCodeInc/Roo-Code/pull/6095))
-* **Ollama URL Handling**: Fixed API URL normalization issues with trailing slashes (thanks Naam!) ([#6079](https://github.com/RooCodeInc/Roo-Code/pull/6079))
-* **Large File Protection**: Respects maxReadFileLine setting to prevent context exhaustion (thanks sebinseban!) ([#6073](https://github.com/RooCodeInc/Roo-Code/pull/6073))
-* **Auto-Approve Safety**: Fixed critical issue where auto-approve checkbox became unresponsive (thanks KJ7LNW!) ([#6061](https://github.com/RooCodeInc/Roo-Code/pull/6061))
-* **Git Checkpoint Warning**: Added clear warning when Git is not installed for checkpoints (thanks MuriloFP!) ([#5920](https://github.com/RooCodeInc/Roo-Code/pull/5920))
-* **Bash Command Parsing**: Fixed crashes with complex bash syntax and substitutions (thanks daniel-lxs, KJ7LNW!) ([#5743](https://github.com/RooCodeInc/Roo-Code/pull/5743))
+* **待办列表切换**：修复了待办列表切换按钮无响应的问题（感谢 chrarnoldus！）（[#6103](https://github.com/RooCodeInc/Roo-Code/pull/6103)）
+* **Markdown 列表样式**：恢复了聊天中有序列表和无序列表的正确格式（感谢 village-way！）（[#6095](https://github.com/RooCodeInc/Roo-Code/pull/6095)）
+* **Ollama URL 处理**：修复了 API URL 标准化中带尾随斜杠的问题（感谢 Naam！）（[#6079](https://github.com/RooCodeInc/Roo-Code/pull/6079)）
+* **大文件保护**：遵守 maxReadFileLine 设置以防止上下文耗尽（感谢 sebinseban！）（[#6073](https://github.com/RooCodeInc/Roo-Code/pull/6073)）
+* **自动批准安全性**：修复了自动批准复选框无响应的关键问题（感谢 KJ7LNW！）（[#6061](https://github.com/RooCodeInc/Roo-Code/pull/6061)）
+* **Git 检查点警告**：当 Git 未安装用于检查点时添加了明确警告（感谢 MuriloFP！）（[#5920](https://github.com/RooCodeInc/Roo-Code/pull/5920)）
+* **Bash 命令解析**：修复了复杂 bash 语法和替换导致的崩溃问题（感谢 daniel-lxs、KJ7LNW！）（[#5743](https://github.com/RooCodeInc/Roo-Code/pull/5743)）
 
-## Misc Improvements
+## 其他改进
 
-* **Merge Resolver Mode**: Added internal mode for intelligent Git conflict resolution to improve PR Fixer capabilities (thanks daniel-lxs!) ([#6090](https://github.com/RooCodeInc/Roo-Code/pull/6090))
+* **合并解析器模式**：添加了用于智能 Git 冲突解决的内部模式，以改进 PR Fixer 功能（感谢 daniel-lxs！）（[#6090](https://github.com/RooCodeInc/Roo-Code/pull/6090)）

@@ -1,0 +1,389 @@
+---
+description: 为全栈应用配置多端口预览环境，支持自动域名路由和环境变量注入。
+keywords:
+  - Preview Environments
+  - Multi-port
+  - Named Ports
+  - Environment Variables
+  - Full Stack
+  - Services
+  - Postgres
+  - Redis
+---
+
+# 预览环境
+
+预览环境允许您在云容器中运行多个服务，并自动进行域名路由。您配置的每个端口都会获得一个唯一的公共 URL，同时会注入环境变量，以便您的应用之间可以相互通信。
+
+## 概览
+
+当您创建环境时，Roo Code Cloud 会：
+
+1. 创建一个云容器，并暴露您配置的端口
+2. 为每个端口生成唯一的 HTTPS 域名
+3. 向容器中注入环境变量，如 `ROO_WEB_HOST` 和 `ROO_API_HOST`
+4. 克隆您的仓库，启动服务并运行您的命令
+
+这样，您就可以在单个预览环境中运行完整的技术栈（前端、API、工作进程），所有组件都可以相互通信。
+
+## 配置
+
+环境通过 YAML 格式进行配置。以下是完整的配置架构：
+
+```yaml
+name: My Full Stack App
+description: Frontend and API running together
+
+repositories:
+  - repository: myorg/frontend
+    commands:
+      - name: Install
+        run: npm install
+      - name: Start
+        run: npm run dev &
+
+  - repository: myorg/backend
+    commands:
+      - name: Install
+        run: npm install
+      - name: Start
+        run: npm run dev &
+
+ports:
+  - name: WEB
+    port: 3000
+  - name: API
+    port: 3001
+
+services:
+  - postgres16
+  - redis7
+
+env:
+  NODE_ENV: development
+```
+
+## 命名端口
+
+`ports` 部分定义了要暴露的端口及其名称：
+
+```yaml
+ports:
+  - name: WEB
+    port: 3000
+  - name: API
+    port: 3001
+  - name: ADMIN
+    port: 3002
+```
+
+对于每个命名端口，都会向容器中注入一个环境变量：
+
+| 端口配置 | 环境变量 | 示例值 |
+|-------------|---------------------|---------------|
+| `name: WEB, port: 3000` | `ROO_WEB_HOST` | `https://abc123.vercel.run` |
+| `name: API, port: 3001` | `ROO_API_HOST` | `https://def456.vercel.run` |
+| `name: ADMIN, port: 3002` | `ROO_ADMIN_HOST` | `https://ghi789.vercel.run` |
+
+### 命名规则
+
+端口名称必须：
+- 以字母开头
+- 仅包含字母、数字和下划线
+- 长度为 1-50 个字符
+
+名称会被转换为大写，用于环境变量（例如，`web` 会变成 `ROO_WEB_HOST`）。
+
+### 限制
+
+每个环境最多可以配置 **4 个命名端口**。
+
+## 在代码中使用环境变量
+
+注入的环境变量可以让您的应用相互发现，而无需硬编码 URL。
+
+### React/Vite 前端
+
+```typescript
+// vite.config.ts
+export default defineConfig({
+  define: {
+    'import.meta.env.API_URL': JSON.stringify(process.env.ROO_API_HOST || 'http://localhost:3001')
+  }
+})
+
+// In your React code
+const response = await fetch(`${import.meta.env.API_URL}/api/users`);
+```
+
+### Next.js 前端
+
+```typescript
+// next.config.js
+module.exports = {
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.ROO_API_HOST || 'http://localhost:3001'
+  }
+}
+
+// In your code
+const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`);
+```
+
+### Node.js/Express/Hono 后端
+
+```typescript
+// Configure CORS to allow requests from the frontend domain
+app.use(cors({
+  origin: process.env.ROO_WEB_HOST || 'http://localhost:3000'
+}));
+
+// Or allow multiple frontends
+app.use(cors({
+  origin: [
+    process.env.ROO_WEB_HOST,
+    process.env.ROO_ADMIN_HOST
+  ].filter(Boolean)
+}));
+```
+
+### 服务间通信
+
+如果您有多个后端服务：
+
+```typescript
+// In your API service, call a worker service
+const workerUrl = process.env.ROO_WORKER_HOST || 'http://localhost:3002';
+await fetch(`${workerUrl}/jobs`, { method: 'POST', body: jobData });
+```
+
+## 仓库
+
+列出要克隆到环境中的仓库：
+
+```yaml
+repositories:
+  - repository: myorg/frontend
+    commands:
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Start dev server
+        run: npm run dev &
+
+  - repository: myorg/backend
+    commands:
+      - name: Install dependencies
+        run: npm install
+      - name: Run migrations
+        run: npm run db:migrate
+      - name: Start server
+        run: npm run start &
+```
+
+### 仓库格式
+
+使用 `owner/repo` 格式（例如，`myorg/my-app`）。
+
+### 命令
+
+每个仓库可以有按顺序运行的命令。命令支持以下字段：
+
+| 字段 | 描述 | 默认值 |
+|-------|-------------|---------|
+| `name` | 命令的显示名称 | 必需 |
+| `run` | 要执行的 shell 命令 | 必需 |
+| `working_dir` | 运行命令的目录 | 仓库根目录 |
+| `env` | 命令特定的环境变量 | 无 |
+| `timeout` | 等待的最大秒数 | 60 |
+| `continue_on_error` | 命令失败时是否继续 | false |
+
+### 后台进程
+
+要启动一个持续运行的服务，请在命令末尾添加 `&`：
+
+```yaml
+commands:
+  - name: Start server
+    run: npm run dev &
+```
+
+## 服务
+
+添加托管的数据库和缓存服务：
+
+```yaml
+services:
+  - redis7
+  - postgres16
+```
+
+### 可用服务
+
+| 服务 | 默认端口 | 连接变量 |
+|---------|--------------|---------------------|
+| `redis6` | 6379 | `REDIS_URL` |
+| `redis7` | 6379 | `REDIS_URL` |
+| `postgres15` | 5432 | `DATABASE_URL`, `POSTGRES_*` |
+| `postgres16` | 5432 | `DATABASE_URL`, `POSTGRES_*` |
+| `postgres17` | 5432 | `DATABASE_URL`, `POSTGRES_*` |
+| `mysql8` | 3306 | `DATABASE_URL`, `MYSQL_*` |
+| `mariadb10` | 3306 | `DATABASE_URL`, `MARIADB_*` |
+| `clickhouse` | 9000 | `CLICKHOUSE_URL` |
+
+### 自定义端口
+
+如果您需要将服务部署在非默认端口上：
+
+```yaml
+services:
+  - name: postgres16
+    port: 5433
+```
+
+## 环境变量
+
+定义对所有命令可用的环境变量：
+
+```yaml
+env:
+  NODE_ENV: development
+  LOG_LEVEL: debug
+  FEATURE_FLAGS: "new-ui,beta-api"
+```
+
+这些变量会与以下内容合并：
+1. 服务连接变量（例如，`DATABASE_URL`）
+2. 命名端口变量（例如，`ROO_WEB_HOST`）
+3. 命令特定变量（优先级最高）
+
+## 完整示例
+
+以下是一个全栈应用的示例，包含 React 前端、Hono API 和后台工作进程：
+
+```yaml
+name: E-Commerce Platform
+description: Full stack with frontend, API, and worker
+
+repositories:
+  - repository: acme/storefront
+    commands:
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: ${ROO_API_HOST}
+      - name: Serve
+        run: npx serve -s dist -l 3000 &
+
+  - repository: acme/api
+    commands:
+      - name: Install
+        run: npm install
+      - name: Migrate
+        run: npm run db:push
+      - name: Start
+        run: npm run start &
+        env:
+          ALLOWED_ORIGINS: ${ROO_WEB_HOST}
+
+  - repository: acme/worker
+    commands:
+      - name: Install
+        run: npm install
+      - name: Start
+        run: npm run start &
+
+ports:
+  - name: WEB
+    port: 3000
+  - name: API
+    port: 3001
+  - name: WORKER
+    port: 3002
+
+services:
+  - postgres16
+  - redis7
+
+env:
+  NODE_ENV: production
+  LOG_LEVEL: info
+```
+
+环境启动后，您将为每个端口获得唯一的 URL。访问 WEB URL 即可访问正在运行的应用。
+
+## 提示
+
+### 1. 始终使用环境变量设置 URL
+
+不要在服务之间硬编码 URL：
+
+```typescript
+// 错误 - 在预览环境中会失效
+const apiUrl = 'http://localhost:3001';
+
+// 正确 - 在所有环境中都有效
+const apiUrl = process.env.ROO_API_HOST || 'http://localhost:3001';
+```
+
+### 2. 动态配置 CORS
+
+```typescript
+// 错误 - 仅在本地有效
+app.use(cors({ origin: 'http://localhost:3000' }));
+
+// 正确 - 在预览环境和本地都有效
+app.use(cors({
+  origin: process.env.ROO_WEB_HOST || 'http://localhost:3000'
+}));
+```
+
+### 3. 静态站点使用构建时变量
+
+对于 Vite、CRA 或 Next.js 等框架，API URL 通常需要在构建时已知：
+
+```yaml
+commands:
+  - name: Build
+    run: npm run build
+    env:
+      VITE_API_URL: ${ROO_API_HOST}
+```
+
+### 4. 优雅处理缺失变量
+
+在开发环境中，您可能没有设置所有变量：
+
+```typescript
+const apiUrl = process.env.ROO_API_HOST;
+if (!apiUrl) {
+  console.warn('ROO_API_HOST 未设置，使用 localhost');
+}
+```
+
+### 5. 使用一致的命名规范
+
+选择一种命名约定并坚持使用：
+
+```yaml
+# 推荐 - 清晰且一致
+ports:
+  - name: WEB
+    port: 3000
+  - name: API
+    port: 3001
+  - name: ADMIN
+    port: 3002
+
+# 避免 - 命名不一致
+ports:
+  - name: frontend
+    port: 3000
+  - name: BACKEND_API
+    port: 3001
+  - name: Admin_Panel
+    port: 3002
+```

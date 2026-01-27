@@ -1,6 +1,6 @@
 ---
 sidebar_label: Fireworks AI
-description: 在 Roo Code 中使用 Fireworks AI，通过高性能平台访问 Kimi、Qwen 和 DeepSeek 等先进的开源和专有 AI 模型，支持高达 256K token 的大上下文窗口。
+description: 使用 Fireworks AI 与 Roo Code 访问最先进的开源和专有 AI 模型，如 Kimi、Qwen 和 DeepSeek，在具有高达 256K 上下文窗口的高性能平台上运行。
 keywords:
   - fireworks ai
   - fireworks
@@ -18,43 +18,42 @@ keywords:
   - open source models
   - serverless models
   - openai compatible
-image: /img/social-share.jpg
 ---
 
 # 在 Roo Code 中使用 Fireworks AI
 
-Fireworks AI 是一个高性能的 AI 模型运行平台，提供快速、经济高效的访问，涵盖一系列先进的开源语言模型。它以速度和可靠性为核心构建，提供无服务器部署选项，支持与 OpenAI 兼容的 API 和高达 256,000 token 的上下文窗口。
+Fireworks AI 是一个用于运行 AI 模型的高性能平台，提供快速、经济高效的方式访问各种最先进的开源语言模型。Fireworks AI 专为速度和可靠性而构建，提供无服务器部署选项，具有与 OpenAI 兼容的 API 和高达 256,000 个 token 的上下文窗口。
 
-**官网：** [https://fireworks.ai/](https://fireworks.ai/)
+**网站：** [https://fireworks.ai/](https://fireworks.ai/)
 
 ---
 
 ## 获取 API 密钥
 
 1. **注册/登录：** 访问 [Fireworks AI](https://fireworks.ai/) 并创建账户或登录。
-2. **导航至 API 密钥：** 登录后，前往 [API 密钥页面](https://app.fireworks.ai/settings/users/api-keys)。
-3. **创建密钥：** 点击“创建 API 密钥”，为密钥输入一个描述性名称（例如“Roo Code”）。
-4. **复制密钥：** 立即复制 API 密钥并安全保存。此密钥仅显示一次，之后无法再次查看。
+2. **导航到 API 密钥：** 登录后，进入账户设置中的 [API 密钥页面](https://app.fireworks.ai/settings/users/api-keys)。
+3. **创建密钥：** 点击“创建 API 密钥”并为您的密钥起一个描述性名称（例如“Roo Code”）。
+4. **复制密钥：** *立即*复制 API 密钥并安全存储。您将无法再次查看它。
 
 ---
 
 ## 可用模型
 
-Roo Code 支持 Fireworks AI 平台提供的所有模型。
+Roo Code 支持通过 Fireworks AI 平台提供的所有模型。
 
-如需完整的最新模型列表和规格说明，请访问 [Fireworks AI 的模型页面](https://fireworks.ai/models)。
+有关完整、最新的模型列表和规格，请参阅 [Fireworks AI 的模型页面](https://fireworks.ai/models)。
 
 ---
 
 ## 在 Roo Code 中配置
 
-1. **打开 Roo Code 设置：** 点击 Roo Code 面板中的齿轮图标（<Codicon name="gear" />）。
-2. **选择提供商：** 在“API Provider”下拉菜单中选择“Fireworks AI”。
-3. **输入 API 密钥：** 将 Fireworks AI API 密钥粘贴到“Fireworks AI API Key”字段中。
-4. **选择模型：** 从“Model”下拉菜单中选择所需的模型。
+1. **打开 Roo Code 设置：** 点击 Roo Code 面板中的齿轮图标 (<Codicon name="gear" />)。
+2. **选择提供商：** 从“API 提供商”下拉菜单中选择“Fireworks AI”。
+3. **输入 API 密钥：** 将您的 Fireworks AI API 密钥粘贴到“Fireworks AI API 密钥”字段中。
+4. **选择模型：** 从“模型”下拉菜单中选择您所需的模型。
 
 ---
 
-## 提示与注意事项
+## 提示和注意事项
 
-* **定价：** 请查看 [Fireworks AI 定价页面](https://fireworks.ai/pricing) 了解当前费率。
+* **定价：** 有关当前费率，请参阅 [Fireworks AI 定价页面](https://fireworks.ai/pricing)。

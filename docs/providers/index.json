@@ -7,8 +7,8 @@
       "cloud": true
     },
     {
-      "id": "providers/claude-code",
-      "title": "Claude Code",
+      "id": "providers/openai-chatgpt-plus-pro",
+      "title": "ChatGPT Plus/Pro",
       "extension": true,
       "cloud": false
     },
@@ -85,12 +85,6 @@
       "cloud": false
     },
     {
-      "id": "providers/human-relay",
-      "title": "Human Relay",
-      "extension": true,
-      "cloud": false
-    },
-    {
       "id": "providers/io-intelligence",
       "title": "IO Intelligence",
       "extension": true,
@@ -151,8 +145,8 @@
       "cloud": false
     },
     {
-      "id": "providers/roo-code-cloud",
-      "title": "Roo Code Cloud",
+      "id": "providers/roo-code-router",
+      "title": "Roo Code Router",
       "extension": true,
       "cloud": true
     },

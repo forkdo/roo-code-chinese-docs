@@ -1,20 +1,19 @@
 ---
-description: Bug fix for parallel tool calls during task delegation and improved error logging.
+description: 修复了任务委派期间并行工具调用的错误，并改进了错误日志记录。
 keywords:
   - roo code 3.35.1
   - bug fixes
   - error logging
-image: /img/social-share.jpg
 ---
 
-# Roo Code v3.35.1 Release Notes (2025-12-01)
+# Roo Code v3.35.1 版本说明 (2025-12-01)
 
-This patch release fixes an issue with parallel tool calls during task delegation and improves error diagnostics.
+此补丁版本修复了任务委派期间并行工具调用的问题，并改进了错误诊断。
 
-## Bug Fixes
+## Bug 修复
 
-* **Parallel Tool Call Fix**: Fixes 400 errors that occurred when using native tool protocol with parallel tool calls (e.g., `update_todo_list` + `new_task`). Pending tool results are now properly flushed before task delegation ([#9726](https://github.com/RooCodeInc/Roo-Code/pull/9726))
+* **并行工具调用修复**：修复了在使用原生工具协议进行并行工具调用（例如 `update_todo_list` + `new_task`）时出现的 400 错误。现在任务委派前会正确刷新待处理的工具结果 ([#9726](https://github.com/RooCodeInc/Roo-Code/pull/9726))
 
-## Misc Improvements
+## 其他改进
 
-* **Better IPC Error Logging**: Error logs now display detailed structured data instead of unhelpful `[object Object]` messages, making debugging extension issues easier ([#9727](https://github.com/RooCodeInc/Roo-Code/pull/9727))
+* **更好的 IPC 错误日志记录**：错误日志现在显示详细的结构化数据，而不是无用的 `[object Object]` 消息，使扩展问题调试更加容易 ([#9727](https://github.com/RooCodeInc/Roo-Code/pull/9727))

@@ -5,7 +5,6 @@ on:
     branches:
       - docs
     paths:
-      - 'docsite/**'
       - 'docs_zh/**'
       - '.github/workflows/docs.yml'
 
@@ -23,11 +22,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/configure-pages@v5
+      # - uses: actions/configure-pages@v5
       - uses: actions/checkout@v6
       - name: Fetch Source
         run: |
           git clone https://github.com/RooCodeInc/Roo-Code-Docs.git docsite
+          cd docsite
+          git checkout $(cat ../commit.txt)
       - name: Build Docs
         run: |
           cp -r docs_zh/* docsite/docs/
@@ -37,7 +38,49 @@ jobs:
       - name: Copy CNAME  
         run: cp CNAME docsite/build/
 
-      ### SSH Server WEB
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: docs-site
+          path: docsite/build
+          retention-days: 1
+
+  deploy-github-pages:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/configure-pages@v5
+      - name: Download build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: docs-site
+          path: ./build
+      - name: Deploy to Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+      # - uses: actions/upload-pages-artifact@v4
+      #   with:
+      #     path: docsite/build
+      # - uses: actions/deploy-pages@v4
+      #   id: deployment
+
+  deploy-ssh-server:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: docs-site
+          path: ./build
+      - name: Compress to tar.xz
+        run: |
+          tar -cJf docs-site.tar.xz build/
       - name: Set up SSH
         uses: LuisEnMarroquin/setup-ssh-action@v3.0.0
         with:
@@ -48,22 +91,9 @@ jobs:
           USER: ${{ secrets.SSH_USERNAME }}
       - run: echo "" >> ~/.ssh/access  # fix
       - name: Deploy the website
-        env: 
+        env:
           WEBROOT: /data/wwwroot/roocode
         run: |
           ssh webserver "rm -rf $WEBROOT && mkdir -p $WEBROOT"
-          scp -r docsite/build/* webserver:${WEBROOT}
-
-      ### GitHub Pages
-      # - run: cp CNAME docsite/build/
-      # - uses: actions/upload-pages-artifact@v4
-      #   with:
-      #     path: docsite/build
-      # - uses: actions/deploy-pages@v4
-      #   id: deployment
-
-      - name: Deploy to Branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docsite/build
+          scp docs-site.tar.xz webserver:${WEBROOT}/
+          ssh webserver "cd $WEBROOT && tar -xJf docs-site.tar.xz --strip-components=1 && rm -f docs-site.tar.xz"

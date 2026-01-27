@@ -10,7 +10,6 @@ keywords:
   - prompt caching
   - byok
 sidebar_label: OpenRouter
-image: /img/social-share.jpg
 ---
 
 # Using OpenRouter With Roo Code
@@ -44,12 +43,6 @@ For the complete, up-to-date model list with pricing and capabilities, see [Open
 3.  **Enter API Key:** Paste your OpenRouter API key into the "OpenRouter API Key" field.
 4.  **Select Model:** Choose your desired model from the "Model" dropdown.
 5.  **(Optional) Custom Base URL:** If you need to use a custom base URL for the OpenRouter API, check "Use custom base URL" and enter the URL. Leave this blank for most users.
-
----
-
-## Supported Transforms
-
-OpenRouter provides an [optional "middle-out" message transform](https://openrouter.ai/docs/features/message-transforms) to help with prompts that exceed the maximum context size of a model. You can enable it by checking the "Compress prompts and message chains to the context size" box.
 
 ---
 

@@ -1,22 +1,21 @@
 ---
-description: 了解如何使用 Boomerang 任务（Orchestrator 模式）通过将子任务委托给专业模式来自动化复杂工作流。
+description: 了解如何使用 Boomerang Tasks（Orchestrator 模式）将子任务委派给专门的模式，从而实现复杂工作流的自动化。
 keywords:
-  - Boomerang 任务
-  - Orchestrator 模式
-  - 工作流自动化
-  - 任务委托
-  - 自动化工作流
-image: /img/social-share.jpg
-sidebar_label: 'Boomerang 任务'
+  - Boomerang Tasks
+  - Orchestrator mode
+  - workflow automation
+  - task delegation
+  - automated workflows
+sidebar_label: 'Boomerang Tasks'
 ---
 
-# Boomerang 任务：编排复杂工作流
+# Boomerang Tasks：编排复杂工作流
 
-Boomerang 任务（也称为子任务或任务编排）允许你使用内置的 **`🪃 Orchestrator` 模式（又称 Boomerang 模式）** 将复杂项目分解为更小、更易管理的部分。可以将其想象为将工作的一部分委托给专业助手。每个子任务在自己的上下文中运行，通常使用针对特定任务定制的不同 Roo Code 模式（如 [`💻 Code`](/basic-usage/using-modes#code-mode-default)、[`🏗️ Architect`](/basic-usage/using-modes#architect-mode) 或 [`🪲 Debug`](/basic-usage/using-modes#debug-mode)）。Orchestrator 模式负责管理此过程。
+Boomerang Tasks（也称为子任务或任务编排）允许您使用内置的 **`🪃 Orchestrator` 模式（又称 Boomerang 模式）** 将复杂项目分解为更小、更易于管理的部分。可以将其想象为将部分工作委派给专门的助手。每个子任务都在其自身的上下文中运行，通常会使用不同的 Roo Code 模式来专门处理特定工作（例如 [`💻 Code`](/basic-usage/using-modes#code-mode-default)、[`🏗️ Architect`](/basic-usage/using-modes#architect-mode) 或 [`🪲 Debug`](/basic-usage/using-modes#debug-mode)）。Orchestrator 模式负责管理此过程。
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
   <iframe
-    src="https://www.youtube.com/embed/RX862U09fnE"
+    src="https://www.youtube.com/embed/RX862U09fnE?rel=0&modestbranding=1"
     style={{
       position: 'absolute',
       top: 0,
@@ -33,19 +32,19 @@ Boomerang 任务（也称为子任务或任务编排）允许你使用内置的 
 <br />
 
 :::info Orchestrator 模式是内置的
-`🪃 Orchestrator` 模式（之前通过自定义 "Boomerang 模式" 实现）现在是一个内置模式，专门设计用于通过分解任务并将任务委托给其他模式来编排工作流。你不再需要为此功能创建自定义模式。
+`🪃 Orchestrator` 模式（以前通过自定义的“Boomerang 模式”实现）现在是一个专门用于编排工作流的内置模式，它通过将任务分解并委派给其他模式来实现。您不再需要为此功能创建自定义模式。
 
-了解更多关于 [内置模式](/basic-usage/using-modes#built-in-modes) 的信息。
+了解有关[内置模式](/basic-usage/using-modes#built-in-modes)的更多信息。
 :::
 
 ---
 
-## 为什么使用 Boomerang 任务？
+## 为何使用 Boomerang Tasks？
 
--   **应对复杂性**：将大型、多步骤项目（例如，构建完整功能）分解为专注的子任务（例如，设计、实现、文档）。
--   **使用专业模式**：自动将子任务委托给最适合该特定工作的模式，利用专业能力获得最佳结果。
--   **保持专注和高效**：每个子任务在自己的隔离上下文中运行，具有独立的对话历史。这防止父任务（编排器）被详细的执行步骤（如代码差异或文件分析结果）污染，使其能够专注于高级工作流，并根据已完成子任务的简洁摘要高效地管理整体过程。
--   **简化工作流**：一个子任务的结果可以自动传递到下一个子任务，创建流畅的流程（例如，架构决策输入到编码任务）。
+-   **处理复杂性：** 将大型、多步骤的项目（例如构建完整功能）分解为专注的子任务（例如设计、实现、文档）。
+-   **使用专门的模式：** 自动将子任务委派给最适合该特定工作的模式，利用专门的功能获得最佳结果。
+-   **保持专注和效率：** 每个子任务都在其自身隔离的上下文中运行，并具有单独的对话历史。这可以防止父任务（编排器）被详细的执行步骤（如代码差异或文件分析结果）弄乱，从而使其能够高效地专注于高级工作流，并根据已完成子任务的简明摘要来管理整个过程。
+-   **简化工作流：** 一个子任务的结果可以自动传递给下一个子任务，从而创建流畅的流程（例如，架构决策输入到编码任务中）。
 
 ---
 
@@ -53,41 +52,41 @@ Boomerang 任务（也称为子任务或任务编排）允许你使用内置的 
 
 1.  当处于 [`🪃 Orchestrator`](/basic-usage/using-modes#orchestrator-mode-aka-boomerang-mode) 模式（又称 Boomerang 模式）时，Roo 会分析复杂任务并建议将其分解为子任务[^1]。
 
-2.  父任务（在 Orchestrator 模式中）暂停，新子任务在不同的专业模式中开始[^2]。
+2.  父任务（在 Orchestrator 模式下）暂停，新的子任务开始在另一个专门的模式下运行[^2]。
 3.  当子任务的目标达成时，Roo 会发出完成信号。
-4.  父任务恢复，仅包含子任务的摘要[^3]。父任务使用此摘要继续主要工作流。
+4.  父任务仅使用子任务的摘要[^3]恢复。父任务使用此摘要继续主要工作流。
 
 ---
 
 ## 关键注意事项
 
--   **需要批准**：默认情况下，你必须批准每个子任务的创建和完成。如果需要，可以通过 [自动批准操作](/features/auto-approving-actions#subtasks) 设置来自动化此过程。
--   **上下文隔离和传递**：每个子任务在完全隔离的环境中运行，具有自己的对话历史。它不会自动继承父任务的上下文。信息必须显式传递：
-    *   **向下**：通过创建子任务时提供的初始指令。
-    *   **向上**：通过子任务完成时提供的最终摘要。请注意，只有此摘要返回给父任务。
--   **导航**：Roo 的界面帮助你查看任务的层次结构（哪个任务是父任务，哪个是子任务）。你可以通常在活跃和暂停的任务之间导航。
+-   **需要批准：** 默认情况下，您必须批准每个子任务的创建和完成。如果需要，可以通过 [Auto-Approving Actions](/features/auto-approving-actions#subtasks) 设置实现自动化。
+-   **上下文隔离和传递：** 每个子任务都在完全隔离的环境中运行，并具有其自身的对话历史。它不会自动继承父任务的上下文。信息必须明确传递：
+    *   **向下传递：** 通过创建子任务时提供的初始指令。
+    *   **向上传递：** 通过子任务完成时提供的最终摘要。请注意，只有此摘要会返回到父任务。
+-   **导航：** Roo 的界面可帮助您查看任务的层次结构（哪个任务是父任务，哪些是子任务）。您通常可以在活动和暂停的任务之间导航。
 
-Boomerang 任务提供了一种强大的方式，直接在 Roo Code 中管理复杂开发工作流，利用专业模式实现最大效率。
+Boomerang Tasks 提供了一种在 Roo Code 中直接管理复杂开发工作流的强大方法，利用专门的模式实现最大效率。
 
 :::tip 保持任务专注
-使用子任务（通过 Orchestrator 模式委托）来保持清晰度。如果请求显著转移焦点或需要不同的专业知识（模式），请考虑创建子任务，而不是使当前任务过载。
+使用子任务（通过 Orchestrator 模式委派）来保持清晰度。如果请求显著改变了焦点或需要不同的专业知识（模式），请考虑创建子任务，而不是使当前任务过载。
 :::
 
 ---
 
-## 常见问题
+## 常见问题解答
 
-### 为什么 Orchestrator 模式无法读取文件、写入文件、调用 MCP 或运行命令？
+### 为什么 Orchestrator 模式不能读取文件、写入文件、调用 MCP 或运行命令？
 
-Orchestrator 模式被有意限制，以专注于高级工作流管理。默认情况下赋予它读取文件的能力会导致上下文充满文件读取，损害其保持专注编排的能力。设计哲学是子任务应处理详细工作，并仅通过其完成摘要返回必要信息，以便编排器能够有效地进一步委托任务。
+Orchestrator 模式被有意限制，以专注于高级工作流管理。默认情况下赋予其读取文件的能力会导致上下文被文件读取填满，从而妨碍其专注于编排的能力。设计理念是子任务应处理详细工作，并仅将必要信息（通过其完成摘要）返回给编排器，以便编排器有效地委派进一步的任务。
 
-此限制有助于防止 [上下文污染](/advanced-usage/context-poisoning)，即无关或过度的信息污染模型的活跃上下文，导致性能下降和任务偏离。
+这种限制有助于防止[上下文中毒](/advanced-usage/context-poisoning)，即无关或过多信息污染模型的活动上下文，导致性能下降和任务偏离。
 
 ### 如何覆盖 Orchestrator 模式的限制？
 
-你可以通过遵循 [配置优先级](/features/custom-modes#configuration-precedence) 系统来 [自定义 Orchestrator 模式](/features/custom-modes) 以添加如文件读取等功能：
+您可以通过遵循[配置优先级](/features/custom-modes#configuration-precedence)系统来自定义 Orchestrator 模式，以添加文件读取等功能：
 
-1. 打开命令面板并选择 **"Edit Global Modes"**
+1. 打开命令面板并选择 **“Edit Global Modes”**
 2. 复制并粘贴此配置：
 
 ```json
@@ -107,13 +106,13 @@ Orchestrator 模式被有意限制，以专注于高级工作流管理。默认�
 }
 ```
 
-3. 保存文件。你的全局 Orchestrator 模式现在将具有读取能力。
+3. 保存文件。现在，您的全局 Orchestrator 模式将具备读取能力。
 
 :::warning
-向 Orchestrator 模式添加功能应经过深思熟虑。默认的有限能力有助于保持对编排的关注，而不是实现细节。
+为 Orchestrator 模式添加功能时应谨慎考虑。有限的默认功能有助于保持对编排工作的专注，而不是实现细节。
 :::
 
 
-[^1]: 此上下文通过 Orchestrator 模式委托任务时 [`new_task`](/advanced-usage/available-tools/new-task) 工具的 `message` 参数传递。
-[^2]: 子任务的模式在 Orchestrator 模式启动时通过 [`new_task`](/advanced-usage/available-tools/new-task) 工具的 `mode` 参数指定。
-[^3]: 此摘要在子任务完成时通过 [`attempt_completion`](/advanced-usage/available-tools/attempt-completion) 工具的 `result` 参数传递。
+[^1]: 此上下文通过 Orchestrator 模式委派任务时 [`new_task`](/advanced-usage/available-tools/new-task) 工具的 `message` 参数传递。
+[^2]: 子任务的模式通过 Orchestrator 模式启动时 [`new_task`](/advanced-usage/available-tools/new-task) 工具的 `mode` 参数指定。
+[^3]: 此摘要通过子任务完成时 [`attempt_completion`](/advanced-usage/available-tools/attempt-completion) 工具的 `result` 参数传递。

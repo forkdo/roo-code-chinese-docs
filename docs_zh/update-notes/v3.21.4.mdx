@@ -1,25 +1,24 @@
 ---
-description: This release introduces the new Claude Code provider for local CLI integration and fixes several critical issues.
-image: /img/social-share.jpg
+description: 此版本引入了新的 Claude Code 提供商以实现本地 CLI 集成，并修复了若干关键问题。
 ---
 
-# Roo Code 3.21.4 Release Notes (2025-06-23)
+# Roo Code 3.21.4 版本说明 (2025-06-23)
 
-This release introduces the new Claude Code provider for local CLI integration and fixes several critical issues.
+此版本引入了新的 Claude Code 提供商以实现本地 CLI 集成，并修复了若干关键问题。
 
-## Use Your Claude Max Subscription with Roo Code
+## 在 Roo Code 中使用您的 Claude Max 订阅
 
-You can now use your Claude Max subscription directly in Roo Code through our new [Claude Code provider](/providers/claude-code) (thanks Cline!) ([#4864](https://github.com/RooCodeInc/Roo-Code/pull/4864), [#5038](https://github.com/RooCodeInc/Roo-Code/pull/5038)):
+您现在可以通过我们全新的 Claude Code 提供商（感谢 Cline！）直接在 Roo Code 中使用您的 Claude Max 订阅 ([#4864](https://github.com/RooCodeInc/Roo-Code/pull/4864), [#5038](https://github.com/RooCodeInc/Roo-Code/pull/5038))：
 
-- **Leverage Your Existing Subscription**: Connect your Claude Max plan to Roo Code through the Claude CLI
-- **No Additional API Costs**: Use your subscription benefits instead of paying per-token API rates
-- **Access Premium Models**: Use Claude Sonnet 4, Opus 4, and other advanced models included in your plan
-- **Zero Setup Complexity**: Select Claude Code as your provider during initial setup - no API keys needed
-- **Advanced Reasoning Support**: Full access to Claude's thinking modes and reasoning capabilities
+- **充分利用现有订阅**：通过 Claude CLI 将您的 Claude Max 计划连接至 Roo Code
+- **无需额外 API 费用**：使用订阅权益，而非按 token 付费的 API 费率
+- **访问高级模型**：使用您的计划中包含的 Claude Sonnet 4、Opus 4 及其他先进模型
+- **零配置复杂度**：在初始设置期间选择 Claude Code 作为您的提供商——无需 API 密钥
+- **高级推理支持**：完全访问 Claude 的思维模式和推理能力
 
-Perfect for Claude Max subscribers who want to maximize their subscription value while coding.
+非常适合希望在编程时最大化订阅价值的 Claude Max 订阅用户。
 
-## Bug Fixes
+## Bug 修复
 
-* **Apply Diff Accuracy**: Fixed start line parameter not working correctly when applying multiple file diffs (thanks samhvw8!) ([#5019](https://github.com/RooCodeInc/Roo-Code/pull/5019))
-* **Ollama Compatibility**: Resolved validation errors that prevented Ollama from working with certain models (thanks daniel-lxs, MartinHarding1998!) ([#5014](https://github.com/RooCodeInc/Roo-Code/pull/5014))
+* **应用差异准确性**：修复了应用多个文件差异时起始行参数无法正常工作的问题（感谢 samhvw8！）（[#5019](https://github.com/RooCodeInc/Roo-Code/pull/5019)）
+* **Ollama 兼容性**：解决了导致 Ollama 无法与某些模型配合使用的验证错误（感谢 daniel-lxs、MartinHarding1998！）（[#5014](https://github.com/RooCodeInc/Roo-Code/pull/5014)）

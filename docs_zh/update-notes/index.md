@@ -1,5 +1,5 @@
 ---
-description: Browse all Roo Code release notes and version updates. Find detailed changelogs, new features, bug fixes, and improvements for each version.
+description: 浏览所有 Roo Code 版本发布说明和版本更新。查找每个版本的详细更新日志、新功能、错误修复和改进内容。
 keywords:
   - roo code updates
   - release notes
@@ -9,21 +9,81 @@ keywords:
   - bug fixes
   - improvements
   - roo code versions
-image: /img/social-share.jpg
 ---
 
-# Extension Release Notes
+# 扩展发布说明
 
-See what's new in every release here.
+在此查看每个版本的最新内容。
 
-We release often, sometimes multiple times per day, so make sure to always be on the latest to have access to the most recent bug fixes and improvements.
+我们发布频率很高，有时每天会发布多个版本，因此请确保始终使用最新版本，以便获得最新的错误修复和改进内容。
 
-If you want to live on the edge and try things out before it's released, we have a [Nightly channel](https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-code-nightly).
+如果你想尝鲜体验尚未正式发布的功能，可以使用我们的 [Nightly 频道](https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-code-nightly)。
 
 ---
 
-### Version 3.36
+### 版本 3.43
 
+*   [3.43.0](/update-notes/v3.43.0) (2026-01-23)
+
+---
+### 版本 3.42
+
+*   [3.42.0](/update-notes/v3.42.0) (2026-01-22)
+
+---
+### 版本 3.41
+
+*   [3.41.2](/update-notes/v3.41.2) (2026-01-16)
+*   [3.41.1](/update-notes/v3.41.1) (2026-01-16)
+*   [3.41.0](/update-notes/v3.41.0) (2026-01-15)
+
+---
+
+### 版本 3.40
+
+*   [3.40](/update-notes/v3.40) (合并版本)
+*   [3.40.1](/update-notes/v3.40.1) (2026-01-14)
+*   [3.40.0](/update-notes/v3.40.0) (2026-01-13)
+
+---
+
+### 版本 3.39
+
+*   [3.39](/update-notes/v3.39) (合并版本)
+*   [3.39.3](/update-notes/v3.39.3) (2026-01-10)
+*   [3.39.2](/update-notes/v3.39.2) (2026-01-09)
+*   [3.39.1](/update-notes/v3.39.1) (2026-01-08)
+*   [3.39.0](/update-notes/v3.39.0) (2026-01-08)
+
+---
+
+### 版本 3.38
+
+*   [3.38](/update-notes/v3.38) (合并版本)
+*   [3.38.3](/update-notes/v3.38.3) (2026-01-03)
+*   [3.38.2](/update-notes/v3.38.2) (2025-12-31)
+*   [3.38.1](/update-notes/v3.38.1) (2025-12-29)
+*   [3.38.0](/update-notes/v3.38.0) (2025-12-27)
+
+---
+
+### 版本 3.37
+
+*   [3.37](/update-notes/v3.37) (2025-12-22)
+*   [3.37.0](/update-notes/v3.37.0) (2025-12-22)
+*   [3.37.1](/update-notes/v3.37.1) (2025-12-23)
+
+---
+
+### 版本 3.36
+
+*   [3.36.16](/update-notes/v3.36.16) (2025-12-19)
+*   [3.36.15](/update-notes/v3.36.15) (2025-12-19)
+*   [3.36.14](/update-notes/v3.36.14) (2025-12-18)
+*   [3.36.13](/update-notes/v3.36.13) (2025-12-18)
+*   [3.36.12](/update-notes/v3.36.12) (2025-12-18)
+*   [3.36.11](/update-notes/v3.36.11) (2025-12-17)
+*   [3.36.10](/update-notes/v3.36.10) (2025-12-17)
 *   [3.36.9](/update-notes/v3.36.9) (2025-12-16)
 *   [3.36.7](/update-notes/v3.36.7) (2025-12-15)
 *   [3.36.6](/update-notes/v3.36.6) (2025-12-12)
@@ -36,9 +96,9 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.35
+### 版本 3.35
 
-*   [3.35](/update-notes/v3.35) (Combined)
+*   [3.35](/update-notes/v3.35) (合并版本)
 *   [3.35.5](/update-notes/v3.35.5) (2025-12-03)
 *   [3.35.4](/update-notes/v3.35.4) (2025-12-02)
 *   [3.35.3](/update-notes/v3.35.3) (2025-12-02)
@@ -47,10 +107,10 @@ If you want to live on the edge and try things out before it's released, we have
 *   [3.35.0](/update-notes/v3.35.0) (2025-12-01)
 
 ---
-  
-### Version 3.34
 
-*   [3.34](/update-notes/v3.34) (Combined)
+### 版本 3.34
+
+*   [3.34](/update-notes/v3.34) (合并版本)
 *   [3.34.8](/update-notes/v3.34.8) (2025-11-27)
 *   [3.34.7](/update-notes/v3.34.7) (2025-11-27)
 *   [3.34.6](/update-notes/v3.34.6) (2025-11-26)
@@ -61,27 +121,27 @@ If you want to live on the edge and try things out before it's released, we have
 *   [3.34.1](/update-notes/v3.34.1) (2025-11-23)
 *   [3.34.0](/update-notes/v3.34.0) (2025-11-21)
 
-### Version 3.33
+### 版本 3.33
 
-*   [3.33](/update-notes/v3.33) (Combined)
+*   [3.33](/update-notes/v3.33) (合并版本)
 *   [3.33.3](/update-notes/v3.33.3) (2025-11-20)
 *   [3.33.2](/update-notes/v3.33.2) (2025-11-20)
 *   [3.33.1](/update-notes/v3.33.1) (2025-11-18)
 *   [3.33.0](/update-notes/v3.33.0) (2025-11-18)
 
 ---
-  
-### Version 3.32
 
-*   [3.32](/update-notes/v3.32) (Combined)
+### 版本 3.32
+
+*   [3.32](/update-notes/v3.32) (合并版本)
 *   [3.32.1](/update-notes/v3.32.1) (2025-11-15)
 *   [3.32.0](/update-notes/v3.32.0) (2025-11-14)
 
 ---
-  
-### Version 3.31
 
-*   [3.31](/update-notes/v3.31) (Combined)
+### 版本 3.31
+
+*   [3.31](/update-notes/v3.31) (合并版本)
 *   [3.31.3](/update-notes/v3.31.3) (2025-11-13)
 *   [3.31.2](/update-notes/v3.31.2) (2025-11-13)
 *   [3.31.1](/update-notes/v3.31.1) (2025-11-12)
@@ -89,7 +149,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.30
+### 版本 3.30
 
 *   [3.30.3](/update-notes/v3.30.3) (2025-11-07)
 *   [3.30.2](/update-notes/v3.30.2) (2025-11-06)
@@ -99,9 +159,9 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.29
+### 版本 3.29
 
-*   [3.29](/update-notes/v3.29) (Combined)
+*   [3.29](/update-notes/v3.29) (合并版本)
 *   [3.29.5](/update-notes/v3.29.5) (2025-11-01)
 *   [3.29.4](/update-notes/v3.29.4) (2025-10-31)
 *   [3.29.3](/update-notes/v3.29.3) (2025-10-28)
@@ -110,10 +170,10 @@ If you want to live on the edge and try things out before it's released, we have
 *   [3.29.0](/update-notes/v3.29.0) (2025-10-24)
 
 ---
- 
-### Version 3.28
 
-*   [3.28](/update-notes/v3.28) (Combined)
+### 版本 3.28
+
+*   [3.28](/update-notes/v3.28) (合并版本)
 *   [3.28.18](/update-notes/v3.28.18) (2025-10-17)
 *   [3.28.17](/update-notes/v3.28.17) (2025-10-15)
 *   [3.28.16](/update-notes/v3.28.16) (2025-10-10)
@@ -135,14 +195,14 @@ If you want to live on the edge and try things out before it's released, we have
 *   [3.28.0](/update-notes/v3.28.0) (2025-09-10)
 
 ---
- 
-### Version 3.27
+
+### 版本 3.27
 
 *   [3.27.0](/update-notes/v3.27.0) (2025-09-05)
 
 ---
 
-### Version 3.26
+### 版本 3.26
 
 *   [3.26.7](/update-notes/v3.26.7) (2025-09-05)
 *   [3.26.6](/update-notes/v3.26.6) (2025-09-03)
@@ -155,9 +215,9 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.25
+### 版本 3.25
 
-*   [3.25](/update-notes/v3.25) (Combined)
+*   [3.25](/update-notes/v3.25) (合并版本)
 *   [3.25.23](/update-notes/v3.25.23) (2025-08-22)
 *   [3.25.22](/update-notes/v3.25.22) (2025-08-22)
 *   [3.25.21](/update-notes/v3.25.21) (2025-08-22)
@@ -185,13 +245,13 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.24
+### 版本 3.24
 
 *   [3.24.0](/update-notes/v3.24.0) (2025-07-26)
 
 ---
 
-### Version 3.23
+### 版本 3.23
 
 *   [3.23.19](/update-notes/v3.23.19) (2025-07-23)
 *   [3.23.18](/update-notes/v3.23.18) (2025-07-23)
@@ -216,7 +276,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.22
+### 版本 3.22
 
 *   [3.22.6](/update-notes/v3.22.6) (2025-07-02)
 *   [3.22.5](/update-notes/v3.22.5) (2025-06-29)
@@ -229,7 +289,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.21
+### 版本 3.21
 
 *   [3.21.5](/update-notes/v3.21.5) (2025-06-23)
 *   [3.21.4](/update-notes/v3.21.4) (2025-06-23)
@@ -240,7 +300,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.20
+### 版本 3.20
 
 *   [3.20.3](/update-notes/v3.20.3) (2025-06-14)
 *   [3.20.2](/update-notes/v3.20.2) (2025-06-13)
@@ -250,7 +310,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.19
+### 版本 3.19
 
 *   [3.19.7](/update-notes/v3.19.7) (2025-06-11)
 *   [3.19.6](/update-notes/v3.19.6) (2025-06-09)
@@ -264,7 +324,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.18
+### 版本 3.18
 
 *   [3.18.5](/update-notes/v3.18.5) (2025-05-27)
 *   [3.18.4](/update-notes/v3.18.4) (2025-05-25)
@@ -275,7 +335,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.17
+### 版本 3.17
 
 *   [3.17.2](/update-notes/v3.17.2) (2025-05-15)
 *   [3.17.1](/update-notes/v3.17.1) (2025-05-15)
@@ -284,7 +344,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.16
+### 版本 3.16
 
 *   [3.16.6](/update-notes/v3.16.6) (2025-05-12)
 *   [3.16.5](/update-notes/v3.16.5) (2025-05-10)
@@ -296,7 +356,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.15
+### 版本 3.15
 
 *   [3.15](/update-notes/v3.15) (2025-05-05)
 *   [3.15.5](/update-notes/v3.15.5) (2025-05-05)
@@ -308,7 +368,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.14
+### 版本 3.14
 
 *   [3.14](/update-notes/v3.14) (2025-04-24)
 *   [3.14.3](/update-notes/v3.14.3) (2025-04-25)
@@ -318,7 +378,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.13
+### 版本 3.13
 
 *   [3.13](/update-notes/v3.13) (2025-04-18)
 *   [3.13.2](/update-notes/v3.13.2) (2025-04-18)
@@ -327,7 +387,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.12
+### 版本 3.12
 
 *   [3.12](/update-notes/v3.12) (2025-04-17)
 *   [3.12.3](/update-notes/v3.12.3) (2025-04-17)
@@ -337,7 +397,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.11
+### 版本 3.11
 
 *   [3.11.17](/update-notes/v3.11.17) (2025-04-14)
 *   [3.11.16](/update-notes/v3.11.16) (2025-04-14)
@@ -361,7 +421,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.10
+### 版本 3.10
 
 *   [3.10](/update-notes/v3.10) (2025-03-25)
 *   [3.10.5](/update-notes/v3.10.5) (2025-03-25)
@@ -373,7 +433,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.9
+### 版本 3.9
 
 *   [3.9](/update-notes/v3.9) (2025-03-19)
 *   [3.9.2](/update-notes/v3.9.2) (2025-03-19)
@@ -382,7 +442,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.8
+### 版本 3.8
 
 *   [3.8](/update-notes/v3.8) (2025-03-13)
 *   [3.8.6](/update-notes/v3.8.6) (2025-03-13)
@@ -395,7 +455,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.7
+### 版本 3.7
 
 *   [3.7](/update-notes/v3.7) (2025-03-03)
 *   [3.7.12](/update-notes/v3.7.12) (2025-03-03)
@@ -414,7 +474,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.3
+### 版本 3.3
 
 *   [3.3](/update-notes/v3.3) (2025-02-27)
 *   [3.3.26](/update-notes/v3.3.26) (2025-02-27)
@@ -447,7 +507,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.2
+### 版本 3.2
 
 *   [3.2](/update-notes/v3.2) (2025-02-27)
 *   [3.2.8](/update-notes/v3.2.8)
@@ -456,16 +516,16 @@ If you want to live on the edge and try things out before it's released, we have
 *   [3.2.5](/update-notes/v3.2.5)
 *   [3.2.4](/update-notes/v3.2.4)
 *   [3.2.3](/update-notes/v3.2.3)
-*   [3.2.0](/update-notes/v3.2.0) (Includes 3.2.1, 3.2.2)
+*   [3.2.0](/update-notes/v3.2.0) (包含 3.2.1、3.2.2)
 
 ---
 
-### Version 3.1
+### 版本 3.1
 
 *   [3.1](/update-notes/v3.1) (2025-02-27)
 *   [3.1.7](/update-notes/v3.1.7)
 *   [3.1.6](/update-notes/v3.1.6)
-*   [3.1.4](/update-notes/v3.1.4) (Includes 3.1.5 fix)
+*   [3.1.4](/update-notes/v3.1.4) (包含 3.1.5 修复)
 *   [3.1.3](/update-notes/v3.1.3)
 *   [3.1.2](/update-notes/v3.1.2)
 *   [3.1.1](/update-notes/v3.1.1)
@@ -473,7 +533,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 3.0
+### 版本 3.0
 
 *   [3.0](/update-notes/v3.0) (2025-02-27)
 *   [3.0.3](/update-notes/v3.0.3)
@@ -483,7 +543,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 2.2
+### 版本 2.2
 
 *   [2.2](/update-notes/v2.2) (2025-02-27)
 *   [2.2.46](/update-notes/v2.2.46)
@@ -495,7 +555,7 @@ If you want to live on the edge and try things out before it's released, we have
 *   [2.2.40](/update-notes/v2.2.40)
 *   [2.2.39](/update-notes/v2.2.39)
 *   [2.2.38](/update-notes/v2.2.38)
-*   [2.2.36](/update-notes/v2.2.36) (Includes 2.2.37)
+*   [2.2.36](/update-notes/v2.2.36) (包含 2.2.37)
 *   [2.2.35](/update-notes/v2.2.35)
 *   [2.2.34](/update-notes/v2.2.34)
 *   [2.2.33](/update-notes/v2.2.33)
@@ -516,11 +576,11 @@ If you want to live on the edge and try things out before it's released, we have
 *   [2.2.18](/update-notes/v2.2.18)
 *   [2.2.17](/update-notes/v2.2.17)
 *   [2.2.16](/update-notes/v2.2.16)
-*   [2.2.14](/update-notes/v2.2.14) (Includes 2.2.15)
+*   [2.2.14](/update-notes/v2.2.14) (包含 2.2.15)
 *   [2.2.13](/update-notes/v2.2.13)
 *   [2.2.12](/update-notes/v2.2.12)
 *   [2.2.11](/update-notes/v2.2.11)
-*   [2.2.6](/update-notes/v2.2.6) (Includes 2.2.7-2.2.10)
+*   [2.2.6](/update-notes/v2.2.6) (包含 2.2.7-2.2.10)
 *   [2.2.5](/update-notes/v2.2.5)
 *   [2.2.4](/update-notes/v2.2.4)
 *   [2.2.3](/update-notes/v2.2.3)
@@ -530,7 +590,7 @@ If you want to live on the edge and try things out before it's released, we have
 
 ---
 
-### Version 2.1
+### 版本 2.1
 
 *   [2.1](/update-notes/v2.1) (2025-02-27)
 *   [2.1.21](/update-notes/v2.1.21)

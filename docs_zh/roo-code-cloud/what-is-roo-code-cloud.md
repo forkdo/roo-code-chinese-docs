@@ -1,44 +1,43 @@
 ---
-description: Roo Code Cloud 通过云端任务同步与共享、远程 IDE 控制（Roomote）、使用分析以及可选的云代理功能，扩展你的 VS Code 插件，使用你自己的模型 API 密钥。
+description: Roo Code Cloud 通过云任务同步和共享、远程 IDE 控制（Roomote）、使用分析和可选的 Cloud Agents（使用您自己的模型 API 密钥）来扩展您的 VS Code 扩展。
 keywords:
   - Roo Code Cloud
   - Roomote Control
-  - Remote Control
+  - 远程控制
   - Cloud Agents
-  - cloud features
-  - collaboration
-  - task history
-  - usage analytics
-  - BYO keys
-image: /img/social-share.jpg
+  - 云功能
+  - 协作
+  - 任务历史
+  - 使用分析
+  - BYO 密钥
 ---
 
 # 什么是 Roo Code Cloud？
 
-Roo Code Cloud 是 Roo Code VS Code 插件的 Web 平台伴侣。它扩展了插件的功能（任务同步与共享、使用分析、远程控制（Roomote Control）），并允许你通过云代理（Cloud Agents）在云端独立于插件运行任务。
+Roo Code Cloud 是 Roo Code VS Code 扩展的网页平台配套产品。它扩展了扩展的功能（任务同步和共享、使用分析、远程控制（Roomote Control）），并允许您通过 Cloud Agents 在云端运行任务，完全独立于扩展。
 
-部分功能免费，部分功能需要付费。所有功能都遵循我们的理念：模型无关，允许你使用自己的提供商密钥，从而掌控推理模型和成本。
+某些功能是免费的，某些是付费的。所有功能都遵循我们的理念，即模型无关性，让您使用自己的提供商密钥来控制推理模型和成本。
 
-你可以在 [此处查看不同计划的定价](https://roocode.com/pricing)。
+您可以在[此处查看不同计划的定价](https://roocode.com/pricing)。
 
 ## 主要功能
 
 | 功能 | 描述 | 可用性 |
 | :------ | :---------- | :----------- |
-| [将插件连接到云端](/roo-code-cloud/connect) | 通过 GitHub、Google 或邮箱连接，实现云端同步 | 免费 |
-| [分析](/roo-code-cloud/analytics) | 跟踪模型令牌、任务、预估成本和云代理积分 | 免费 |
-| [任务同步](/roo-code-cloud/task-sync) | 实时任务更新和跨设备的云端任务历史 | 免费 |
-| [任务共享](/roo-code-cloud/task-sharing) | 通过安全、可过期的链接共享任务 | 免费 |
-| [Roomote 控制](/roo-code-cloud/roomote-control) | 基于浏览器的任务控制，同时你的 IDE 执行任务 | 付费 |
-| [云代理](/roo-code-cloud/cloud-agents) | 在云端运行 Roo，使用基于积分的运行时间和自带提供商密钥 | 付费 |
-| 订阅与计划 | 管理订阅、试用和积分购买 | 付费 |
+| [将扩展连接到云](/roo-code-cloud/connect) | 通过 GitHub、Google 或电子邮件进行云同步 | 免费 |
+| [分析](/roo-code-cloud/analytics) | 跟踪模型令牌、任务、预估成本和 Cloud Agent 积分 | 免费 |
+| [任务同步](/roo-code-cloud/task-sync) | 跨设备的实时任务更新和云任务历史 | 免费 |
+| [任务共享](/roo-code-cloud/task-sharing) | 通过安全的过期链接共享任务 | 免费 |
+| [Roomote 控制](/roo-code-cloud/roomote-control) | 基于浏览器的任务控制，同时您的 IDE 运行它们 | 付费 |
+| [Cloud Agents](/roo-code-cloud/cloud-agents) | 使用基于积分的运行时间和 BYO 提供商密钥在云端运行 Roo | 付费 |
+| 账单和计划 | 管理订阅、试用和积分购买 | 付费 |
 
 
 
-## 快速开始
+## 入门指南
 
-1. [连接你的账户](/roo-code-cloud/connect) 以将 Roo Code 与云端关联。
-2. 打开 [app.roocode.com](https://app.roocode.com/) 并确认你的任务已出现。
-3. 开启 [任务同步](/roo-code-cloud/task-sync)，使活动同步到云端。
-4. 准备好反馈或交接时，[共享一个任务](/roo-code-cloud/task-sharing)。
-5. 可选：启用 [Roomote 控制](/roo-code-cloud/roomote-control)（Pro/Team 版），用于远程控制，或启动一个 [云代理](/roo-code-cloud/cloud-agents)。在 [定价页面](https://roocode.com/pricing) 管理订阅计划。
+1. [连接您的账户](/roo-code-cloud/connect) 以将 Roo Code 与云链接。
+2. 打开 [app.roocode.com](https://app.roocode.com/) 并确认您的任务出现。
+3. 打开 [任务同步](/roo-code-cloud/task-sync) 以便活动同步到云端。
+4. 准备好获取反馈或交接时，[共享一个任务](/roo-code-cloud/task-sharing)。
+5. 可选：启用 [Roomote 控制](/roo-code-cloud/roomote-control)（Pro/Team）以进行远程控制，或启动一个 [Cloud Agent](/roo-code-cloud/cloud-agents)。在[定价](https://roocode.com/pricing)中管理计划。

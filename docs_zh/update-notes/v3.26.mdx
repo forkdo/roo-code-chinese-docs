@@ -1,5 +1,5 @@
 ---
-description: Roo Code v3.26 series - Grok Code Fast, built-in /init command, Qwen Code CLI API support, Vercel AI Gateway integration, and image generation enhancements.
+description: Roo Code v3.26 系列 - Grok Code Fast、内置 /init 命令、Qwen Code CLI API 支持、Vercel AI Gateway 集成以及图像生成增强功能。
 keywords:
   - roo code 3.26
   - grok code fast
@@ -10,178 +10,179 @@ keywords:
 image: /img/v3.26.0/v3.26.0.png
 ---
 
-# Roo Code 3.26 Release Notes
+# Roo Code 3.26 版本发布说明
 
-This document combines all releases in the v3.26 series.
+本文档汇总了 v3.26 系列的所有版本更新内容。
 
-<img src="/img/v3.26.0/v3.26.0.png" alt="Roo Code v3.26 Release" width="600" />
+<img src="/img/v3.26.0/v3.26.0.png" alt="Roo Code v3.26 版本发布" width="600" />
+
 ### Grok Code Fast
 
-As you may have already figured out, our stealth model Sonic has officially been uncloaked! ([#7426](https://github.com/RooCodeInc/Roo-Code/pull/7426))
+你可能已经猜到了，我们的隐身模型 Sonic 正式亮相了！ ([#7426](https://github.com/RooCodeInc/Roo-Code/pull/7426))
 
-From xAI, this model is optimized for coding tasks and already beloved by the community in Code Mode for its:
-- **Sharp reasoning** capabilities
-- **Plan execution at scale**
-- **Code suggestions with UI taste and intuition**
+由 xAI 推出的这款模型针对编码任务进行了优化，在 Code Mode 中已经受到社区的喜爱，其特点包括：
+- **敏锐的推理**能力
+- **大规模计划执行**
+- **具有 UI 品味和直觉的代码建议**
 
-If you've already been enjoying Sonic in Roo Code Cloud, you'll be transitioned to Grok Code Fast. The model `xai/grok-code-fast-1` is also available under the [xAI Provider](/providers/xai) and is not free (for when the free period ends on Aug 28th, 2025).
+如果你已经在 Roo Code Cloud 中体验过 Sonic，你将被迁移到 Grok Code Fast。模型 `xai/grok-code-fast-1` 也可在 [xAI Provider](/providers/xai) 下使用，并且不是免费的（免费期将于 2025 年 8 月 28 日结束）。
 
-A massive thank-you to our partners at xAI and to all of you — over 100B tokens (and counting!) ran through Sonic during stealth! Your incredible adoption and helpful feedback shaped Grok Code Fast into the powerful model it is today.
+非常感谢我们的合作伙伴 xAI 以及所有用户——在隐身期间，超过 1000 亿个 token（而且还在增加！）通过 Sonic 运行！你们的惊人采用率和有益反馈将 Grok Code Fast 塑造成了今天这样强大的模型。
 
-**Important:** Grok Code Fast remains **FREE** when accessed through the [Roo Code Cloud provider](/providers/roo-code-cloud) during the promotional period. Using it directly through the xAI provider will incur standard charges once pricing is established.
+**重要提示：** 在促销期间，通过 [Roo Code Router](/providers/roo-code-router) 访问 Grok Code Fast 仍然是**免费的**。一旦定价确定，直接通过 xAI provider 使用将产生标准费用。
 
-> **📚 Documentation**: See [Roo Code Cloud Provider](/providers/roo-code-cloud) for free access or [xAI Provider](/providers/xai) for direct configuration.
+> **📚 文档**：请参阅 [Roo Code Router](/providers/roo-code-router) 获取免费访问权限，或参阅 [xAI Provider](/providers/xai) 进行直接配置。
 
-### Built-in /init Command
+### 内置 /init 命令
 
-We've added a new /init slash command for project onboarding ([#7381](https://github.com/RooCodeInc/Roo-Code/pull/7381), [#7400](https://github.com/RooCodeInc/Roo-Code/pull/7400)):
+我们新增了一个 /init 斜杠命令，用于项目引导 ([#7381](https://github.com/RooCodeInc/Roo-Code/pull/7381), [#7400](https://github.com/RooCodeInc/Roo-Code/pull/7400))：
 
-- **Automatic Project Analysis**: Analyzes your entire codebase and creates comprehensive AGENTS.md files
-- **AI Assistant Optimization**: Generates documentation that enables AI assistants to be immediately productive in your codebase
-- **Mode-Specific Guidance**: Creates tailored documentation for different Roo Code modes (code, debug, architect, etc.)
+- **自动项目分析**：分析你的整个代码库并创建全面的 AGENTS.md 文件
+- **AI 助手优化**：生成文档，使 AI 助手能够立即在你的代码库中高效工作
+- **模式特定指导**：为不同的 Roo Code 模式（代码、调试、架构师等）创建定制文档
 
-The /init command helps LLMs understand your project's unique patterns and conventions by documenting project-specific information that isn't obvious from the code structure alone.
+/init 命令通过记录项目特定的信息（这些信息不能仅从代码结构中明显看出），帮助 LLM 理解你项目的独特模式和约定。
 
-> 📚 Documentation: See [Slash Commands - The init command](/features/slash-commands#the-init-command) for details.
+> 📚 文档：请参阅 [斜杠命令 - init 命令](/features/slash-commands#the-init-command) 获取详细信息。
 
-### New run_slash_command Tool
+### 新增 run_slash_command 工具
 
-We've added a powerful new tool that allows the AI to execute slash commands as part of its workflow ([#7473](https://github.com/RooCodeInc/Roo-Code/pull/7473)):
+我们新增了一个强大的工具，允许 AI 在其工作流程中执行斜杠命令 ([#7473](https://github.com/RooCodeInc/Roo-Code/pull/7473))：
 
-- **Automated Command Execution**: The AI can now run commands like `/init`, `/review`, and other slash commands automatically
-- **Seamless Integration**: Existing slash commands work directly within AI workflows without manual intervention
-- **Enhanced Automation**: Combine multiple slash commands to create complex automated sequences
+- **自动命令执行**：AI 现在可以自动运行 `/init`、`/review` 和其他斜杠命令
+- **无缝集成**：现有斜杠命令可以直接在 AI 工作流程中使用，无需手动干预
+- **增强自动化**：组合多个斜杠命令以创建复杂的自动化序列
 
-This opens up new possibilities for task automation, letting the AI leverage the full power of Roo Code's slash command ecosystem programmatically.
+这为任务自动化开辟了新的可能性，让 AI 能够以编程方式利用 Roo Code 斜杠命令生态系统的全部功能。
 
-> **📚 Documentation**: See the [run_slash_command tool documentation](/advanced-usage/available-tools/run-slash-command) for usage examples and integration patterns.
+> **📚 文档**：请参阅 [run_slash_command 工具文档](/advanced-usage/available-tools/run-slash-command) 获取使用示例和集成模式。
 
-### Qwen Code CLI API Support
+### Qwen Code CLI API 支持
 
-We've integrated with the Qwen Code CLI tool, allowing Roo Code to leverage its free access tier for Alibaba's Qwen3 Coder models ([#7380](https://github.com/RooCodeInc/Roo-Code/pull/7380)):
+我们集成了 Qwen Code CLI 工具，允许 Roo Code 利用其对阿里云 Qwen3 Coder 模型的免费访问层级 ([#7380](https://github.com/RooCodeInc/Roo-Code/pull/7380))：
 
-- **Free Inference**: Piggybacks off the Qwen Code CLI's generous free tier (2,000 requests/day and 60 requests/minute with no token limits) via OAuth, available during a promotional period.
-- **1M Context Windows**: Handle entire codebases in a single conversation.
-- **Seamless Setup**: Works automatically if you've already authenticated the Qwen Code CLI tool.
+- **免费推理**：通过 OAuth 利用 Qwen Code CLI 慷慨的免费层级（每天 2,000 次请求，每分钟 60 次请求，无 token 限制），在促销期间可用。
+- **100 万上下文窗口**：在单个对话中处理整个代码库。
+- **无缝设置**：如果你已经对 Qwen Code CLI 工具进行了身份验证，则会自动工作。
 
-This integration provides free access to the Qwen3 Coder models by using the local authentication from the Qwen Code CLI.
+此集成通过使用 Qwen Code CLI 的本地身份验证，为 Qwen3 Coder 模型提供免费访问。
 
-> **📚 Documentation**: See [Qwen Code CLI Provider](/providers/qwen-code) for setup and configuration.
+> **📚 文档**：请参阅 [Qwen Code CLI Provider](/providers/qwen-code) 获取设置和配置信息。
 
 ### Vercel AI Gateway Provider
 
-We've added Vercel AI Gateway as a complete provider integration (thanks joshualipman123!) ([#7396](https://github.com/RooCodeInc/Roo-Code/pull/7396), [#7433](https://github.com/RooCodeInc/Roo-Code/pull/7433)):
+我们将 Vercel AI Gateway 添加为完整的 provider 集成（感谢 joshualipman123！）（[#7396](https://github.com/RooCodeInc/Roo-Code/pull/7396), [#7433](https://github.com/RooCodeInc/Roo-Code/pull/7433)）：
 
-- **Full Provider Support**: Use Vercel AI Gateway as a comprehensive AI model provider alongside existing options
-- **Model Access**: Access Vercel's wide range of AI models through their optimized gateway infrastructure
-- **Embeddings Support**: Includes built-in support for Vercel AI Gateway embeddings ([#7445](https://github.com/RooCodeInc/Roo-Code/pull/7445))
+- **完整 Provider 支持**：将 Vercel AI Gateway 作为全面的 AI 模型 provider 与现有选项一起使用
+- **模型访问**：通过其优化的网关基础设施访问 Vercel 广泛的 AI 模型
+- **嵌入支持**：包括对 Vercel AI Gateway 嵌入的内置支持 ([#7445](https://github.com/RooCodeInc/Roo-Code/pull/7445))
 
-> **📚 Documentation**: See [Vercel AI Gateway](/providers/vercel-ai-gateway) for detailed setup instructions.
+> **📚 文档**：请参阅 [Vercel AI Gateway](/providers/vercel-ai-gateway) 获取详细的设置说明。
 
-### Image Generation (OpenRouter) — Free option: Gemini 2.5 Flash Image Preview
+### 图像生成（OpenRouter）— 免费选项：Gemini 2.5 Flash Image Preview
 
-Generate images from natural‑language prompts directly inside Roo Code using OpenRouter's image generation models. Configure your OpenRouter API key, pick a supported model, and preview results in the built‑in Image Viewer. See [Image Generation](/features/image-generation) and [OpenRouter Provider](/providers/openrouter) for setup and model selection.
+直接在 Roo Code 中使用 OpenRouter 的图像生成模型，根据自然语言提示生成图像。配置你的 OpenRouter API 密钥，选择一个支持的模型，并在内置的 Image Viewer 中预览结果。请参阅 [Image Generation](/features/image-generation) 和 [OpenRouter Provider](/providers/openrouter) 获取设置和模型选择信息。
 
-- **Free option available: Gemini 2.5 Flash Image Preview** — try image generation without paid credits for faster onboarding and quick experiments
-- Prompt‑to‑image workflow inside the editor with approvals flow (supports auto‑approval when write permissions are granted)
-- Image Viewer with zoom, copy, and save for quick reuse in docs and prototypes
-- **NEW in v3.26.3: Image Editing** — Transform and edit existing images in your workspace ([#7525](https://github.com/RooCodeInc/Roo-Code/pull/7525)):
-  - Apply artistic styles like watercolor, oil painting, or sketch
-  - Upscale and enhance images to higher resolution
-  - Modify specific aspects while preserving the rest
-  - Supports PNG, JPG, JPEG, GIF, and WEBP input formats
+- **免费选项可用：Gemini 2.5 Flash Image Preview** — 无需付费积分即可尝试图像生成，实现更快的入门和快速实验
+- 编辑器内的提示词到图像工作流程，支持审批流程（当授予写入权限时支持自动审批）
+- 带有缩放、复制和保存功能的 Image Viewer，便于在文档和原型中快速重用
+- **v3.26.3 新增：图像编辑** — 转换和编辑工作区中的现有图像 ([#7525](https://github.com/RooCodeInc/Roo-Code/pull/7525))：
+  - 应用艺术风格，如水彩、油画或素描
+  - 放大和增强图像至更高分辨率
+  - 修改特定方面，同时保留其余部分
+  - 支持 PNG、JPG、JPEG、GIF 和 WEBP 输入格式
 
 PRs: [#7474](https://github.com/RooCodeInc/Roo-Code/pull/7474), [#7492](https://github.com/RooCodeInc/Roo-Code/pull/7492), [#7493](https://github.com/RooCodeInc/Roo-Code/pull/7493), [#7525](https://github.com/RooCodeInc/Roo-Code/pull/7525))
 
-> **📚 Documentation**: See [Image Generation - Editing Existing Images](/features/image-generation#editing-existing-images) for transformation examples.
+> **📚 文档**：请参阅 [Image Generation - Editing Existing Images](/features/image-generation#editing-existing-images) 获取转换示例。
 
-### Kimi K2-0905: Moonshot's Latest Open Source Model is Live in Roo Code
+### Kimi K2-0905：Moonshot 最新的开源模型已登陆 Roo Code
 
-We've upgraded to the latest Kimi K2-0905 models across multiple providers (thanks CellenLee!) ([#7663](https://github.com/RooCodeInc/Roo-Code/pull/7663), [#7693](https://github.com/RooCodeInc/Roo-Code/pull/7693)):
+我们已在多个 provider 中升级至最新的 Kimi K2-0905 模型（感谢 CellenLee！）（[#7663](https://github.com/RooCodeInc/Roo-Code/pull/7663), [#7693](https://github.com/RooCodeInc/Roo-Code/pull/7693)）：
 
-K2-0905 comes with three major upgrades:
-- **256K Context Window**: Massive context supporting up to 256K-262K tokens, doubling the previous limit for processing much larger documents and conversations
-- **Improved Tool Calling**: Enhanced function calling and tool use capabilities for better agentic workflows
-- **Enhanced Front-end Development**: Superior HTML, CSS, and JavaScript generation with modern framework support
+K2-0905 带来了三大升级：
+- **256K 上下文窗口**：巨大的上下文支持高达 256K-262K 个 token，是之前限制的两倍，可处理更大的文档和对话
+- **改进的工具调用**：增强的函数调用和工具使用能力，实现更好的智能体工作流程
+- **增强的前端开发**：卓越的 HTML、CSS 和 JavaScript 生成，支持现代框架
 
-Available through Groq, Moonshot, and Fireworks providers. These models excel at handling large codebases, long conversations, and complex multi-file operations.
+可通过 Groq、Moonshot 和 Fireworks provider 使用。这些模型擅长处理大型代码库、长对话和复杂的多文件操作。
 
-### OpenAI Service Tiers
+### OpenAI 服务层级
 
-We've added support for OpenAI's new Responses API service tiers ([#7646](https://github.com/RooCodeInc/Roo-Code/pull/7646)):
+我们新增了对 OpenAI 新 Responses API 服务层级的支持 ([#7646](https://github.com/RooCodeInc/Roo-Code/pull/7646))：
 
-- **Standard Tier**: Default tier with regular pricing
-- **Flex Tier**: 50% discount with slightly longer response times for non-urgent tasks
-- **Priority Tier**: Faster response times for time-critical operations
+- **标准层级**：默认层级，采用常规定价
+- **灵活层级**：50% 折扣，响应时间稍长，适用于非紧急任务
+- **优先层级**：更快的响应时间，适用于时间关键型操作
 
-Select your preferred tier directly in the UI based on your needs and budget. This gives you more control over costs while maintaining access to OpenAI's powerful models.
+根据你的需求和预算，直接在 UI 中选择你偏好的层级。这让你在保持对 OpenAI 强大模型访问的同时，对成本有更多控制。
 
-> **📚 Documentation**: See [OpenAI Provider Guide](/providers/openai) for detailed tier comparison and pricing.
+> **📚 文档**：请参阅 [OpenAI Provider Guide](/providers/openai) 获取详细的层级比较和定价信息。
 
-### Provider Updates
+### 提供商更新
 
-* **DeepInfra Provider**: DeepInfra is now available as a model provider with 100+ open-source and frontier models, competitive pricing, and automatic prompt caching for supported models like Qwen3 Coder (thanks Thachnh!) ([#7677](https://github.com/RooCodeInc/Roo-Code/pull/7677))
-* **Kimi K2 Turbo Model**: Added support for the high-speed Kimi K2 Turbo model with 60-100 tokens/sec processing and a 131K token context window (thanks wangxiaolong100!) ([#7593](https://github.com/RooCodeInc/Roo-Code/pull/7593))
-* **Qwen3 235B Thinking Model**: Added support for Qwen3-235B-A22B-Thinking-2507 model with an impressive 262K context window, enabling processing of extremely long documents and large codebases in a single request through the Chutes provider (thanks mohammad154, apple-techie!) ([#7578](https://github.com/RooCodeInc/Roo-Code/pull/7578))
-* **Ollama Turbo Mode**: Added API key support for Turbo mode, enabling faster model execution with datacenter-grade hardware (thanks LivioGama!) ([#7425](https://github.com/RooCodeInc/Roo-Code/pull/7425))
-* **DeepSeek V3.1 on Fireworks**: Added support for DeepSeek V3.1 model in the Fireworks AI provider (thanks dmarkey!) ([#7375](https://github.com/RooCodeInc/Roo-Code/pull/7375))
-* **Provider Visibility**: Static providers with no models are now hidden from the provider list for a cleaner interface ([#7392](https://github.com/RooCodeInc/Roo-Code/pull/7392))
+* **DeepInfra 提供商**：DeepInfra 现已作为模型提供商提供，拥有 100 多个开源和前沿模型、具有竞争力的定价，以及对 Qwen3 Coder 等支持模型提供自动提示缓存功能（感谢 Thachnh！）（[#7677](https://github.com/RooCodeInc/Roo-Code/pull/7677)）
+* **Kimi K2 Turbo 模型**：新增对 Kimi K2 Turbo 高速模型的支持，处理速度达 60-100 tokens/秒，上下文窗口为 131K tokens（感谢 wangxiaolong100！）（[#7593](https://github.com/RooCodeInc/Roo-Code/pull/7593)）
+* **Qwen3 235B 思维模型**：新增对 Qwen3-235B-A22B-Thinking-2507 模型的支持，拥有令人印象深刻的 262K 上下文窗口，可通过 Chutes 提供商在单个请求中处理超长文档和大型代码库（感谢 mohammad154、apple-techie！）（[#7578](https://github.com/RooCodeInc/Roo-Code/pull/7578)）
+* **Ollama Turbo 模式**：为 Turbo 模式添加 API 密钥支持，使用数据中心级硬件实现更快的模型执行（感谢 LivioGama！）（[#7425](https://github.com/RooCodeInc/Roo-Code/pull/7425)）
+* **Fireworks 上的 DeepSeek V3.1**：在 Fireworks AI 提供商中新增对 DeepSeek V3.1 模型的支持（感谢 dmarkey！）（[#7375](https://github.com/RooCodeInc/Roo-Code/pull/7375)）
+* **提供商可见性**：没有模型的静态提供商现在会从提供商列表中隐藏，以获得更简洁的界面（[#7392](https://github.com/RooCodeInc/Roo-Code/pull/7392)）
 
-### QOL Improvements
+### 生活质量改进
 
-* **Shell Security**: Added shell executable allowlist validation with platform-specific fallbacks for improved command execution safety ([#7681](https://github.com/RooCodeInc/Roo-Code/pull/7681))
-* **Settings Scroll Position**: Settings tabs now remember their individual scroll positions when switching between them (thanks DC-Dancao!) ([#7587](https://github.com/RooCodeInc/Roo-Code/pull/7587))
-* **MCP Resource Auto-Approval**: MCP resource access requests are now automatically approved when auto-approve is enabled, eliminating manual approval steps and enabling smoother automation workflows (thanks m-ibm!) ([#7606](https://github.com/RooCodeInc/Roo-Code/pull/7606))
-* **Message Queue Performance**: Improved message queueing reliability and performance by moving the queue management to the extension host, making the interface more stable ([#7604](https://github.com/RooCodeInc/Roo-Code/pull/7604))
-* **Memory Optimization**: Optimized memory usage for image handling in webview, achieving ~75% reduction in memory consumption ([#7556](https://github.com/RooCodeInc/Roo-Code/pull/7556))
-* **Auto-Approve Toggle UI**: The auto-approve toggle now stays at the bottom when expanded, reducing mouse movements (thanks elianiva, kyle-apex!) ([#7318](https://github.com/RooCodeInc/Roo-Code/pull/7318))
-* **OpenRouter Cache Pricing**: Cache read and write prices are now displayed for OpenRouter models (thanks chrarnoldus!) ([#7176](https://github.com/RooCodeInc/Roo-Code/pull/7176))
-* **Protected Workspace Files**: VS Code workspace configuration files (*.code-workspace) are now protected from accidental modification (thanks thelicato!) ([#7403](https://github.com/RooCodeInc/Roo-Code/pull/7403))
-* **Cleaner Model Display**: Removed dot separator in API configuration dropdown for cleaner appearance ([#7461](https://github.com/RooCodeInc/Roo-Code/pull/7461))
-* **Better Tooltips**: Updated tooltip styling to match VSCode native shadows for improved visual consistency ([#7457](https://github.com/RooCodeInc/Roo-Code/pull/7457))
-* **Model ID Visibility**: API configuration dropdown now shows model IDs alongside profile names for easier identification ([#7423](https://github.com/RooCodeInc/Roo-Code/pull/7423))
-* **Chat UI Cleanup**: Improved consistency in chat input controls and fixed tooltip behavior ([#7436](https://github.com/RooCodeInc/Roo-Code/pull/7436))
-* **Clearer Task Headers**: Removed duplicate cache display in task headers to eliminate confusion ([#7443](https://github.com/RooCodeInc/Roo-Code/pull/7443))
-* **Cloud Tab Rename**: Renamed Account tab to Cloud tab for clarity ([#7558](https://github.com/RooCodeInc/Roo-Code/pull/7558))
-* Improved padding and click targets in the image model picker for easier selection and fewer misclicks ([#7494](https://github.com/RooCodeInc/Roo-Code/pull/7494))
-* Generic default filename for saved images (e.g., `img_<timestamp>`) instead of `mermaid_diagram_<timestamp>` ([#7479](https://github.com/RooCodeInc/Roo-Code/pull/7479))
+* **Shell 安全性**：新增 shell 可执行文件白名单验证，并提供特定平台的回退选项，以提高命令执行安全性（[#7681](https://github.com/RooCodeInc/Roo-Code/pull/7681)）
+* **设置滚动位置**：设置标签页现在会在切换时记住各自的滚动位置（感谢 DC-Dancao！）（[#7587](https://github.com/RooCodeInc/Roo-Code/pull/7587)）
+* **MCP 资源自动批准**：启用自动批准时，MCP 资源访问请求现在会自动批准，无需手动批准步骤，实现更顺畅的自动化工作流（感谢 m-ibm！）（[#7606](https://github.com/RooCodeInc/Roo-Code/pull/7606)）
+* **消息队列性能**：通过将队列管理移至扩展主机，提高了消息队列的可靠性和性能，使界面更加稳定（[#7604](https://github.com/RooCodeInc/Roo-Code/pull/7604)）
+* **内存优化**：优化了 webview 中图像处理的内存使用，内存消耗减少了约 75%（[#7556](https://github.com/RooCodeInc/Roo-Code/pull/7556)）
+* **自动批准切换 UI**：自动批准切换按钮在展开时现在保持在底部，减少鼠标移动（感谢 elianiva、kyle-apex！）（[#7318](https://github.com/RooCodeInc/Roo-Code/pull/7318)）
+* **OpenRouter 缓存定价**：现在为 OpenRouter 模型显示缓存读取和写入价格（感谢 chrarnoldus！）（[#7176](https://github.com/RooCodeInc/Roo-Code/pull/7176)）
+* **受保护的工作区文件**：VS Code 工作区配置文件（*.code-workspace）现在受到保护，防止意外修改（感谢 thelicato！）（[#7403](https://github.com/RooCodeInc/Roo-Code/pull/7403)）
+* **更简洁的模型显示**：在 API 配置下拉菜单中移除点分隔符，使外观更简洁（[#7461](https://github.com/RooCodeInc/Roo-Code/pull/7461)）
+* **更好的工具提示**：更新了工具提示样式，以匹配 VSCode 原生阴影，提高视觉一致性（[#7457](https://github.com/RooCodeInc/Roo-Code/pull/7457)）
+* **模型 ID 可见性**：API 配置下拉菜单现在同时显示模型 ID 和配置文件名称，便于识别（[#7423](https://github.com/RooCodeInc/Roo-Code/pull/7423)）
+* **聊天 UI 清理**：改进了聊天输入控件的统一性，并修复了工具提示行为（[#7436](https://github.com/RooCodeInc/Roo-Code/pull/7436)）
+* **更清晰的任务标题**：从任务标题中移除重复的缓存显示，以消除混淆（[#7443](https://github.com/RooCodeInc/Roo-Code/pull/7443)）
+* **云标签页重命名**：将“账户”标签页重命名为“云”标签页，以提高清晰度（[#7558](https://github.com/RooCodeInc/Roo-Code/pull/7558)）
+* 改进了图像模型选择器中的内边距和点击目标，使选择更容易，减少误点击（[#7494](https://github.com/RooCodeInc/Roo-Code/pull/7494)）
+* 为保存的图像提供通用默认文件名（例如 `img_<timestamp>`），而不是 `mermaid_diagram_<timestamp>`（[#7479](https://github.com/RooCodeInc/Roo-Code/pull/7479)）
 
-### Bug Fixes
+### Bug 修复
 
-* **MCP Tool Validation**: Roo now validates MCP tool existence before execution and shows helpful error messages with available tools (thanks R-omk!) ([#7632](https://github.com/RooCodeInc/Roo-Code/pull/7632))
-* **OpenAI API Key Errors**: Clear error messages now display when API keys contain invalid characters instead of cryptic ByteString errors (thanks A0nameless0man!) ([#7586](https://github.com/RooCodeInc/Roo-Code/pull/7586))
-* **Follow-up Questions**: Fixed countdown timer incorrectly reappearing in task history for already answered follow-up questions (thanks XuyiK!) ([#7686](https://github.com/RooCodeInc/Roo-Code/pull/7686))
-* **Moonshot Token Limit**: Resolved issue where Moonshot models were incorrectly limited to 1024 tokens, now properly respects configured limits (thanks wangxiaolong100, greyishsong!) ([#7673](https://github.com/RooCodeInc/Roo-Code/pull/7673))
-* **Zsh Command Safety**: Improved handling of zsh process substitution and glob qualifiers to prevent auto-execution of potentially dangerous commands ([#7658](https://github.com/RooCodeInc/Roo-Code/pull/7658), [#7667](https://github.com/RooCodeInc/Roo-Code/pull/7667))
-* **Traditional Chinese Localization**: Fixed typo in zh-TW locale text (thanks PeterDaveHello!) ([#7672](https://github.com/RooCodeInc/Roo-Code/pull/7672))
-* **Tool Approval Fix**: Fixed an error that occurred when using insert_content and search_and_replace tools on write-protected files - these tools now handle file protection correctly ([#7649](https://github.com/RooCodeInc/Roo-Code/pull/7649))
-* **Configurable Embedding Batch Size**: Fixed an issue where users with API providers having stricter batch limits couldn't use code indexing. You can now configure the embedding batch size (1-2048, default: 400) to match your provider's limits (thanks BenLampson!) ([#7464](https://github.com/RooCodeInc/Roo-Code/pull/7464))
-* **OpenAI-Native Cache Reporting**: Fixed cache usage statistics and cost calculations when using the OpenAI-Native provider with cached content ([#7602](https://github.com/RooCodeInc/Roo-Code/pull/7602))
-* **Special Tokens Handling**: Fixed issue where special tokens would break task processing (thanks pwilkin!) ([#7540](https://github.com/RooCodeInc/Roo-Code/pull/7540))
-* **Security - Symlink Handling**: Fixed security vulnerability where symlinks could bypass rooignore patterns ([#7405](https://github.com/RooCodeInc/Roo-Code/pull/7405))
-* **Security - Default Commands**: Removed potentially unsafe commands (`npm test`, `npm install`, `tsc`) from default allowed list (thanks thelicato, SGudbrandsson!) ([#7404](https://github.com/RooCodeInc/Roo-Code/pull/7404))
-* **Command Validation**: Fixed handling of substitution patterns in command validation ([#7390](https://github.com/RooCodeInc/Roo-Code/pull/7390))
-* **Follow-up Input Preservation**: Fixed issue where user input wasn't preserved when selecting follow-up choices ([#7394](https://github.com/RooCodeInc/Roo-Code/pull/7394))
-* **Mistral Thinking Content**: Fixed validation errors when using Mistral models that send thinking content (thanks Biotrioo!) ([#7106](https://github.com/RooCodeInc/Roo-Code/pull/7106))
-* **Requesty Model Listing**: Fixed model listing for Requesty provider when using custom base URLs (thanks dtrugman!) ([#7378](https://github.com/RooCodeInc/Roo-Code/pull/7378))
-* **Todo List Setting**: Fixed newTaskRequireTodos setting to properly enforce todo list requirements ([#7363](https://github.com/RooCodeInc/Roo-Code/pull/7363))
-* **Image Generation Settings** (v3.26.3): Fixed issue where the saved API key would clear when switching modes ([#7536](https://github.com/RooCodeInc/Roo-Code/pull/7536))
-* ImageGenerationSettings no longer shows a dirty state on first open; the save button only enables after an actual change ([#7495](https://github.com/RooCodeInc/Roo-Code/pull/7495))
-* GPT‑5 reliability improvements:
-  - Manual condense preserves conversation continuity by correctly handling `previous_response_id` on the next request
-  - Image inputs work reliably with structured text+image payloads
-  - Temperature control is shown only for models that support it
-  - Fewer GPT‑5–specific errors with updated provider definitions and SDK (thanks nlbuescher!)
+* **MCP 工具验证**：Roo 现在会在执行前验证 MCP 工具是否存在，并显示包含可用工具的有用错误消息（感谢 R-omk！）（[#7632](https://github.com/RooCodeInc/Roo-Code/pull/7632)）
+* **OpenAI API 密钥错误**：当 API 密钥包含无效字符时，现在会显示清晰的错误消息，而不是令人困惑的 ByteString 错误（感谢 A0nameless0man！）（[#7586](https://github.com/RooCodeInc/Roo-Code/pull/7586)）
+* **后续问题**：修复了已回答的后续问题在任务历史记录中错误地重新显示倒计时器的问题（感谢 XuyiK！）（[#7686](https://github.com/RooCodeInc/Roo-Code/pull/7686)）
+* **Moonshot Token 限制**：解决了 Moonshot 模型被错误地限制为 1024 个 token 的问题，现在可以正确遵守配置的限制（感谢 wangxiaolong100、greyishsong！）（[#7673](https://github.com/RooCodeInc/Roo-Code/pull/7673)）
+* **Zsh 命令安全性**：改进了对 zsh 进程替换和通配符限定符的处理，以防止自动执行潜在危险的命令（[#7658](https://github.com/RooCodeInc/Roo-Code/pull/7658)、[#7667](https://github.com/RooCodeInc/Roo-Code/pull/7667)）
+* **繁体中文本地化**：修复了 zh-TW 区域设置文本中的拼写错误（感谢 PeterDaveHello！）（[#7672](https://github.com/RooCodeInc/Roo-Code/pull/7672)）
+* **工具审批修复**：修复了在使用 insert_content 和 search_and_replace 工具处理只读文件时发生的错误 - 这些工具现在可以正确处理文件保护（[#7649](https://github.com/RooCodeInc/Roo-Code/pull/7649)）
+* **可配置的嵌入批处理大小**：修复了具有更严格批处理限制的 API 提供商用户无法使用代码索引的问题。您现在可以配置嵌入批处理大小（1-2048，默认值：400）以匹配您提供商的限制（感谢 BenLampson！）（[#7464](https://github.com/RooCodeInc/Roo-Code/pull/7464)）
+* **OpenAI-Native 缓存报告**：修复了在使用带有缓存内容的 OpenAI-Native 提供商时的缓存使用统计和成本计算（[#7602](https://github.com/RooCodeInc/Roo-Code/pull/7602)）
+* **特殊 Token 处理**：修复了特殊 token 会中断任务处理的问题（感谢 pwilkin！）（[#7540](https://github.com/RooCodeInc/Roo-Code/pull/7540)）
+* **安全性 - 符号链接处理**：修复了符号链接可能绕过 rooignore 模式的安全漏洞（[#7405](https://github.com/RooCodeInc/Roo-Code/pull/7405)）
+* **安全性 - 默认命令**：从默认允许列表中移除了潜在不安全的命令（`npm test`、`npm install`、`tsc`）（感谢 thelicato、SGudbrandsson！）（[#7404](https://github.com/RooCodeInc/Roo-Code/pull/7404)）
+* **命令验证**：修复了命令验证中替换模式的处理（[#7390](https://github.com/RooCodeInc/Roo-Code/pull/7390)）
+* **后续输入保留**：修复了选择后续选项时用户输入未被保留的问题（[#7394](https://github.com/RooCodeInc/Roo-Code/pull/7394)）
+* **Mistral 思考内容**：修复了使用发送思考内容的 Mistral 模型时的验证错误（感谢 Biotrioo！）（[#7106](https://github.com/RooCodeInc/Roo-Code/pull/7106)）
+* **Requesty 模型列表**：修复了使用自定义基础 URL 时 Requesty 提供商的模型列表（感谢 dtrugman！）（[#7378](https://github.com/RooCodeInc/Roo-Code/pull/7378)）
+* **待办事项列表设置**：修复了新任务要求待办事项列表设置，以正确执行待办事项列表要求（[#7363](https://github.com/RooCodeInc/Roo-Code/pull/7363)）
+* **图像生成设置**（v3.26.3）：修复了切换模式时保存的 API 密钥会被清除的问题（[#7536](https://github.com/RooCodeInc/Roo-Code/pull/7536)）
+* 首次打开时 ImageGenerationSettings 不再显示脏状态；只有在实际更改后保存按钮才会启用（[#7495](https://github.com/RooCodeInc/Roo-Code/pull/7495)）
+* GPT‑5 可靠性改进：
+  - 手动压缩通过在下一次请求时正确处理 `previous_response_id` 来保持对话连续性
+  - 图像输入可与结构化的文本+图像负载可靠地配合使用
+  - 温度控制仅对支持的模型显示
+  - 通过更新的提供商定义和 SDK 减少了 GPT‑5 特有的错误（感谢 nlbuescher！）
   
   ([#7067](https://github.com/RooCodeInc/Roo-Code/pull/7067))
 
-### Misc Improvements
+### 其他改进
 
-* **Release Image**: Added kangaroo-themed release image generation ([#7546](https://github.com/RooCodeInc/Roo-Code/pull/7546))
-* **Issue Fixer Mode**: Added missing todos parameter in new_task tool usage ([#7391](https://github.com/RooCodeInc/Roo-Code/pull/7391))
-* **Privacy Policy Update**: Updated privacy policy to clarify proxy mode data handling (thanks jdilla1277!) ([#7255](https://github.com/RooCodeInc/Roo-Code/pull/7255))
-* **Dependencies**: Updated drizzle-kit to v0.31.4 ([#5453](https://github.com/RooCodeInc/Roo-Code/pull/5453))
-* **Test Debugging** (v3.26.3): Console logs now visible in tests when using the --no-silent flag (thanks hassoncs!) ([#7467](https://github.com/RooCodeInc/Roo-Code/pull/7467))
-* Release automation: version bumps, changelog updates, and auto-publishing on merge for a faster, more reliable release process ([#7490](https://github.com/RooCodeInc/Roo-Code/pull/7490))
-* New TaskSpawned developer event so integrations can detect when a subtask is created and capture its ID for chaining or monitoring ([#7465](https://github.com/RooCodeInc/Roo-Code/pull/7465))
-* Roo Code Cloud SDK bumped to 0.25.0 ([#7475](https://github.com/RooCodeInc/Roo-Code/pull/7475))
+* **发布图像**：添加了以袋鼠为主题的发布图像生成功能（[#7546](https://github.com/RooCodeInc/Roo-Code/pull/7546)）
+* **问题修复模式**：在新任务工具使用中添加了缺失的待办事项参数（[#7391](https://github.com/RooCodeInc/Roo-Code/pull/7391)）
+* **隐私政策更新**：更新了隐私政策以明确代理模式的数据处理（感谢 jdilla1277！）（[#7255](https://github.com/RooCodeInc/Roo-Code/pull/7255)）
+* **依赖项**：将 drizzle-kit 更新至 v0.31.4（[#5453](https://github.com/RooCodeInc/Roo-Code/pull/5453)）
+* **测试调试**（v3.26.3）：使用 --no-silent 标志时，测试中现在可以查看控制台日志（感谢 hassoncs！）（[#7467](https://github.com/RooCodeInc/Roo-Code/pull/7467)）
+* 发布自动化：版本升级、更新日志更新和合并时自动发布，以实现更快、更可靠的发布流程（[#7490](https://github.com/RooCodeInc/Roo-Code/pull/7490)）
+* 新的 TaskSpawned 开发者事件，以便集成可以检测到何时创建子任务并捕获其 ID 用于链式调用或监控（[#7465](https://github.com/RooCodeInc/Roo-Code/pull/7465)）
+* Roo Code Cloud SDK 升级至 0.25.0（[#7475](https://github.com/RooCodeInc/Roo-Code/pull/7475)）

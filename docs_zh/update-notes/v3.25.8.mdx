@@ -1,54 +1,53 @@
 ---
-description: Memory leak fix for long conversations and Gemini 2.5 Pro thinking budget flexibility, plus multiple stability improvements.
+description: 修复长时间对话中的内存泄漏问题，增强 Gemini 2.5 Pro 思考预算的灵活性，以及多项稳定性改进。
 keywords:
   - roo code 3.25.8
   - memory leak fix
   - gemini thinking budget
   - bug fixes
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.25.8 Release Notes (2025-08-06)
+# Roo Code 3.25.8 版本发布说明 (2025-08-06)
 
-This release fixes a critical memory leak in long conversations, prevents disabled MCP servers from starting, and provides more flexibility for Gemini 2.5 Pro thinking budgets, along with numerous stability improvements.
+此版本修复了长时间对话中的关键内存泄漏问题，防止已禁用的 MCP 服务器启动，并为 Gemini 2.5 Pro 的思考预算提供了更大的灵活性，同时带来了多项稳定性改进。
 
-## Disabled MCP Servers No Longer Start
+## 已禁用的 MCP 服务器不再启动
 
-We've fixed a significant issue where disabled MCP servers were still starting processes and consuming resources ([#6084](https://github.com/RooCodeInc/Roo-Code/pull/6084)):
+我们修复了一个严重问题：已禁用的 MCP 服务器仍会启动进程并消耗资源 ([#6084](https://github.com/RooCodeInc/Roo-Code/pull/6084))：
 
-- **No Wasted Resources**: Disabled servers now truly stay disabled and don't start background processes
-- **Clear Status Indicators**: Server status now accurately reflects whether a server is enabled or disabled
-- **Immediate Cleanup**: When MCP is globally disabled, all servers immediately disconnect
+- **无资源浪费**：已禁用的服务器现在真正保持禁用状态，不会启动后台进程
+- **清晰的状态指示**：服务器状态现在能准确反映服务器是启用还是禁用
+- **即时清理**：当 MCP 全局禁用时，所有服务器会立即断开连接
 
-This ensures your system resources are only used for the MCP servers you actually want to run.
+这确保您的系统资源仅用于您实际希望运行的 MCP 服务器。
 
-## Memory Leak Fix for Long Conversations
+## 长时间对话的内存泄漏修复
 
-We've resolved a critical memory leak that was causing excessive memory usage and grey screens in long conversations (thanks xyOz-dev!) ([#6697](https://github.com/RooCodeInc/Roo-Code/pull/6697)):
+我们解决了长时间对话中导致内存使用过多和灰色屏幕的关键内存泄漏问题（感谢 xyOz-dev！） ([#6697](https://github.com/RooCodeInc/Roo-Code/pull/6697))：
 
-- **Bounded Memory Usage**: Virtual scrolling now limits viewport rendering to 1000px below the current view instead of rendering infinitely
-- **Optimized Caching**: Reduced cache size and TTL to prevent memory accumulation
-- **Stable Performance**: Memory usage remains constant regardless of conversation length
+- **有界内存使用**：虚拟滚动现在将视口渲染限制在当前视图下方 1000px，而不是无限渲染
+- **优化的缓存**：减少缓存大小和 TTL，防止内存累积
+- **稳定的性能**：无论对话长度如何，内存使用量都保持恒定
 
-Your long conversations will now remain responsive and stable without the dreaded grey screen appearing.
+您的长时间对话现在将保持响应迅速且稳定，不会出现可怕的灰色屏幕。
 
-## Gemini 2.5 Pro Thinking Budget Flexibility
+## Gemini 2.5 Pro 思考预算灵活性
 
-Gemini 2.5 Pro users now have much more control over the thinking budget ([#6588](https://github.com/RooCodeInc/Roo-Code/pull/6588)):
+Gemini 2.5 Pro 用户现在对思考预算有了更大的控制权 ([#6588](https://github.com/RooCodeInc/Roo-Code/pull/6588))：
 
-- **Lower Minimum**: The minimum thinking budget is reduced from 1024 to 128 tokens
-- **More Concise Coding**: Perfect for tasks that need quick, focused responses without extensive reasoning
-- **Manual Adjustment Required**: You'll need to manually adjust the thinking budget to 128 in your settings to take advantage of this feature
+- **更低的下限**：最小思考预算从 1024 个 token 减少到 128 个 token
+- **更简洁的编码**：非常适合需要快速、专注响应而无需广泛推理的任务
+- **需要手动调整**：您需要在设置中手动将思考预算调整为 128 才能利用此功能
 
-This change gives you the flexibility to optimize for either deep reasoning or more concise, rapid responses depending on your needs.
+此更改让您可以根据需求灵活优化深度推理或更简洁、快速的响应。
 
-## Bug Fixes
+## Bug 修复
 
-* **MCP Server Refresh**: Settings changes no longer trigger unnecessary MCP server refreshes ([#6779](https://github.com/RooCodeInc/Roo-Code/pull/6779))
-* **Codebase Search**: The tool now correctly searches the entire workspace when using "." as the path ([#6517](https://github.com/RooCodeInc/Roo-Code/pull/6517))
-* **Swift File Support**: Fixed VS Code crashes when indexing projects containing Swift files (thanks niteshbalusu11, sealad886!) ([#6724](https://github.com/RooCodeInc/Roo-Code/pull/6724))
-* **Context Management**: Model max tokens now intelligently capped at 20% of context window to prevent excessive condensing ([#6761](https://github.com/RooCodeInc/Roo-Code/pull/6761))
-* **OpenAI Configuration**: Extra whitespace in base URLs no longer breaks model detection (thanks vauhochzett!) ([#6560](https://github.com/RooCodeInc/Roo-Code/pull/6560))
-* **URL Fetching**: Better error recovery when fetching content from URLs (thanks QuinsZouls!) ([#6635](https://github.com/RooCodeInc/Roo-Code/pull/6635))
-* **Qdrant Recovery**: Code indexing automatically recovers when Qdrant becomes available after startup errors ([#6661](https://github.com/RooCodeInc/Roo-Code/pull/6661))
-* **Chat Scrolling**: Eliminated scroll jitter during message streaming ([#6780](https://github.com/RooCodeInc/Roo-Code/pull/6780))
+* **MCP 服务器刷新**：设置更改不再触发不必要的 MCP 服务器刷新 ([#6779](https://github.com/RooCodeInc/Roo-Code/pull/6779))
+* **代码库搜索**：使用 "." 作为路径时，工具现在能正确搜索整个工作区 ([#6517](https://github.com/RooCodeInc/Roo-Code/pull/6517))
+* **Swift 文件支持**：修复了在索引包含 Swift 文件的项目时 VS Code 崩溃的问题（感谢 niteshbalusu11, sealad886！） ([#6724](https://github.com/RooCodeInc/Roo-Code/pull/6724))
+* **上下文管理**：模型最大 token 数现在智能地限制在上下文窗口的 20%，以防止过度压缩 ([#6761](https://github.com/RooCodeInc/Roo-Code/pull/6761))
+* **OpenAI 配置**：基础 URL 中的额外空格不再破坏模型检测（感谢 vauhochzett！） ([#6560](https://github.com/RooCodeInc/Roo-Code/pull/6560))
+* **URL 获取**：从 URL 获取内容时提供更好的错误恢复（感谢 QuinsZouls！） ([#6635](https://github.com/RooCodeInc/Roo-Code/pull/6635))
+* **Qdrant 恢复**：当 Qdrant 在启动错误后变为可用时，代码索引会自动恢复 ([#6661](https://github.com/RooCodeInc/Roo-Code/pull/6661))
+* **聊天滚动**：消除消息流式传输期间的滚动抖动 ([#6780](https://github.com/RooCodeInc/Roo-Code/pull/6780))

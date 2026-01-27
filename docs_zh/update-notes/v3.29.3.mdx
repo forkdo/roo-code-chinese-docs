@@ -1,33 +1,32 @@
 ---
-description: Adds Roo provider reasoning control, Z.ai Deep Thinking toggle, Gemini model updates, plus fixes for rate limiting, retries, and UI polish.
+description: 为 Roo 和 Z.ai 提供商添加推理控制功能，切换 Z.ai 深度思考模式，更新 Gemini 模型，同时修复速率限制、重试机制和界面优化问题。
 keywords:
   - roo code 3.29.3
   - release notes
   - bug fixes
   - provider updates
   - qol improvements
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.29.3 Release Notes (2025-10-28)
+# Roo Code 3.29.3 版本说明 (2025-10-28)
 
-This patch adds reasoning controls for Roo and Z.ai providers, updates Gemini "latest" models, and delivers stability and UI fixes.
+此补丁为 Roo 和 Z.ai 提供商添加了推理控制功能，更新了 Gemini 的 "latest" 模型，并提供了稳定性和界面修复。
 
-## QOL Improvements
+## 生活质量改进
 
-* Toggle time and cost display in the system prompt to reduce model distraction during long runs (thanks jaxnb!) ([#8451](https://github.com/RooCodeInc/Roo-Code/pull/8451))
-* After “Add to Context,” input auto‑focuses and two newlines are inserted for clearer separation, so you can keep typing immediately ([#8877](https://github.com/RooCodeInc/Roo-Code/pull/8877))
+* 可在系统提示中切换时间和成本显示，以减少模型在长时间运行时的干扰（感谢 jaxnb！）（[#8451](https://github.com/RooCodeInc/Roo-Code/pull/8451)）
+* 在“添加到上下文”后，输入框自动聚焦并插入两个换行符，以便更清晰地区分内容，您可以立即继续输入（[#8877](https://github.com/RooCodeInc/Roo-Code/pull/8877)）
 
-## Bug Fixes
+## 错误修复
 
-* LiteLLM: Prefer max_output_tokens (with fallback to max_tokens) to prevent 400 errors on Claude Sonnet 4.5 via Vertex (thanks fabb!) ([#8455](https://github.com/RooCodeInc/Roo-Code/pull/8455))
-* Messages typed during context condensing now send automatically once condensing finishes; per‑task queues no longer cross‑drain (thanks JosXa!) ([#8478](https://github.com/RooCodeInc/Roo-Code/pull/8478))
-* Rate limiting now uses a monotonic clock and enforces a hard cap at the configured limit to avoid long lockouts (thanks chrarnoldus, intermarkec!) ([#8456](https://github.com/RooCodeInc/Roo-Code/pull/8456))
-* Restore green tests and TypeScript build for LiteLLM after interface changes; keeps monotonic clock fix and token limit behavior ([#8870](https://github.com/RooCodeInc/Roo-Code/pull/8870))
-* Checkpoint menu popover no longer clips long option text; items remain fully visible ([#8867](https://github.com/RooCodeInc/Roo-Code/pull/8867))
+* LiteLLM：优先使用 max_output_tokens（如果不可用则回退到 max_tokens），以防止通过 Vertex 使用 Claude Sonnet 4.5 时出现 400 错误（感谢 fabb！）（[#8455](https://github.com/RooCodeInc/Roo-Code/pull/8455)）
+* 在上下文压缩期间输入的消息现在会在压缩完成后自动发送；每个任务的队列不再交叉清空（感谢 JosXa！）（[#8478](https://github.com/RooCodeInc/Roo-Code/pull/8478)）
+* 速率限制现在使用单调时钟，并强制执行配置的限制上限，以避免长时间锁定（感谢 chrarnoldus、intermarkec！）（[#8456](https://github.com/RooCodeInc/Roo-Code/pull/8456)）
+* 在接口更改后恢复 LiteLLM 的绿色测试和 TypeScript 构建；保留单调时钟修复和令牌限制行为（[#8870](https://github.com/RooCodeInc/Roo-Code/pull/8870)）
+* 检查点菜单弹出窗口不再截断长选项文本；所有项目保持完全可见（[#8867](https://github.com/RooCodeInc/Roo-Code/pull/8867)）
 
-## Provider Updates
+## 提供商更新
 
-* Roo provider: Reasoning effort control lets you choose deeper step‑by‑step thinking vs. faster/cheaper responses. See [Roo Code Cloud provider](/providers/roo-code-cloud) for details. ([#8874](https://github.com/RooCodeInc/Roo-Code/pull/8874))
-* Z.ai (GLM‑4.5/4.6): “Enable reasoning” toggle to activate Deep Thinking; hidden on unsupported models (thanks BeWater799!). See [Z.ai provider](/providers/zai). ([#8872](https://github.com/RooCodeInc/Roo-Code/pull/8872))
-* Gemini: Updated model list and “latest” aliases for easier selection (thanks cleacos!). See [Gemini provider](/providers/gemini). ([#8486](https://github.com/RooCodeInc/Roo-Code/pull/8486))
+* Roo 提供商：推理努力控制功能，可让您选择更深入的逐步思考或更快/更便宜的响应。详情请参见 [Roo Code Router](/providers/roo-code-router)。（[#8874](https://github.com/RooCodeInc/Roo-Code/pull/8874)）
+* Z.ai (GLM-4.5/4.6)：“启用推理”切换开关，可激活深度思考模式；在不支持的模型上隐藏此选项（感谢 BeWater799！）。详情请参见 [Z.ai 提供商](/providers/zai)。（[#8872](https://github.com/RooCodeInc/Roo-Code/pull/8872)）
+* Gemini：更新了模型列表和 "latest" 别名，以便更轻松地选择（感谢 cleacos！）。详情请参见 [Gemini 提供商](/providers/gemini)。（[#8486](https://github.com/RooCodeInc/Roo-Code/pull/8486)）

@@ -1,29 +1,28 @@
 ---
-description: Introduces Roo Code Cloud waitlist signup and improves command handling with smarter validation and multi-line support.
+description: 介绍 Roo Code Cloud 等候名单注册，并通过更智能的验证和多行支持改进命令处理。
 keywords:
   - roo code 3.23.19
   - roo code cloud
   - waitlist
   - command handling
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.23.19 Release Notes (2025-07-23)
+# Roo Code 3.23.19 版本发布说明 (2025-07-23)
 
-This release introduces Roo Code Cloud waitlist signup and improves command handling with smarter validation and better multi-line command support.
+此版本引入了 Roo Code Cloud 等候名单注册，并通过更智能的验证和更好的多行命令支持改进了命令处理。
 
-## Roo Code Cloud Waitlist
+## Roo Code Cloud 等候名单
 
-We're excited to announce early access signup for Roo Code Cloud! (thanks brunobergher!) ([#6104](https://github.com/RooCodeInc/Roo-Code/pull/6104)):
+我们很高兴地宣布 Roo Code Cloud 的早期访问注册现已开放！(感谢 brunobergher!) ([#6104](https://github.com/RooCodeInc/Roo-Code/pull/6104))：
 
-- **Website Signup**: New call-to-action button in the website header for easy waitlist registration
-- **In-Extension Access**: Users with 3+ tasks will see waitlist signup options directly in the extension
-- **Early Access**: Be among the first to experience the power of Roo Code Cloud
+- **网站注册**：网站头部新增行动号召按钮，方便用户轻松注册等候名单
+- **扩展内访问**：完成 3 个以上任务的用户将直接在扩展中看到等候名单注册选项
+- **早期访问**：成为首批体验 Roo Code Cloud 强大功能的用户
 
-Join the waitlist today to get early access to cloud-powered features!
+立即加入等候名单，抢先体验云端功能！
 
-## QOL Improvements
+## 生活质量改进
 
-* **Smarter Command Validation**: Improved command validation logic that only auto-denies subshell commands if they contain denied prefixes, making the system more intelligent about which commands to allow ([#6123](https://github.com/RooCodeInc/Roo-Code/pull/6123))
+* **更智能的命令验证**：改进的命令验证逻辑，仅在包含被拒绝的前缀时才自动拒绝子 shell 命令，使系统能够更智能地判断允许哪些命令 ([#6123](https://github.com/RooCodeInc/Roo-Code/pull/6123))
 
-* **Multi-line Command Support**: Commands with newlines are now properly parsed, making it easier to work with multi-line commands across different operating systems (Unix, Windows, and old Mac formats) ([#6121](https://github.com/RooCodeInc/Roo-Code/pull/6121))
+* **多行命令支持**：现在可以正确解析包含换行符的命令，使跨不同操作系统（Unix、Windows 和旧版 Mac 格式）处理多行命令变得更加容易 ([#6121](https://github.com/RooCodeInc/Roo-Code/pull/6121))

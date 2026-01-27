@@ -1,5 +1,5 @@
 ---
-description: 在 Roo Code 中使用 ask_followup_question 工具实现交互式通信，用于收集澄清信息和用户偏好。
+description: 在 Roo Code 中通过 ask_followup_question 工具实现交互式沟通，用于收集澄清信息和用户偏好。
 keywords:
   - ask_followup_question
   - user interaction
@@ -7,12 +7,11 @@ keywords:
   - Roo Code tools
   - clarification
   - user feedback
-image: /img/social-share.jpg
 ---
 
 # ask_followup_question
 
-`ask_followup_question` 工具通过提出特定问题来收集完成任务所需的信息，从而实现交互式通信。
+`ask_followup_question` 工具通过提出具体问题来收集有效完成任务所需的额外信息，从而实现交互式沟通。
 
 ---
 
@@ -20,92 +19,92 @@ image: /img/social-share.jpg
 
 该工具接受以下参数：
 
-- `question`（必需）：需要向用户提出的具体问题
-- `follow_up`（可选）：2-4 个建议答案列表，用于引导用户回答，每个答案包含在 `<suggest>` 标签中
+- `question` (必需): 向用户提出的具体问题
+- `follow_up` (可选): 2-4 个建议答案的列表，用于引导用户回答，每个建议答案都包含在 `<suggest>` 标签中
 
 ---
 
 ## 功能说明
 
-该工具在 Roo 和用户之间创建了一个对话界面，允许在遇到模糊性或决策点时收集澄清信息、额外细节或用户偏好。每个问题都可以包含建议答案，以简化交互过程。
+该工具在 Roo 和用户之间创建了一个对话界面，允许在遇到模糊情况或决策点时收集澄清信息、额外细节或用户偏好。每个问题都可以包含建议回答，以简化交互过程。
 
 ---
 
-## 使用场景
+## 使用时机
 
 - 当原始请求中缺少关键信息时
-- 当 Roo 需要在多个有效的实现方法之间做出选择时
-- 当需要技术细节或偏好以继续进行时
-- 当 Roo 遇到需要解决的模糊性时
-- 当额外的上下文信息能显著提高解决方案质量时
+- 当 Roo 需要在多个有效实现方法之间做出选择时
+- 当需要技术细节或偏好才能继续时
+- 当 Roo 遇到需要解决的模糊情况时
+- 当额外上下文可以显著提高解决方案质量时
 
 ---
 
 ## 主要特性
 
 - 提供了一种结构化的方式来收集特定信息，而不会中断工作流程
-- 包含建议答案，减少用户输入并引导回答
-- 维护对话历史和上下文
-- 支持包含图像和代码片段的响应
-- 作为“始终可用”工具集的一部分，在所有模式中都可用
+- 包含建议答案，以减少用户输入并引导回答
+- 在交互过程中保持对话历史和上下文
+- 支持包含图像和代码片段的回答
+- 作为"始终可用"工具集的一部分，在所有模式下都可用
 - 支持用户对实现决策的直接指导
-- 使用 `<answer>` 标签格式化响应，以区别于常规对话
-- 成功使用时会重置连续错误计数器
+- 使用 `<answer>` 标签格式化回答，以区别于常规对话
+- 成功使用时重置连续错误计数器
 
 ---
 
 ## 局限性
 
 - 每次工具使用仅限于提出一个具体问题
-- 建议作为 UI 中的可选选项显示
-- 无法强制结构化响应——用户仍可以自由回答
-- 过度使用会减慢任务完成速度，造成碎片化体验
-- 建议答案必须完整，不能包含需要用户编辑的占位符
-- 没有内置的用户响应验证机制
+- 建议在用户界面中显示为可选择选项
+- 无法强制结构化回答 - 用户仍然可以自由回答
+- 过度使用可能会减慢任务完成速度并造成碎片化体验
+- 建议答案必须是完整的，不能包含需要用户编辑的占位符
+- 对用户回答没有内置验证机制
 - 没有强制特定答案格式的机制
 
 ---
 
 ## 工作原理
 
-当调用 `ask_followup_question` 工具时，它遵循以下流程：
+当调用 `ask_followup_question` 工具时，它会遵循以下流程：
 
-1. **参数验证**：验证必需的 `question` 参数并检查可选建议
+1. **参数验证**: 验证必需的 `question` 参数并检查可选建议
    - 确保提供了问题文本
-   - 使用 `fast-xml-parser` 库从 `follow_up` 参数解析建议答案
-   - 将建议标准化为数组格式，即使只有一个建议
+   - 使用 `fast-xml-parser` 库从 `follow_up` 参数解析任何建议答案
+   - 即使只有一个建议，也将建议标准化为数组格式
 
-2. **JSON 转换**：将 XML 结构转换为标准化的 JSON 格式以供 UI 显示
+2. **JSON 转换**: 将 XML 结构转换为用于 UI 显示的标准 JSON 格式
    ```typescript
    {
-     question: "用户的问题",
+     question: "User's question here",
      suggest: [
-       { answer: "建议 1" },
-       { answer: "建议 2" }
+       { answer: "Suggestion 1" },
+       { answer: "Suggestion 2" }
      ]
    }
    ```
 
-3. **UI 集成**：
+3. **UI 集成**:
    - 通过 `ask("followup", ...)` 方法将 JSON 结构传递给 UI 层
    - 在界面中向用户显示可选择的建议按钮
-   - 创建交互式体验以选择或输入响应
+   - 创建选择或输入回答的交互体验
 
-4. **响应收集和处理**：
-   - 捕获用户文本输入和响应中包含的任何图像
-   - 在返回助手时用 `<answer>` 标签包装用户响应
-   - 保留用户响应中包含的图像
-   - 通过将响应添加到历史记录来维护对话上下文
+4. **回答收集和处理**:
+   - 捕获用户文本输入和回答中包含的任何图像
+   - 在返回给助手时用 `<answer>` 标签包装用户回答
+   - 保留用户回答中包含的任何图像
+   - 通过将回答添加到历史记录中来保持对话上下文
    - 成功使用工具时重置连续错误计数器
 
-5. **错误处理**：
+5. **错误处理**:
    - 使用计数器跟踪连续错误
    - 成功使用工具时重置计数器
-   - 提供特定错误消息：
-     - 缺少必需参数时："缺少必需参数 'question'"
-     - XML 解析失败时："解析操作失败：[错误消息]"
-     - 格式无效时："操作 XML 格式无效"
-   - 包含防止在缺少必需参数时执行工具的安全措施
+   - 提供特定的错误消息：
+     - 缺少参数时："Missing required parameter 'question'"
+     - XML 解析错误时："Failed to parse operations: [error message]"
+     - 格式无效时："Invalid operations xml format"
+   - 包含防护措施，防止缺少必需参数时执行工具
    - 发生错误时增加连续错误计数
 
 ---
@@ -114,49 +113,49 @@ image: /img/social-share.jpg
 
 问答循环遵循以下序列：
 
-1. **信息缺口识别**：Roo 识别需要继续的缺失信息
-2. **具体问题创建**：Roo 制定一个清晰、有针对性的问题
-3. **建议开发**：Roo 创建相关的建议答案（可选但推荐）
-4. **工具调用**：助手使用问题和可选建议调用工具
-5. **UI 呈现**：问题和建议作为交互元素显示给用户
-6. **用户响应**：用户选择建议或提供自定义答案
-7. **消息处理**：系统处理部分和完整消息
-   - 对于流式响应，逐块处理到达的内容
+1. **信息缺口识别**: Roo 识别继续所需的缺失信息
+2. **具体问题创建**: Roo 制定一个清晰、有针对性的问题
+3. **建议开发**: Roo 创建相关的建议答案（可选但推荐）
+4. **工具调用**: 助手使用问题调用工具，并可选择包含建议
+5. **UI 展示**: 问题和建议作为交互元素显示给用户
+6. **用户回答**: 用户选择一个建议或提供自定义答案
+7. **消息处理**: 系统处理部分和完整消息
+   - 对于流式响应，随着分块的到达进行处理
    - 对于完整消息，一次性处理整个响应
    - 无论消息分块如何，都保持状态一致性
-8. **响应处理**：系统用 `<answer>` 标签包装响应并保留图像
-9. **上下文集成**：响应被添加到对话历史中
-10. **任务继续**：Roo 使用新信息继续任务
+8. **回答处理**: 系统用 `<answer>` 标签包装回答并保留图像
+9. **上下文集成**: 回答被添加到对话历史中
+10. **任务继续**: Roo 使用新信息继续执行任务
 
 ---
 
 ## 使用示例
 
-- 开发 Web 应用程序时，Roo 可能会询问首选的样式框架（Bootstrap、Tailwind、自定义 CSS）
-- 创建 API 时，Roo 可能会询问身份验证方法（JWT、OAuth、API 密钥）
-- 重构代码时，Roo 可能会询问优先考虑性能还是可读性
-- 设置数据库时，Roo 可能会询问特定的模式设计偏好
-- 创建自定义功能时，Roo 可能会询问特定的行为期望
-- 排查错误时，Roo 可能会询问特定的环境详细信息
+- 在开发 Web 应用程序时，Roo 可能会询问首选的样式框架（Bootstrap、Tailwind、自定义 CSS）
+- 在创建 API 时，Roo 可能会询问认证方法（JWT、OAuth、API 密钥）
+- 在重构代码时，Roo 可能会询问优先考虑性能还是可读性
+- 在设置数据库时，Roo 可能会询问特定的模式设计偏好
+- 在创建自定义功能时，Roo 可能会询问特定的行为期望
+- 在排查错误时，Roo 可能会询问特定的环境细节
 
 ---
 
-## 响应格式
+## 回答格式
 
-当用户对问题做出响应时，响应使用 `<answer>` 标签格式化以确保清晰和一致。这种格式有助于清楚地区分用户的答案和其他对话元素。
+当用户回答问题时，回答会使用 `<answer>` 标签格式化，以确保清晰和一致性。这种格式有助于清晰地将用户的答案与其他对话元素分开。
 
-响应格式示例：
+示例回答格式：
 ```
 <answer>
-使用 Tailwind CSS 进行实用优先的样式设计，以获得最大的灵活性
+Use Tailwind CSS for utility-first styling with maximum flexibility
 </answer>
 ```
 
-响应格式的关键特征：
+回答格式的主要特点：
 - 被 `<answer>` 标签包围
-- 保留原始响应的格式
-- 如果响应中包含图像，则保留图像
-- 返回完整的文本，即使是长响应
+- 保留原始回答的格式
+- 如果回答中包含图像，则保留图像
+- 即使是长回答，也返回完整文本
 
 ---
 
@@ -165,11 +164,11 @@ image: /img/social-share.jpg
 询问实现偏好：
 ```
 <ask_followup_question>
-<question>您希望此 Web 应用程序使用哪种样式方法？</question>
+<question>Which styling approach would you prefer for this web application?</question>
 <follow_up>
-<suggest>使用 Bootstrap 进行快速开发，具有统一的组件</suggest>
-<suggest>使用 Tailwind CSS 进行实用优先的样式设计，以获得最大的灵活性</suggest>
-<suggest>使用 vanilla CSS 进行自定义样式，以获得完全控制和最少的依赖</suggest>
+<suggest>Use Bootstrap for rapid development with consistent components</suggest>
+<suggest>Use Tailwind CSS for utility-first styling with maximum flexibility</suggest>
+<suggest>Use vanilla CSS with custom styling for complete control and minimal dependencies</suggest>
 </follow_up>
 </ask_followup_question>
 ```
@@ -177,12 +176,12 @@ image: /img/social-share.jpg
 请求技术澄清：
 ```
 <ask_followup_question>
-<question>此应用程序应使用哪种数据库来存储用户数据？</question>
+<question>What database should this application use for storing user data?</question>
 <follow_up>
-<suggest>MongoDB 用于灵活的模式和基于文档的存储</suggest>
-<suggest>PostgreSQL 用于具有强一致性保证的关系数据</suggest>
-<suggest>Firebase 用于实时更新和简化的后端管理</suggest>
-<suggest>SQLite 用于无需外部依赖的轻量级本地存储</suggest>
+<suggest>MongoDB for flexible schema and document-based storage</suggest>
+<suggest>PostgreSQL for relational data with strong consistency guarantees</suggest>
+<suggest>Firebase for real-time updates and simplified backend management</suggest>
+<suggest>SQLite for lightweight local storage without external dependencies</suggest>
 </follow_up>
 </ask_followup_question>
 ```
@@ -190,11 +189,11 @@ image: /img/social-share.jpg
 解决需求中的模糊性：
 ```
 <ask_followup_question>
-<question>应用程序应如何处理用户身份验证？</question>
+<question>How should the application handle user authentication?</question>
 <follow_up>
-<suggest>实现带有账户验证的电子邮件/密码身份验证</suggest>
-<suggest>使用社交登录提供商（Google、GitHub 等）进行快速注册</suggest>
-<suggest>同时实现电子邮件/密码和社交登录选项</suggest>
+<suggest>Implement email/password authentication with account verification</suggest>
+<suggest>Use social login providers (Google, GitHub, etc.) for quick signup</suggest>
+<suggest>Implement both email/password and social login options</suggest>
 </follow_up>
 </ask_followup_question>
 ```

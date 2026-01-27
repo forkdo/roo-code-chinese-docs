@@ -1,5 +1,5 @@
 ---
-description: Roo Code Cloud 自主智能体的完整指南 - 专门的 AI 工作者，能够独立规划、编码、审查和修复软件。
+description: Roo Code Cloud 自主代理全面指南 - 能够独立规划、编码、审查和修复软件的专用 AI 工作者。
 keywords:
   - Cloud Agents
   - Autonomous Agents
@@ -11,75 +11,74 @@ keywords:
   - AI orchestration
   - hosted execution
   - credits
-image: /img/social-share.jpg
 ---
 
 # Cloud Agents
 
-Cloud Agents 是在云端运行的专门化自主 AI 工作者。
+Cloud Agents 是专门的自主 AI 工作者，在云端运行。
 
-它们彻底改变了人们对软件开发的认知：不再局限于在专门的 IDE 中进行高度专业化的活动，而是将整个流程中相关的各个方面封装成能够独立运行（但如果你愿意指导，它们也会接受）的智能体。
+它们颠覆了大多数人对软件开发的认知：软件开发不再是一项只能在专用 IDE 中进行的高度专业化活动，而是将流程中每个部分的相关方面封装到可以独立运行的代理中（但如果你愿意，它们也会接受你的指导）。
 
-换句话说：与其在 IDE 中完成所有的学习、调研、编码、测试和发布，不如将工作委托给专注的智能体，它们作为一个团队协作。你可以根据自己的需求决定参与程度。
+换句话说：你不再需要从 IDE 中进行所有学习、调查、编码、测试和发布工作，而是可以将工作委派给作为团队运作的专注代理。至于在多大程度上依赖它们，完全由你决定。
 
-Cloud Agents 在所有 Roo Code Cloud 计划中都可用，包括免费版。
+Cloud Agents 在所有 Roo Code Cloud 计划中均可用，包括免费版。
 
-听起来像天方夜谭？继续阅读，我们将向你展示如何使用它们。
+听起来像是痴心妄想？请继续阅读，我们将向你展示如何使用它们。
 
 ---
 
-## 如何与 Cloud Agents 协作
+## 如何使用 Cloud Agents
 
-我们 Roo 团队使用 Cloud Agents 开发 Roo Code 已经数月，发现以下实践能够带来最佳效果：
+Roo 团队已经使用 Cloud Agents 开发 Roo Code 数月之久，我们发现以下做法能够带来最佳效果：
 
-- **不确定时，优先选择云端**：除非是非常小的改动，否则通常更容易向 Cloud Agents 发起多个任务（尤其是在你开始或结束一天工作时），然后检查它们的完成情况。智能体非常擅长将任务完成到 50-80%（通常更多），承担大部分繁重工作。然后你可以在此基础上继续迭代（无论是使用 Cloud Agents 还是本地）。
-- **以 Pull Request 作为主要工作单元**：为确保 Cloud Agents 不会破坏现有功能，它们在独立分支上工作，并通过 PR 交付工作成果。你可以完全无需本地检出代码就能创建、迭代、审查和修复这些 PR。
-- **放手个别 PR**：由于 LLM 并非完美无缺，偶尔需要放弃一些工作。量变产生质变，因此保持高产出是有益的。
-- **投资预览环境**：如果项目允许（例如是 Web 应用），请设置预览环境（如 [Vercel 的 Deployments](https://vercel.com/docs/git)），这样你无需本地运行就能检查 PR。
-- **AI 编程不仅限于程序员**：虽然公司里只有头衔为工程师的人才会打开 IDE，但每个人对产品都有问题和想法。向团队中的每个人提供 Cloud Agents 的访问权限（你无需按座位付费），并鼓励人们直接从智能体获取问题答案。我们看到客户支持、产品、设计和营销人员在不打开 IDE 的情况下就能理解代码行为并做出大小不等的更改。
-- **在公开场合发展集体学习**：如果你的团队使用 Slack，请在公共频道中调用智能体，让每个人都能看到它们的回答和工作成果。这能有机地让所有人保持同步。
+- **如有疑问，请从云端开始**：除非是非常小的更改，否则通常更容易向 Cloud Agents 发送多个任务（尤其是在你开始或结束一天的工作时），然后检查它们是否准备就绪。代理非常擅长完成 50-80% 的工作（通常更多），承担大部分繁重工作。然后你可以在此基础上进行迭代（无论是使用 Cloud Agents 还是在本地）。
+- **拥抱拉取请求作为主要工作单元**：为了确保 Cloud Agents 不会破坏任何内容，它们在独立分支上工作并通过 PR 交付工作。你可以在无需在本地检出代码的情况下创建、迭代、审查和修复它们。
+- **放弃对单个 PR 的执着**：请准备好偶尔丢弃一些内容，因为 LLM 并不完美。数量本身就有质量，因此进行生成性工作会带来回报。
+- **投资预览环境**：如果你的项目允许（例如它是一个 Web 应用），请设置一个预览环境（如 [Vercel's Deployments](https://vercel.com/docs/git)），以便你可以在无需在本地运行的情况下检查 PR。
+- **AI 编码不仅仅适用于代码**：虽然只有头衔中带有“工程师”的人才能在你的公司打开 IDE，但每个人对你的产品都有问题和想法。向团队中的每个人提供对云代理的访问权限（你无需按席位付费），并鼓励人们直接从它们那里获得问题的答案。我们已经看到客户支持、产品、设计和营销人员无需打开 IDE 即可理解代码行为并进行小的（以及不太小的）更改。
+- **在公共场合发展集体学习**：如果你的团队使用 Slack，请在公共频道中调用代理，以便每个人都能看到它们的答案和它们的工作结果。这会使人们自然而然地达成共识。
 
 ## Cloud Agent 团队
 
-当前可用的阵容如下。请记住，我们允许你随意重命名它们——我们真的相信让它们成为你团队的一部分。
+以下是当前可供你使用的阵容。请记住，我们允许你根据需要重命名它们——我们坚信让它们成为你团队的一部分。
 
 ### <LucideIcon name="MessageCircleQuestionMark" style={{ position: "relative", top: "2px" }}  /> The Explainer
-**职责：** 技术教育者
+**工作：** 技术教育者
 
-解释代码、概念和技术文档。它帮助你理解代码库的复杂部分，而无需逐行阅读。
+解释代码、概念和技术文档。它可以帮助你理解代码库的复杂部分，而无需阅读每一行代码。
 
-- **最适合：** 新代码库上手、理解遗留代码、调试概念性问题。
+- **最适合：** 加入新的代码库、理解遗留代码、调试概念性问题。
 
 ### <LucideIcon name="Map" style={{ position: "relative", top: "2px" }}  /> The Planner
-**职责：** 实现规划和架构设计
+**工作：** 实施规划和架构
 
-Planner 智能体绘制实现计划并处理复杂的技术决策。它旨在接收高级想法或产品需求文档 (PRD)，并将其分解为详细的、分步的实现计划，然后可以交给编码智能体（或人类）。
+The Planner 代理负责制定实施计划并处理复杂的技术决策。它旨在将高级想法或产品需求文档 (PRD) 分解为可以交给编码代理（或人类！）的详尽的、分步的实施计划。
 
 - **最适合：** 新功能规划、系统架构设计、复杂重构策略。
 
 ### <LucideIcon name="Code" style={{ position: "relative", top: "2px" }} /> The Coder
-**职责：** 跨所有语言的全规模编码
+**工作：** 全语言支持
 
-Coder 智能体编写代码、创建 Pull Request 并实现功能。它是平台的主力，能够处理端到端的编码任务。
+The Coder 代理编写代码、创建拉取请求并实现功能。它是平台的主力，能够处理端到端的编码任务。
 
-- **最适合：** 构建功能、修复 Bug、重构组件、编写测试。
+- **最适合：** 构建功能、修复错误、重构组件、编写测试。
 
 ### <LucideIcon name="GitPullRequest" style={{ position: "relative", top: "2px" }}  /> The PR Reviewer
-**职责：** 代码审查
+**工作：** 代码审查
 
-PR Reviewer 智能体自动提供全面的代码审查和可操作的评论。它可以监控你的仓库并审查传入的 Pull Request。
+The PR Reviewer 代理自动提供包含可操作评论的全面代码审查。它可以监控你的仓库并审查传入的拉取请求。
 
-- **最适合：** 自动化代码质量检查、早期发现 Bug、执行编码标准。
+- **最适合：** 自动化代码质量检查、及早发现错误、强制执行编码标准。
 
 ### <LucideIcon name="Wrench" style={{ position: "relative", top: "2px" }}  /> The PR Fixer
-**职责：** 专注修复
+**工作：** 专注修复
 
-PR Fixer 智能体专门解决 Pull Request 中识别的问题。它监听反馈并自主实现修复。
+The PR Fixer 代理专门负责解决在拉取请求中发现的问题。它听取反馈并自主实施修复。
 
 - **最适合：** 解决 PR 评论、修复 CI/CD 失败、处理审查反馈。
 
-:::info 更多智能体即将到来
-虽然这个角色阵容可以完成大部分工作，但用户反馈将指导新智能体的开发。我们有几个 [正在开发中的智能体](#upcoming-agents)
+:::info 更多代理即将推出
+虽然这组角色可以完成大部分工作，但用户反馈会推动新代理的开发。我们有一些[目前正在开发中](#upcoming-agents)的代理。
 :::
 ---
 
@@ -87,49 +86,49 @@ PR Fixer 智能体专门解决 Pull Request 中识别的问题。它监听反馈
 
 ### 通用工作流程
 
-1. **开始：** 可以通过以下方式调用智能体：
-    - 通过 [Web UI](https://app.roocode.com) 手动调用（新建任务按钮）
-      <img src="/img/cloud-agents/cloud-agent-call-web.png" alt="新建任务按钮" width="400" />
+1. **开始：** 代理可以通过以下方式调用：
+    - 通过[Web UI](https://app.roocode.com)手动调用（新建任务按钮）
+      <img src="/img/cloud-agents/cloud-agent-call-web.png" alt="New task button" width="400" />
 
-    - 通过 [GitHub](/roo-code-cloud/github-integration) 自动调用（例如新 PR 打开时）
-      <img src="/img/cloud-agents/cloud-agent-call-gh-auto.png" alt="PR Review 评论" width="400" />
+    - 通过 [GitHub](/roo-code-cloud/github-integration) 自动调用（例如，新建 PR 打开）
+      <img src="/img/cloud-agents/cloud-agent-call-gh-auto.png" alt="PR Review comments" width="400" />
 
-    - 通过 [GitHub](/roo-code-cloud/github-integration) 手动调用（`@Roomote` 提及）。
-      <img src="/img/cloud-agents/cloud-agent-call-gh-mention.png" alt="Github 评论 @提及" width="400" />
+    - 从 [GitHub](/roo-code-cloud/github-integration) 手动调用（`@Roomote` 提及）。
+      <img src="/img/cloud-agents/cloud-agent-call-gh-mention.png" alt="Github comment @mention" width="400" />
 
-    - 通过 [Slack 集成](/roo-code-cloud/slack-integration) 手动调用（`@Roomote` 提及）。
-      <img src="/img/cloud-agents/cloud-agent-call-slack.png" alt="新建任务按钮" width="400" />
+    - 通过 [Slack Integration](/roo-code-cloud/slack-integration) 手动调用（`@Roomote` 提及）。
+      <img src="/img/cloud-agents/cloud-agent-call-slack.png" alt="New task button" width="400" />
 
-2. **运行：** 智能体启动一个安全、隔离的云环境来执行任务。它克隆你的仓库，分析上下文，并执行所需的操作。
-3. **完成：** 任务完成后，智能体在同一位置报告结果。
-4. **控制：** 你可以随时通过访问任务进行干预。
-5. **回顾：** 所有任务都可以在你的 Roo Code Cloud 账户中访问。
+2. **运行：** 代理会启动一个安全、隔离的云环境来执行其任务。它会克隆你的仓库、分析上下文并执行所需的操作。
+3. **完成：** 任务完成后，代理会在你开始的地方报告结果。
+4. **控制：** 你可以随时通过转到任务进行干预。
+5. **回顾：** 所有任务都可以在你的 Roo Code Cloud 帐户中访问。
 
-### 积分与使用
+### 积分和使用
 
-Cloud Agents 消耗 **Cloud Credits**。使用量根据所用模型和任务持续时间来衡量。
-- **免费版：** 包含免费模型用于标准任务。
-- **专业版：** 解锁并发智能体执行和优先队列。
+Cloud Agents 消耗 **Cloud Credits**。使用情况根据使用的模型和任务的持续时间进行衡量。
+- **免费层：** 包括对标准任务的免费模型的访问。
+- **专业版：** 解锁并发代理执行和优先队列。
 
-如果你想要了解更多，请查看 [定价页面](https://roocode.com/pricing)。
+如果你想知道更多，可以查看[定价页面](https://roocode.com/pricing)。
 
 ### 设置
 
-每种智能体类型的特定配置选项各不相同（可通过智能体页面的 ⚙️ 图标访问），但主要选项包括：
+每种代理类型的特定配置选项集各不相同（并且可以在代理页面的 ⚙️ 图标中访问），但你会发现的主要选项包括：
 
-- **名称：** 智能体在应用中的引用方式。
-- **模型：** 为该智能体提供推理的模型。你可以在智能体团队中混合搭配不同的提供商和模型。
-- **仓库：** 智能体可访问的仓库。请注意，我们只列出你在连接 GitHub 时允许的仓库。如果有遗漏，请更新你的 GitHub 连接。
-- **PR 创建操作：** 对于进行代码更改的智能体，你可以选择它们是通过创建完整 PR、草稿 PR 还是仅推送分支来完成。
-- **额外指导：** 该智能体的任何特定指令，比如 Reviewer 需要更多关注的内容、Coder 应遵循的编码实践等。这是一个自由文本框，所以你可以输入任何内容，但请注意过多的指令可能会降低结果质量，因此请保持简洁和专注。
+- **名称：** 这是代理在应用中引用的方式。
+- **模型：** 为该代理提供推理支持的模型。你可以在你的代理团队中混合搭配提供商和模型。
+- **仓库：** 代理有权访问的仓库。请记住，我们只会列出你在连接到 Github 时允许的仓库。如果缺少任何仓库，请更新你的 Github 连接。
+- **PR 创建操作：** 对于进行代码更改的代理，你可以选择它们是通过创建完整 PR、草稿 PR 还是仅推送分支来执行此操作。
+- **其他指导：** 针对该代理的任何特定说明，例如审查者需要注意的事项、编码者需要遵循的编码实践等。这是一个自由文本框，因此你可以输入任何内容，但请记住，过多的说明可能会降低结果的质量，因此请保持简洁和专注。
 
-大多数人每种类型的智能体只有一个，但你可能需要多个实例来拥有不同的配置，特别是模型（主智能体使用好模型，另一个智能体使用昂贵模型）或自定义指令（针对特定仓库）。
+大多数人每种类型只会使用一个 Agent，但你可能希望运行多个实例来实现不同的配置，尤其是在模型（例如：主 Agent 使用优质模型，另一个 Agent 使用高成本模型）或自定义指令（针对特定仓库）方面。
 
-## 即将推出的智能体
+## 即将推出的 Agent
 
-- **Improver：** 一个"元智能体"，分析智能体反馈和 PR 审查，以维护和改进 [自定义指令](/features/custom-instructions#what-are-custom-instructions)。
-- **Security Auditor：** 定期进行安全审计并识别漏洞，覆盖整个代码库（而不仅仅是单个 PR）。
-- **Documentation Writer：** 了解你代码的技术写作者，编写实用的用户文档。
-- **Translator：** 准确翻译字符串并遵循你的品牌声音的翻译器。
+- **Improver**：一种“元 Agent”，用于分析 Agent 反馈和 PR 审查，以维护和优化[自定义指令](/features/custom-instructions#what-are-custom-instructions)。
+- **Security Auditor**：定期对代码库进行安全审计并识别漏洞（不仅限于单个 PR）。
+- **Documentation Writer**：一名了解你的代码并能编写可操作的用户文档的技术写作者。
+- **Translator**：准确翻译字符串，并遵循你的品牌语调。
 
-如果你有兴趣在 Beta 版中试用或有其他建议，请 [写信给我们](mailto:support@roocode.com)。
+如果你有兴趣在 Beta 版本中试用这些 Agent，或有其他建议，请[联系我们](mailto:support@roocode.com)。

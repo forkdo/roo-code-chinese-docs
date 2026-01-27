@@ -1,49 +1,48 @@
 ---
-description: This patch release delivers critical fixes and experimental features to enhance your development experience, including multi-file reading capabilities, improved MCP server integration, and enterprise security enhancements.
-image: /img/social-share.jpg
+description: 此补丁版本提供了关键修复和实验性功能，旨在增强您的开发体验，包括多文件读取功能、改进的 MCP 服务器集成以及企业级安全增强。
 ---
 
-# Roo Code 3.19.1 Release Notes (2025-05-31)
+# Roo Code 3.19.1 版本说明 (2025-05-31)
 
-This patch release delivers critical fixes and experimental features to enhance your development experience, including multi-file reading capabilities, improved MCP server integration, and enterprise security enhancements.
-
----
-
-## Multi-File Reading (Experimental)
-We've introduced an experimental feature for handling large codebases more efficiently:
-
-- **Batch File Processing**: Read up to 100 files in a single operation for comprehensive code analysis
-- **Performance Control**: Adjustable concurrent file read limits to optimize for your system
-- **Smart Permission Management**: Streamlined approval process for multi-file operations
-- **Efficiency Boost**: Dramatically reduces the time needed to analyze multiple related files
-
-This experimental feature transforms how Roo Code understands and works with your entire codebase at once (thanks samhvw8!).
+此补丁版本提供了关键修复和实验性功能，旨在增强您的开发体验，包括多文件读取功能、改进的 MCP 服务器集成以及企业级安全增强。
 
 ---
 
-## Enterprise-Ready VPC Endpoint Support
-We've added crucial enterprise security features for [AWS Bedrock](/providers/bedrock) users:
+## 多文件读取（实验性功能）
+我们引入了一项实验性功能，以更高效地处理大型代码库：
 
-- **Secure Corporate Access**: Configure custom VPC endpoints to keep all LLM transactions within your firewall
-- **Easy Configuration**: Simple checkbox and text field to enable VPC endpoint usage
-- **Compliance Ready**: Meet your organization's security policies while using powerful AI models
-- **Flexible Control**: Toggle VPC endpoints on/off as needed with settings persistence
+- **批量文件处理**：单次操作最多可读取 100 个文件，实现全面的代码分析
+- **性能控制**：可调节的并发文件读取限制，以优化您的系统性能
+- **智能权限管理**：简化多文件操作的审批流程
+- **效率提升**：显著减少分析多个相关文件所需的时间
 
-Enterprise customers can now use Roo Code with AWS Bedrock while maintaining complete network security (thanks kcwhite!). See the [AWS Bedrock configuration guide](/providers/bedrock#configuration-in-roo-code) for setup instructions.
-
----
-
-## Bug Fixes
-
-*   **MCP Server Authentication**: Fixed SSE header passing to correctly authenticate with remote MCP servers
-*   **AWS Bedrock Conversations**: Resolved context condensing error that required conversations to start with user messages
-*   **Terminal UTF-8 Encoding**: Fixed encoding errors when running Ruby/CocoaPods commands (thanks mr-ryan-james!)
-*   **Sidebar Context Menus**: Resolved empty menu items by properly setting sidebar name (thanks chrarnoldus!)
-*   **Documentation Links**: Fixed broken CONTRIBUTING.md link in feature request template (thanks cannuri!)
+此实验性功能彻底改变了 Roo Code 一次性理解和处理整个代码库的方式（感谢 samhvw8！）。
 
 ---
 
-## Misc Improvements
+## 企业级 VPC 终端节点支持
+我们为 [AWS Bedrock](/providers/bedrock) 用户添加了关键的企业级安全功能：
 
-*   **Backend Task Tracking**: Added metadata to Unbound API requests for improved service reliability (thanks pugazhendhi-m!)
-*   **Model-Specific Caching**: Optimized cache strategies for Gemini and Anthropic models for better performance
+- **安全的企业访问**：配置自定义 VPC 终端节点，确保所有 LLM 事务都在您的防火墙内进行
+- **简单配置**：通过简单的复选框和文本字段即可启用 VPC 终端节点使用
+- **合规就绪**：在使用强大 AI 模型的同时满足您组织的安全策略
+- **灵活控制**：根据需要开启/关闭 VPC 终端节点，并持久化保存设置
+
+企业客户现在可以在保持完全网络安全的同时，使用 Roo Code 与 AWS Bedrock（感谢 kcwhite！）。有关设置说明，请参阅 [AWS Bedrock 配置指南](/providers/bedrock#configuration-in-roo-code)。
+
+---
+
+## Bug 修复
+
+*   **MCP 服务器身份验证**：修复了 SSE 标头传递问题，以正确验证远程 MCP 服务器身份
+*   **AWS Bedrock 对话**：解决了上下文压缩错误，该错误要求对话必须以用户消息开始
+*   **终端 UTF-8 编码**：修复了运行 Ruby/CocoaPods 命令时的编码错误（感谢 mr-ryan-james！）
+*   **侧边栏上下文菜单**：通过正确设置侧边栏名称解决了空菜单项问题（感谢 chrarnoldus！）
+*   **文档链接**：修复了功能请求模板中损坏的 CONTRIBUTING.md 链接（感谢 cannuri！）
+
+---
+
+## 其他改进
+
+*   **后端任务跟踪**：为 Unbound API 请求添加元数据，以提高服务可靠性（感谢 pugazhendhi-m！）
+*   **模型特定缓存**：针对 Gemini 和 Anthropic 模型优化缓存策略，以获得更好的性能

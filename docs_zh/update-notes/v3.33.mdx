@@ -1,5 +1,5 @@
 ---
-description: Combined notes for Roo Code 3.33, including Gemini 3 Pro Preview support, native tool calling for OpenAI-compatible providers, and various native tool reliability fixes.
+description: Roo Code 3.33 综合说明，包括 Gemini 3 Pro Preview 支持、OpenAI 兼容提供商的本地工具调用，以及各种本地工具可靠性修复。
 keywords:
   - roo code 3.33
   - release notes
@@ -7,65 +7,64 @@ keywords:
   - native tool protocol
   - openai compatible
   - bug fixes
-image: /img/social-share.jpg
 ---
 
-# Roo Code 3.33 Release Notes (2025-11-18)
+# Roo Code 3.33 版本说明（2025-11-18）
 
-Roo Code 3.33 introduces support for Gemini 3 Pro Preview and native tool calling for OpenAI-compatible providers, along with improved Gemini defaults and numerous native tool protocol fixes.
+Roo Code 3.33 引入了对 Gemini 3 Pro Preview 的支持，以及对 OpenAI 兼容提供商的本地工具调用，同时改进了 Gemini 的默认设置，并修复了大量本地工具协议问题。
 
-## Major Features
+## 主要功能
 
 ### Gemini 3 Pro Preview
 
-Roo Code now supports Google’s Gemini 3 Pro Preview model through direct Gemini, Vertex AI, and aggregator providers like OpenRouter and Requesty ([#9357](https://github.com/RooCodeInc/Roo-Code/pull/9357), [#9327](https://github.com/RooCodeInc/Roo-Code/pull/9327)):
+Roo Code 现在通过直接 Gemini、Vertex AI 以及 OpenRouter 和 Requesty 等聚合提供商支持 Google 的 Gemini 3 Pro Preview 模型 ([#9357](https://github.com/RooCodeInc/Roo-Code/pull/9357), [#9327](https://github.com/RooCodeInc/Roo-Code/pull/9327))：
 
-- **1M-token, reasoning-capable model**: Handles very large conversations while providing higher-quality multi-step reasoning on complex coding and refactoring tasks.
-- **Strong eval performance**: Achieves a 100% score on internal Roo Code evals and 76.2% on SWE-bench Verified, giving more consistent solutions on real-world coding tasks.
-- **Reliable tool usage**: Executes complex multi-step tool workflows without getting stuck or losing track, especially in long, tool-heavy tasks.
-- **Better out-of-the-box defaults**: Uses `gemini-2.5-pro` by default where supported, sets a more natural temperature of 1, cleans up the Gemini model list, and includes reasoning / “thought” tokens in cost reporting so usage numbers better match provider billing.
-- **Image Preview Support**: Added support for image previews with Google Gemini 3 Pro image generation models ([#9440](https://github.com/RooCodeInc/Roo-Code/pull/9440)).
+- **100 万 token 的推理模型**：能够处理超长对话，同时在复杂的编码和重构任务中提供高质量的多步推理。
+- **强大的评估性能**：在 Roo Code 内部评估中获得了 100% 的分数，在 SWE-bench Verified 中获得了 76.2% 的分数，在实际编码任务中提供更一致的解决方案。
+- **可靠的工具使用**：能够执行复杂的多步工具工作流，不会卡住或失去跟踪，尤其是在长时间、工具密集型的任务中。
+- **更好的开箱即用默认设置**：在支持的地方默认使用 `gemini-2.5-pro`，将温度设置为更自然的 1，清理 Gemini 模型列表，并在成本报告中包含推理 / “思考” token，使使用量数字更好地匹配提供商计费。
+- **图像预览支持**：添加了对 Google Gemini 3 Pro 图像生成模型的图像预览支持 ([#9440](https://github.com/RooCodeInc/Roo-Code/pull/9440))。
 
-## QOL Improvements
+## 生活质量改进
 
-- **Native Tool Calling for OpenAI-compatible Providers** ([#9369](https://github.com/RooCodeInc/Roo-Code/pull/9369)): Enables native tool use with a wider range of models and providers that support the OpenAI format, offering more robust tool interactions in both streaming and non-streaming modes.
-- **Minimax Provider Support** ([#9455](https://github.com/RooCodeInc/Roo-Code/pull/9455)): Added support for Minimax as an Anthropic-compatible provider.
-- **Reasoning History** ([#9451](https://github.com/RooCodeInc/Roo-Code/pull/9451)): Reasoning is now stored in conversation history for all providers.
-- **Improved Read File Tool** ([#9422](https://github.com/RooCodeInc/Roo-Code/pull/9422)): Enhanced the `read_file` tool description with clearer examples.
+- **OpenAI 兼容提供商的本地工具调用** ([#9369](https://github.com/RooCodeInc/Roo-Code/pull/9369))：使支持 OpenAI 格式的更广泛模型和提供商能够使用本地工具，在流式和非流式模式下提供更强大的工具交互。
+- **Minimax 提供商支持** ([#9455](https://github.com/RooCodeInc/Roo-Code/pull/9455))：添加了对 Minimax 作为 Anthropic 兼容提供商的支持。
+- **推理历史记录** ([#9451](https://github.com/RooCodeInc/Roo-Code/pull/9451))：现在所有提供商的推理都会存储在对话历史记录中。
+- **改进的读取文件工具** ([#9422](https://github.com/RooCodeInc/Roo-Code/pull/9422))：使用更清晰的示例增强了 `read_file` 工具描述。
 
-- **Git status in environment details** ([#9310](https://github.com/RooCodeInc/Roo-Code/pull/9310)): Shows git status information in environment details so agents have more context about untracked, modified, and staged files.
-- **Tool protocol selector in advanced settings** ([#9324](https://github.com/RooCodeInc/Roo-Code/pull/9324)): Lets you choose which tool protocol to use (such as XML vs native) without editing config files.
-- **Dynamic tool protocol resolution** ([#9286](https://github.com/RooCodeInc/Roo-Code/pull/9286)): Resolves the active tool protocol using a clear precedence hierarchy.
-- **Improved Modes view toolbar** ([#9077](https://github.com/RooCodeInc/Roo-Code/pull/9077)): Moves Import/Export into the Modes view toolbar and cleans up the Mode edit view.
-- **Cloud agent CTA points to setup page** ([#9338](https://github.com/RooCodeInc/Roo-Code/pull/9338)): Updates the cloud agent call-to-action to link directly to the setup page.
-- **Roo Code Cloud provider pricing page** ([#9195](https://github.com/RooCodeInc/Roo-Code/pull/9195)): Adds a pricing page and related Cloud provider tweaks.
-- **Gemini native tool calling (experimental, Google Gemini provider only)** ([#9343](https://github.com/RooCodeInc/Roo-Code/pull/9343)): Adds an experimental native tool option (off by default) for the Google Gemini provider so Gemini-based workflows can use tools without XML translation and behave more like other native-tool providers.
-- **Roo Code Cloud credit balance in the extension** ([#9386](https://github.com/RooCodeInc/Roo-Code/pull/9386)): Shows your Roo Code Cloud RCC credit balance directly in the Roo provider settings so you can track usage and avoid unexpected interruptions.
-- **Explicit 0 pricing for free models** ([#9419](https://github.com/RooCodeInc/Roo-Code/pull/9419)): Displays explicit 0 input/output token prices for free models in the pricing UI so it is always clear which options are free.
+- **环境详情中的 Git 状态** ([#9310](https://github.com/RooCodeInc/Roo-Code/pull/9310))：在环境详情中显示 git 状态信息，以便代理对未跟踪、已修改和暂存的文件有更多上下文。
+- **高级设置中的工具协议选择器** ([#9324](https://github.com/RooCodeInc/Roo-Code/pull/9324))：让您选择要使用的工具协议（例如 XML 与本地），而无需编辑配置文件。
+- **动态工具协议解析** ([#9286](https://github.com/RooCodeInc/Roo-Code/pull/9286))：使用清晰的优先级层次结构解析活动工具协议。
+- **改进的模式视图工具栏** ([#9077](https://github.com/RooCodeInc/Roo-Code/pull/9077))：将导入/导出移动到模式视图工具栏，并清理模式编辑视图。
+- **云代理 CTA 指向设置页面** ([#9338](https://github.com/RooCodeInc/Roo-Code/pull/9338))：更新云代理号召性用语，直接链接到设置页面。
+- **Roo Code Cloud 提供商定价页面** ([#9195](https://github.com/RooCodeInc/Roo-Code/pull/9195))：添加定价页面以及相关的 Cloud 提供商调整。
+- **Gemini 本地工具调用（实验性，仅限 Google Gemini 提供商）** ([#9343](https://github.com/RooCodeInc/Roo-Code/pull/9343))：为 Google Gemini 提供商添加实验性本地工具选项（默认关闭），以便基于 Gemini 的工作流可以使用工具而无需 XML 转换，并表现得更像其他本地工具提供商。
+- **扩展中的 Roo Code Cloud 信用余额** ([#9386](https://github.com/RooCodeInc/Roo-Code/pull/9386))：在 Roo 提供商设置中直接显示您的 Roo Code Cloud RCC 信用余额，以便您可以跟踪使用情况并避免意外中断。
+- **免费模型的明确 0 定价** ([#9419](https://github.com/RooCodeInc/Roo-Code/pull/9419))：在定价 UI 中为免费模型显示明确的 0 输入/输出 token 价格，以便始终清楚哪些选项是免费的。
 
-## Bug Fixes
+## Bug 修复
 
-- **Native Tool Protocol Race Condition** ([#9363](https://github.com/RooCodeInc/Roo-Code/pull/9363)): Fixed a race condition where switching profiles or changing API configuration could cause 400 errors.
-- **Native Tool Repetition Detection** ([#9377](https://github.com/RooCodeInc/Roo-Code/pull/9377)): Fixed false positive "stuck in a loop" errors when using native tools repeatedly.
-- **Strict Native Protocol Parsing** ([#9371](https://github.com/RooCodeInc/Roo-Code/pull/9371)): Ensured no XML parsing occurs when the native protocol is active.
-- **Gemini Reasoning Config** ([#9375](https://github.com/RooCodeInc/Roo-Code/pull/9375)): Fixed an issue where high/low reasoning effort configuration was not being applied correctly.
-- **Gemini Thought Validation** ([#9380](https://github.com/RooCodeInc/Roo-Code/pull/9380)): Resolved integration errors with Gemini reasoning models.
-- **Prevent duplicate tool_result blocks in native protocol** ([#9248](https://github.com/RooCodeInc/Roo-Code/pull/9248)): Ensures each native tool call emits a single tool_result block.
-- **Format tool responses for native protocol** ([#9270](https://github.com/RooCodeInc/Roo-Code/pull/9270)): Normalizes the structure of tool responses for easier model comprehension.
-- **Centralize toolProtocol configuration checks** ([#9279](https://github.com/RooCodeInc/Roo-Code/pull/9279)): Uses a single source of truth for toolProtocol configuration.
-- **Preserve tool blocks in conversation history** ([#9319](https://github.com/RooCodeInc/Roo-Code/pull/9319)): Keeps native protocol tool blocks intact in history.
-- **Prevent infinite loops after successful finalization** ([#9325](https://github.com/RooCodeInc/Roo-Code/pull/9325)): Fixes a regression where certain native tool flows could loop.
-- **Sync parser state with profile and model changes** ([#9355](https://github.com/RooCodeInc/Roo-Code/pull/9355)): Keeps the conversation parser aligned with the active profile and model.
-- **Pass tool protocol to truncation errors** ([#9358](https://github.com/RooCodeInc/Roo-Code/pull/9358)): Ensures truncation errors know which tool protocol is active.
-- **Structured JSON Returns** ([#9373](https://github.com/RooCodeInc/Roo-Code/pull/9373)): Updated tools to consistently return structured JSON when using the native protocol.
-- **VS Code theme-colored outline button borders** ([#9336](https://github.com/RooCodeInc/Roo-Code/pull/9336)): Aligns outline button borders with the current VS Code theme.
-- **Use shields.io badges instead of badgen.net** ([#9318](https://github.com/RooCodeInc/Roo-Code/pull/9318)): Replaces broken badge URLs with shields.io.
-- **Cap git status file sampling in evals** ([#9322](https://github.com/RooCodeInc/Roo-Code/pull/9322)): Adds a maximum for git status files in eval settings.
-- **Preserve images in native tool call results** ([#9401](https://github.com/RooCodeInc/Roo-Code/pull/9401)): Ensures images attached to messages are preserved and passed through native tool calls so follow-up reasoning can still use visual context instead of losing it as plain text only.
-- **Faster router model metadata loading** ([#9410](https://github.com/RooCodeInc/Roo-Code/pull/9410)): Reduces redundant getModel() calls and adds a disk-backed metadata cache so router-based providers start faster and are more reliable when loading model info.
-- **Environment Details Duplication** ([#9442](https://github.com/RooCodeInc/Roo-Code/pull/9442)): Fixed an issue where `environment_details` were duplicated when resuming cancelled tasks.
-- **Preserve Reasoning Flag** ([#9453](https://github.com/RooCodeInc/Roo-Code/pull/9453)): Fixed the `preserveReasoning` flag to correctly control API reasoning inclusion.
-- **OpenAI Parallel Tool Calls** ([#9433](https://github.com/RooCodeInc/Roo-Code/pull/9433)): Prevented OpenAI Native parallel tool calls when using native tool calling to avoid errors.
-- **Search and Replace Parsing** ([#9456](https://github.com/RooCodeInc/Roo-Code/pull/9456)): Improved symbol parsing in the search and replace functionality.
-- **Skipped Tool Results** ([#9457](https://github.com/RooCodeInc/Roo-Code/pull/9457)): Fixed an issue where `tool_result` blocks were not sent for skipped tools in the native protocol.
-- **Markdown Formatting** ([#9458](https://github.com/RooCodeInc/Roo-Code/pull/9458)): Improved markdown formatting and added reasoning support.
+- **原生工具协议竞态条件** ([#9363](https://github.com/RooCodeInc/Roo-Code/pull/9363))：修复了切换配置文件或更改 API 配置时可能导致 400 错误的竞态条件问题。
+- **原生工具重复检测** ([#9377](https://github.com/RooCodeInc/Roo-Code/pull/9377))：修复了重复使用原生工具时误报“陷入循环”错误的问题。
+- **严格原生协议解析** ([#9371](https://github.com/RooCodeInc/Roo-Code/pull/9371))：确保在原生协议激活时不进行 XML 解析。
+- **Gemini 推理配置** ([#9375](https://github.com/RooCodeInc/Roo-Code/pull/9375))：修复了高/低推理努力配置未正确应用的问题。
+- **Gemini 思维验证** ([#9380](https://github.com/RooCodeInc/Roo-Code/pull/9380))：解决了与 Gemini 推理模型的集成错误。
+- **防止原生协议中出现重复的 tool_result 块** ([#9248](https://github.com/RooCodeInc/Roo-Code/pull/9248))：确保每次原生工具调用仅生成一个 tool_result 块。
+- **为原生协议格式化工具响应** ([#9270](https://github.com/RooCodeInc/Roo-Code/pull/9270))：规范化工具响应结构，便于模型理解。
+- **集中管理 toolProtocol 配置检查** ([#9279](https://github.com/RooCodeInc/Roo-Code/pull/9279))：使用单一可信源管理 toolProtocol 配置。
+- **在对话历史中保留工具块** ([#9319](https://github.com/RooCodeInc/Roo-Code/pull/9319))：确保原生协议工具块在历史记录中保持完整。
+- **防止成功完成后陷入无限循环** ([#9325](https://github.com/RooCodeInc/Roo-Code/pull/9325))：修复了某些原生工具流程可能循环的回归问题。
+- **同步解析器状态与配置文件和模型变更** ([#9355](https://github.com/RooCodeInc/Roo-Code/pull/9355))：保持对话解析器与当前配置文件和模型同步。
+- **将工具协议传递给截断错误** ([#9358](https://github.com/RooCodeInc/Roo-Code/pull/9358))：确保截断错误能识别当前使用的工具协议。
+- **结构化 JSON 返回** ([#9373](https://github.com/RooCodeInc/Roo-Code/pull/9373))：更新工具以在使用原生协议时始终返回结构化 JSON。
+- **VS Code 主题色轮廓按钮边框** ([#9336](https://github.com/RooCodeInc/Roo-Code/pull/9336))：使轮廓按钮边框与当前 VS Code 主题保持一致。
+- **使用 shields.io 徽章替代 badgen.net** ([#9318](https://github.com/RooCodeInc/Roo-Code/pull/9318))：将失效的徽章 URL 替换为 shields.io。
+- **限制评估中 git status 文件采样数量** ([#9322](https://github.com/RooCodeInc/Roo-Code/pull/9322))：在评估设置中为 git status 文件添加最大数量限制。
+- **在原生工具调用结果中保留图像** ([#9401](https://github.com/RooCodeInc/Roo-Code/pull/9401))：确保附加到消息中的图像在原生工具调用中被保留并传递，以便后续推理仍能使用视觉上下文，而不会丢失为纯文本。
+- **更快的路由器模型元数据加载** ([#9410](https://github.com/RooCodeInc/Roo-Code/pull/9410))：减少冗余的 getModel() 调用，并添加基于磁盘的元数据缓存，使基于路由器的提供程序启动更快，加载模型信息时更可靠。
+- **环境详情重复** ([#9442](https://github.com/RooCodeInc/Roo-Code/pull/9442))：修复了恢复已取消任务时 `environment_details` 重复的问题。
+- **保留推理标志** ([#9453](https://github.com/RooCodeInc/Roo-Code/pull/9453))：修复了 `preserveReasoning` 标志，使其能正确控制 API 推理内容的包含。
+- **OpenAI 并行工具调用** ([#9433](https://github.com/RooCodeInc/Roo-Code/pull/9433))：防止在使用原生工具调用时触发 OpenAI 原生并行工具调用，以避免错误。
+- **搜索和替换解析** ([#9456](https://github.com/RooCodeInc/Roo-Code/pull/9456))：改进了搜索和替换功能中的符号解析。
+- **跳过的工具结果** ([#9457](https://github.com/RooCodeInc/Roo-Code/pull/9457))：修复了原生协议中跳过的工具未发送 `tool_result` 块的问题。
+- **Markdown 格式化** ([#9458](https://github.com/RooCodeInc/Roo-Code/pull/9458))：改进了 Markdown 格式化并增加了推理支持。

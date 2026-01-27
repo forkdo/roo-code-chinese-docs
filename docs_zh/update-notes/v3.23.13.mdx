@@ -1,46 +1,45 @@
 ---
-description: This release introduces free Gemini access via OAuth, fixes several bugs, and improves the overall user experience.
-image: /img/social-share.jpg
+description: 此版本通过 OAuth 引入免费的 Gemini 访问，修复了一些错误，并提升了整体用户体验。
 ---
 
-# Roo Code 3.23.13 Release Notes (2025-07-17)
+# Roo Code 3.23.13 版本说明 (2025-07-17)
 
-This release improves codebase indexing reliability, enhances UI clarity, and fixes several important bugs.
+此版本提高了代码库索引的可靠性，增强了 UI 的清晰度，并修复了一些重要错误。
 
-## Codebase Indexing Memory Fix
+## 代码库索引内存修复
 
-We've resolved a critical memory leak that was causing crashes when indexing large codebases (thanks daniel-lxs, rxpjd, buck-0x, BenWilles!) ([#5785](https://github.com/RooCodeInc/Roo-Code/pull/5785)):
+我们解决了一个严重的内存泄漏问题，该问题在索引大型代码库时会导致崩溃（感谢 daniel-lxs、rxpjd、buck-0x、BenWilles！）：
 
-- **Reduced Memory Usage**: Memory consumption drops from ~500MB-1GB to just 10-50MB for large projects
-- **Increased File Limit**: Can now index up to 50,000 files (previously 3,000)
-- **No More Crashes**: Eliminates out-of-memory errors during indexing
+- **降低内存使用量**：大型项目的内存消耗从约 500MB-1GB 降至仅 10-50MB
+- **提高文件限制**：现在可以索引多达 50,000 个文件（之前为 3,000 个）
+- **不再崩溃**：消除了索引过程中的内存不足错误
 
-This fix makes Roo Code much more reliable for enterprise-scale codebases.
+此修复使 Roo Code 在企业级代码库中更加可靠。
 
-## Bug Fixes
+## Bug 修复
 
-* **Custom Mode Names**: Fixed an issue where clearing a custom mode name would corrupt the YAML file and make all custom modes disappear (thanks daniel-lxs, kfxmvp!) ([#5794](https://github.com/RooCodeInc/Roo-Code/pull/5794))
-* **Auto-Approve Checkbox**: Resolved confusing checkbox states where it could show as checked with "None" selected or unchecked with options selected ([#5602](https://github.com/RooCodeInc/Roo-Code/pull/5602))
-* **Date Format Clarity**: Changed date format to ISO 8601 to prevent LLMs from misinterpreting dates like 7/11/2025 as November 7th instead of July 11th (thanks chrarnoldus!) ([#5793](https://github.com/RooCodeInc/Roo-Code/pull/5793))
-* **Settings Save Issue**: Fixed a bug where opening provider settings with OpenRouter required discarding non-existent changes ([#5779](https://github.com/RooCodeInc/Roo-Code/pull/5779))
-* **LiteLLM URL Handling**: Fixed baseURL handling when paths are included, ensuring requests go to the correct endpoints (thanks ChuKhaLi!) ([#5697](https://github.com/RooCodeInc/Roo-Code/pull/5697))
-* **Project Analysis**: Fixed list-files tool to ensure complete directory structure is visible when analyzing large projects (thanks qdaxb!) ([#5303](https://github.com/RooCodeInc/Roo-Code/pull/5303))
+* **自定义模式名称**：修复了清除自定义模式名称会损坏 YAML 文件并使所有自定义模式消失的问题（感谢 daniel-lxs、kfxmvp！）（[#5794](https://github.com/RooCodeInc/Roo-Code/pull/5794)）
+* **自动批准复选框**：解决了令人困惑的复选框状态，例如显示为选中但选择了“无”，或未选中但选择了选项（[#5602](https://github.com/RooCodeInc/Roo-Code/pull/5602)）
+* **日期格式清晰度**：将日期格式更改为 ISO 8601，以防止 LLM 将 7/11/2025 等日期误解为 11 月 7 日而不是 7 月 11 日（感谢 chrarnoldus！）（[#5793](https://github.com/RooCodeInc/Roo-Code/pull/5793)）
+* **设置保存问题**：修复了使用 OpenRouter 打开提供程序设置时需要放弃不存在的更改的错误（[#5779](https://github.com/RooCodeInc/Roo-Code/pull/5779)）
+* **LiteLLM URL 处理**：修复了包含路径时的 baseURL 处理，确保请求发送到正确的端点（感谢 ChuKhaLi！）（[#5697](https://github.com/RooCodeInc/Roo-Code/pull/5697)）
+* **项目分析**：修复了 list-files 工具，以确保在分析大型项目时可以看到完整的目录结构（感谢 qdaxb！）（[#5303](https://github.com/RooCodeInc/Roo-Code/pull/5303)）
 
-## QOL Improvements
+## 生活质量改进
 
-* **Ollama Timeout**: Increased API timeouts from 10s/5s to 60s/30s to prevent failures with slower models (thanks daniel-lxs, danntee, vshvedov!) ([#5778](https://github.com/RooCodeInc/Roo-Code/pull/5778))
-* **Ollama UI**: Updated to use text inputs instead of dropdowns for model selection, matching other providers (thanks daniel-lxs!) ([#5818](https://github.com/RooCodeInc/Roo-Code/pull/5818))
-* **Settings Organization**: Moved less commonly used provider settings into an "Advanced settings" dropdown for cleaner UI ([#5762](https://github.com/RooCodeInc/Roo-Code/pull/5762))
-* **Error Control**: Added configurable "Error & Repetition Limit" setting to control when "Roo is having trouble" dialogs appear, with option to disable them entirely (thanks MuriloFP, anojndr!) ([#5752](https://github.com/RooCodeInc/Roo-Code/pull/5752))
-* **Checkpoint Efficiency**: Excluded Terraform and Terragrunt cache directories from checkpoints, reducing storage usage by up to 10x (thanks MuriloFP, ijin!) ([#5750](https://github.com/RooCodeInc/Roo-Code/pull/5750))
-* **Message Editing**: Overhauled message edit/delete interface with custom modals and improved workflow (thanks liwilliam2021!) ([#5538](https://github.com/RooCodeInc/Roo-Code/pull/5538))
+* **Ollama 超时**：将 API 超时从 10s/5s 增加到 60s/30s，以防止较慢的模型失败（感谢 daniel-lxs、danntee、vshvedov！）（[#5778](https://github.com/RooCodeInc/Roo-Code/pull/5778)）
+* **Ollama UI**：更新为使用文本输入而不是下拉菜单来选择模型，与其他提供程序保持一致（感谢 daniel-lxs！）（[#5818](https://github.com/RooCodeInc/Roo-Code/pull/5818)）
+* **设置组织**：将不常用的提供程序设置移动到“高级设置”下拉菜单中，以获得更清晰的 UI（[#5762](https://github.com/RooCodeInc/Roo-Code/pull/5762)）
+* **错误控制**：添加了可配置的“错误和重复限制”设置，以控制在何时显示“Roo 遇到问题”对话框，并可以选择完全禁用它们（感谢 MuriloFP、anojndr！）（[#5752](https://github.com/RooCodeInc/Roo-Code/pull/5752)）
+* **检查点效率**：从检查点中排除 Terraform 和 Terragrunt 缓存目录，将存储使用量减少了多达 10 倍（感谢 MuriloFP、ijin！）（[#5750](https://github.com/RooCodeInc/Roo-Code/pull/5750)）
+* **消息编辑**：使用自定义模态框和改进的工作流彻底修改了消息编辑/删除界面（感谢 liwilliam2021！）（[#5538](https://github.com/RooCodeInc/Roo-Code/pull/5538)）
 
-## Provider Updates
+## 提供程序更新
 
-* **Claude Code + Vertex AI**: Added support for Vertex AI model name formatting when using Claude Code provider (thanks janaki-sasidhar!) ([#5728](https://github.com/RooCodeInc/Roo-Code/pull/5728))
-* **API Task Control**: Added ability to set command execution timeout via API when starting tasks ([#5825](https://github.com/RooCodeInc/Roo-Code/pull/5825))
+* **Claude Code + Vertex AI**：添加了对使用 Claude Code 提供程序时 Vertex AI 模型名称格式化的支持（感谢 janaki-sasidhar！）（[#5728](https://github.com/RooCodeInc/Roo-Code/pull/5728)）
+* **API 任务控制**：添加了通过 API 在启动任务时设置命令执行超时的功能（[#5825](https://github.com/RooCodeInc/Roo-Code/pull/5825)）
 
-## Misc Improvements
+## 其他改进
 
-* **Telemetry**: Added tracking for todo list statistics ([#5746](https://github.com/RooCodeInc/Roo-Code/pull/5746))
-* **Documentation**: Updated evals repository link ([#5758](https://github.com/RooCodeInc/Roo-Code/pull/5758))
+* **遥测**：添加了待办事项列表统计信息的跟踪（[#5746](https://github.com/RooCodeInc/Roo-Code/pull/5746)）
+* **文档**：更新了 evals 存储库链接（[#5758](https://github.com/RooCodeInc/Roo-Code/pull/5758)）

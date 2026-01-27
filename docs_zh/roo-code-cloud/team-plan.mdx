@@ -1,0 +1,125 @@
+---
+description: 了解 Roo Code Cloud 团队计划提供的功能。
+keywords:
+  - team
+  - corporate
+  - enterprise
+  - shared
+  - members
+  - invite
+---
+
+# 团队计划
+
+团队计划专为团队使用 Roo Code 套件而设计，无论是 Extension、Cloud 还是两者的组合。
+
+它允许：
+- 集中式 LLM 推理计费，无需管理 API 密钥（通过 [Roo Code Router](/roo-code-router/overview)）
+- 团队范围的任务历史和令牌使用分析
+- 共享的 Cloud Agent 团队（具有集中式计费）
+- 与 Github 和 Slack 的集中式集成（非每个用户一个）
+- Extension 配置强制（提供商/模型、MCP 服务器等）
+
+---
+
+## 访问
+
+您可以通过开始 14 天的免费试用访问团队功能。
+
+如果您已经拥有 Roo Code Cloud 账户，可以[在此处升级](https://app.roocode.com/checkout/team)。如果没有，请从我们的[定价页面](https://roocode.com/pricing)注册。
+
+## 功能
+
+大多数团队功能都可以从您的[组织设置](https://app.roocode.com/)页面（从您的用户头像菜单）访问。
+
+<img src="/img/team-plan/org-settings-menu.png" alt="如何访问您的组织设置" width="280" />
+
+从那里，您将能够访问所有可用的设置：
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "33%"}}>设置</th>
+      <th style={{ width: "66%"}}>用途</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>**团队成员**</td>
+        <td>
+            邀请、删除和管理团队成员的权限（管理员或普通成员）
+        </td>
+    </tr>
+    <tr>
+        <td>**组织配置文件详细信息**</td>
+        <td>
+            徽标、名称等
+        </td>
+    </tr>
+    <tr>
+        <td>**集成**</td>
+        <td>
+            [Github](./github-integration) 和 [Slack](./slack-integration)，目前仅支持这两个
+        </td>
+    </tr>
+    <tr>
+        <td>**Cloud 模型提供商**</td>
+        <td>
+            用于 [Cloud Agents](./cloud-agents)
+        </td>
+    </tr>
+    <tr>
+        <td>**Extension 任务同步**</td>
+        <td>
+            是否要求任务同步，以及谁可以查看彼此任务的可见性控制
+        </td>
+    </tr>
+    <tr>
+        <td>**任务共享**</td>
+        <td>
+            是否启用每项任务的共享，向谁共享以及链接过期时间
+        </td>
+    </tr>
+    <tr>
+        <td>**环境变量**</td>
+        <td>
+            在 Cloud Agents 运行期间向其提供的可选值，例如连接字符串、包管理器服务器 URL、密钥、机密等。
+            在我们的安全机密存储中进行加密。
+        </td>
+    </tr>
+    <tr>
+        <td>**Marketplace MCPs**</td>
+        <td>
+            允许/拒绝列表 MCPs 从 Roo Code 市场提供给团队成员使用。
+        </td>
+    </tr>
+    <tr>        
+        <td>**自定义 MCPs**</td>
+        <td>
+            自定义、经过审查的 MCP 服务器，提供给所有团队成员使用。
+        </td>
+    </tr>
+    <tr>        
+        <td>**Extension 提供商**</td>
+        <td>
+            允许/拒绝列表推理提供商，提供给团队成员使用。
+
+            目前不支持集中式 API 密钥管理，但如果您需要，请告知我们。
+        </td>
+    </tr>
+    <tr>        
+        <td>**组织连接策略**</td>
+        <td>
+            强制要求 Roo Code VS Code Extension 用户登录的机制，以便可以强制执行策略。
+
+            通过我们的 MDM 工具分发的文件实现。
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+其他团队计划功能可在以下位置找到：
+- [使用分析](./analytics)（显示团队范围内的活动和每个用户的过滤器）
+- 任务列表（在“主页”和“Agent”页面中，显示团队范围内的任务）
+
+我们不断扩展和调整面向团队的功能，因此如果您需要其他功能，请随时通过 [support@roocode.com](mailto:support@roocode.com) 联系我们。
